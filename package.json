@@ -7,16 +7,19 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "preview:cf": "astro build && wrangler pages dev dist",
     "check": "astro check",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "perf": "node scripts/check-bundle.mjs",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "11",
     "@astrojs/preact": "^4.0.1",
     "astro": "^4.16.0",
     "preact": "^10.24.0"
@@ -25,6 +28,7 @@
     "@astrojs/check": "^0.9.4",
     "@playwright/test": "^1.61.1",
     "typescript": "^5.6.0",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.0",
+    "wrangler": "^4.106.0"
   }
 }
