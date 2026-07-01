@@ -1,0 +1,85 @@
+/* Schedule view styles — ported/adapted from the POC. */
+
+.banner { background: var(--navy); padding: .9rem 1.2rem .8rem; }
+.banner-top { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; margin-bottom: .55rem; }
+.banner-lbl { font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: .06em; color: #fff; }
+.banner-date { font-size: .68rem; color: rgba(255, 255, 255, .45); }
+.refresh-btn {
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, .8); font-size: .65rem; font-weight: 600;
+  padding: .22rem .6rem; border-radius: var(--rs); cursor: pointer;
+  font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: .3rem; transition: all .15s;
+}
+.refresh-btn:hover { background: rgba(255, 255, 255, .2); }
+.refresh-btn:disabled { opacity: .6; cursor: default; }
+.refresh-btn.spin svg { animation: spin .7s linear infinite; }
+.poll-row { font-size: .6rem; color: rgba(255, 255, 255, .5); margin-bottom: .6rem; display: flex; align-items: center; gap: .4rem; }
+.pdot { width: 5px; height: 5px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+.pdot.pend { background: #fbbf24; animation: pulse .8s infinite; }
+.pdot.err { background: #f87171; }
+
+.tz-select {
+  background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2);
+  border-radius: var(--rs); font-size: .65rem; padding: .2rem .4rem; font-family: 'Inter', sans-serif;
+}
+.tz-select option { color: #111; }
+
+.next-lbl { font-size: .6rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; color: rgba(255, 255, 255, .5); margin-bottom: .35rem; }
+.next-row { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .15rem; scrollbar-width: none; }
+.next-row::-webkit-scrollbar { display: none; }
+.nc { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); border-radius: var(--rs); padding: .45rem .7rem; flex-shrink: 0; }
+.nc.live { background: rgba(220, 38, 38, .15); border-color: rgba(220, 38, 38, .4); }
+.nc-time { font-family: 'Bebas Neue', sans-serif; font-size: .95rem; color: #fff; letter-spacing: .05em; }
+.nc-time.live { color: #fca5a5; }
+.nc-match { font-size: .72rem; font-weight: 600; color: rgba(255, 255, 255, .9); white-space: nowrap; }
+.nc-meta { font-size: .6rem; color: rgba(255, 255, 255, .45); white-space: nowrap; }
+
+.legend { background: var(--white); border-bottom: 1px solid var(--border); padding: .5rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.leg-lbl { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text4); }
+.leg-i { display: flex; align-items: center; gap: .3rem; font-size: .65rem; color: var(--text3); white-space: nowrap; }
+.leg-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+.filter-row { padding: .6rem 1.2rem 0; display: flex; gap: .35rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+.fb { background: var(--white); border: 1.5px solid var(--border); color: var(--text3); font-size: .68rem; font-weight: 500; padding: .28rem .7rem; border-radius: 999px; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .15s; }
+.fb:hover { border-color: var(--navy); color: var(--navy); }
+.fb.active { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 600; }
+
+#sched-list { max-width: 800px; margin: 0 auto; padding: .75rem 1.2rem 1.5rem; }
+.day-block { margin-bottom: 1.1rem; }
+.day-block.past { opacity: .55; }
+.day-block.past:hover { opacity: 1; }
+.day-hdr { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border-l); }
+.day-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .05em; color: var(--text2); }
+.day-pill { margin-left: auto; font-size: .6rem; color: var(--text4); background: var(--bg); border: 1px solid var(--border); padding: .1rem .4rem; border-radius: 999px; }
+.day-block.today .day-name { color: var(--navy); }
+.day-block.today .day-hdr { border-bottom-color: var(--navy); }
+.matches { display: flex; flex-direction: column; gap: .35rem; }
+
+.mc { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: .65rem .85rem; display: grid; grid-template-columns: 62px 1fr; align-items: center; gap: .65rem; box-shadow: var(--sh); }
+.mc.past { background: var(--bg); border-color: var(--border-l); box-shadow: none; }
+.mc.live-m { border-color: var(--red); background: var(--red-bg); }
+.mc.t-mo { border-left: 3px solid var(--green); }
+.mc.t-af { border-left: 3px solid var(--gold); }
+.mc.t-ev { border-left: 3px solid var(--orange); }
+.mc.t-ni { border-left: 3px solid var(--purple); }
+.mc.live-m.t-mo, .mc.live-m.t-af, .mc.live-m.t-ev, .mc.live-m.t-ni { border-left-color: var(--red); }
+
+.mc-time { text-align: center; }
+.mc-tmain { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .04em; line-height: 1; color: var(--text2); }
+.t-mo .mc-tmain { color: var(--green); }
+.t-af .mc-tmain { color: var(--gold); }
+.t-ev .mc-tmain { color: var(--orange); }
+.t-ni .mc-tmain { color: var(--purple); }
+.mc.past .mc-tmain { color: var(--text4); }
+.mc.live-m .mc-tmain { color: var(--red); }
+.mc-live-tag { font-size: .54rem; color: var(--red); font-weight: 700; animation: pulse 1.2s infinite; display: block; margin-top: .15rem; }
+
+.mc-score { font-size: .92rem; font-weight: 700; margin-bottom: .15rem; line-height: 1.3; color: var(--text); }
+.mc-teams { font-weight: 600; font-size: .88rem; color: var(--text); margin-bottom: .15rem; line-height: 1.3; }
+.mc.past .mc-teams { color: var(--text3); }
+.mc-meta { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+.mc-grp { font-size: .58rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; background: var(--navy); color: #fff; padding: .06rem .3rem; border-radius: 3px; }
+.mc-grp.ko { background: var(--blue); }
+.mc-venue { font-size: .6rem; color: var(--text4); }
+
+.sched-empty { color: var(--text3); text-align: center; padding: 2rem 1rem; font-size: .8rem; }

@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import Schedule from '../components/Schedule.tsx';
+import '../styles/schedule.css';
 ---
 
 <Base title="Schedule · World Cup 2026" active="schedule">
-  <div class="container">
-    <p class="placeholder">Schedule loading… (Phase 1)</p>
-  </div>
+  <Schedule client:load />
 </Base>
