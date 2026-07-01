@@ -182,7 +182,10 @@
   position: relative;
   width: min(92vw, 720px);
   aspect-ratio: 1 / 1;
-  margin: .25rem auto .5rem;
+  /* Radial name labels overflow the circle's bounding box (~40px top / ~18px
+     bottom at desktop); reserve vertical clearance so they never collide with
+     the note above or the third-place card / hint below. */
+  margin: 2.8rem auto 1.6rem;
 }
 .rbracket-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .rb-conn { fill: none; stroke: #b7c0d6; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
@@ -223,8 +226,8 @@
 
 .rb-hint { color: var(--text4); font-size: .72rem; text-align: center; margin: .1rem 0 .3rem; }
 
-/* Third-place play-off card */
-.rb-third { margin: .4rem auto 0; width: min(92vw, 340px); }
+/* Third-place play-off card — pushed to the right, clear of the bottom labels. */
+.rb-third { align-self: flex-end; margin: .2rem 0 .4rem; width: min(92vw, 300px); }
 .rb-third-hdr { text-align: center; font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text4); margin-bottom: .35rem; }
 .rb-third-card { display: flex; flex-direction: column; gap: 0; width: 100%; text-align: left;
   background: var(--card); border: 1px solid var(--border); border-radius: var(--rs); box-shadow: var(--sh); overflow: hidden; cursor: pointer; }
