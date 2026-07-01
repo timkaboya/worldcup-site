@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'preact/hooks';
 import type { Match, MatchStats, MatchStatus, TeamMatchStats } from '../lib/types';
 import { formatDayHeading, formatTime } from '../lib/time';
+import { buildIcs, icsFilename } from '../lib/ics';
 
 function EmojiFlag({ e }: { e: string }) {
   return <span class="ef">{e}</span>;
@@ -66,6 +67,18 @@ export default function MatchDrawer({
 
   const showScore = (status === 'finished' || status === 'live') && match.score;
 
+  function addToCalendar() {
+    const blob = new Blob([buildIcs(match)], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = icsFilename(match);
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
   const favBtn = (teamId: string, teamName: string) => {
     if (!onToggleFav || !teamName) return null;
     const on = favorites?.has(teamId) ?? false;
@@ -126,6 +139,11 @@ export default function MatchDrawer({
           </div>
           {status === 'live' && <div class="dh-live">● LIVE</div>}
           <div class="dh-venue">{match.venue}</div>
+          {status === 'upcoming' && (
+            <button class="cal-btn" onClick={addToCalendar}>
+              <span aria-hidden="true">📅</span> Add to calendar
+            </button>
+          )}
         </div>
 
         {stats ? (

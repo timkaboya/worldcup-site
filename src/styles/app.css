@@ -206,6 +206,9 @@
 .dh-vs { font-size: 1rem; color: var(--text4); }
 .dh-live { color: var(--red); font-size: .62rem; font-weight: 700; letter-spacing: .05em; animation: pulse 1.2s infinite; }
 .dh-venue { font-size: .64rem; color: var(--text3); margin-top: .25rem; }
+.cal-btn { margin-top: .7rem; background: var(--navy); color: #fff; border: none; border-radius: var(--rs); font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 600; padding: .4rem .9rem; cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; }
+.cal-btn:hover { background: var(--navy2); }
+.cal-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .drawer-body { margin-top: 1rem; }
 .drawer-empty { text-align: center; color: var(--text3); font-size: .76rem; padding: 1.5rem 1rem; }
 .goals-block { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .7rem; background: var(--bg); border-radius: var(--rs); margin-bottom: 1rem; }
