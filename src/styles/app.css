@@ -187,6 +187,21 @@
 .br-note { padding: .3rem .55rem; font-size: .62rem; color: var(--text2); background: var(--border-l); border-top: 1px solid var(--border); }
 .bracket-note { margin: 0 0 .6rem; }
 
+/* Two-sided bracket: left half → Final (center) ← right half */
+.bracket2 { display: flex; align-items: stretch; gap: 1rem; min-width: min-content; }
+.br-side { display: flex; gap: 1rem; }
+.br-side .br-col-body { justify-content: space-around; height: 100%; }
+.br-side .br-col { display: flex; flex-direction: column; }
+.br-final-col { flex: 0 0 auto; width: 12.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: .5rem; }
+.br-final-hdr, .br-third-hdr { text-align: center; color: var(--navy); border-bottom-color: var(--navy2); }
+.br-final-col > .br-tie { border-color: var(--gold, #d4a017); box-shadow: 0 0 0 2px rgba(212,160,23,.18), var(--sh); }
+.br-final-col .br-third-hdr { margin-top: .6rem; }
+.br-tie.br-tbd { padding: .6rem; text-align: center; color: var(--text4); font-size: .7rem; }
+@media (max-width: 720px) {
+  .br-col, .br-side .br-col { width: 10.5rem; }
+  .br-final-col { width: 11rem; }
+}
+
 /* MATCH DRAWER */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(13, 27, 62, .45); backdrop-filter: blur(2px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; animation: fade .15s ease; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }

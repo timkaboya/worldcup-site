@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-01T13:25:13.614Z",
+  "updatedUtc": "2026-07-01T16:04:18.028Z",
   "matches": [
     {
       "id": 760415,
@@ -2190,8 +2190,11 @@
         "flag": "🇨🇩"
       },
       "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
-      "score": null,
-      "status": "upcoming",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "status": "live",
       "sources": [
         "ESPN"
       ]
