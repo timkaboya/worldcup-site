@@ -19,6 +19,7 @@ const tabs = [
       <a
         class:list={['tab', { active: active === t.id }]}
         href={t.href}
+        aria-label={t.label}
         aria-current={active === t.id ? 'page' : undefined}
       >
         <span class="ef">{t.emoji}</span>

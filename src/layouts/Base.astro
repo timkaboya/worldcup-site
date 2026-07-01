@@ -32,6 +32,7 @@ const { title = 'World Cup 2026', active } = Astro.props;
     />
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <header class="hdr">
       <div class="brand">
         <span class="ef ef-lg">⚽</span>
@@ -48,8 +49,16 @@ const { title = 'World Cup 2026', active } = Astro.props;
 
     <TabNav active={active} />
 
-    <main>
+    <main id="main">
       <slot />
     </main>
+
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

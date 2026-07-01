@@ -1,6 +1,19 @@
 /* App shell & shared layout styles — ported/adapted from the POC. */
 
 /* HEADER */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  background: var(--navy);
+  color: #fff;
+  padding: .6rem 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+  border-radius: 0 0 var(--rs) 0;
+}
+.skip-link:focus { left: 0; }
 .hdr {
   background: var(--navy);
   padding: .7rem 1.2rem;
