@@ -6,7 +6,7 @@
 //     network-first so the latest scores/tables/bracket always win, with a
 //     cached last-known snapshot as offline fallback.
 //   • Other static assets (JS/CSS/icons): cache-first, revalidate in background.
-const VERSION = 'wc2026-v9';
+const VERSION = 'wc2026-v10';
 const SHELL = `${VERSION}-shell`;
 const RUNTIME = `${VERSION}-runtime`;
 

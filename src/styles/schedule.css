@@ -42,10 +42,7 @@
 .leg-i { display: flex; align-items: center; gap: .3rem; font-size: .65rem; color: var(--text3); white-space: nowrap; }
 .leg-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
-.filter-row { padding: .6rem 1.2rem 0; display: flex; gap: .35rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
-.fb { background: var(--white); border: 1.5px solid var(--border); color: var(--text3); font-size: .68rem; font-weight: 500; padding: .28rem .7rem; border-radius: 999px; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .15s; }
-.fb:hover { border-color: var(--navy); color: var(--navy); }
-.fb.active { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 600; }
+/* .filter-row / .fb chip styles live in app.css so every page (News, etc.) gets them. */
 
 #sched-list { max-width: 800px; margin: 0 auto; padding: .75rem 1.2rem 1.5rem; }
 .day-block { margin-bottom: 1.1rem; scroll-margin-top: 64px; }

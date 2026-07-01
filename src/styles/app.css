@@ -115,6 +115,13 @@
 
 /* Generic container + placeholder */
 .container { max-width: 800px; margin: 0 auto; padding: .85rem 1.2rem 2rem; }
+
+/* Filter chips — shared across Schedule, News, and any page with stage/topic filters. */
+.filter-row { padding: .6rem 1.2rem 0; display: flex; gap: .35rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+.fb { background: var(--white); border: 1.5px solid var(--border); color: var(--text3); font-size: .68rem; font-weight: 500; padding: .28rem .7rem; border-radius: 999px; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .15s; }
+.fb:hover { border-color: var(--navy); color: var(--navy); }
+.fb.active { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 600; }
+
 .placeholder {
   color: var(--text3);
   font-size: .8rem;

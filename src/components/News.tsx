@@ -11,6 +11,13 @@ const TOPICS: { id: 'all' | NewsTopic; label: string }[] = [
   { id: 'teams', label: 'Teams' },
 ];
 
+// Guard against feeds that emit literal "null"/"undefined" for a missing summary.
+function cleanSummary(s?: string): string | undefined {
+  if (!s) return undefined;
+  const t = s.trim();
+  return !t || /^(null|undefined)$/i.test(t) ? undefined : t;
+}
+
 function timeAgo(iso: string): string {
   const diff = Date.now() - Date.parse(iso);
   const m = Math.round(diff / 60000);
@@ -61,7 +68,7 @@ function NewsReader({ item, tz, onClose }: { item: NewsItem; tz: string; onClose
             ))}
           </div>
         )}
-        {item.summary && <p class="news-reader-body">{item.summary}</p>}
+        {cleanSummary(item.summary) && <p class="news-reader-body">{cleanSummary(item.summary)}</p>}
         <a class="news-read-btn" href={item.url} target="_blank" rel="noopener noreferrer">
           Read full article on {item.source}
           <span aria-hidden="true"> ↗</span>
@@ -146,7 +153,7 @@ export default function News() {
                 )}
                 <div class="news-body">
                   <h2 class="news-title">{n.title}</h2>
-                  {n.summary && <p class="news-summary">{n.summary}</p>}
+                  {cleanSummary(n.summary) && <p class="news-summary">{cleanSummary(n.summary)}</p>}
                   <div class="news-meta">
                     <span class="news-source">{n.source}</span>
                     <span class="news-dot">·</span>

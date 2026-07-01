@@ -23,6 +23,15 @@ function stripTags(s: string): string {
   return decodeEntities(stripCdata(s).replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
 }
 
+// Some feeds emit the literal strings "null"/"undefined" (or empty) for missing
+// fields. Treat those as absent so we never render "null" as a summary.
+function cleanText(s: string | null | undefined): string | undefined {
+  if (!s) return undefined;
+  const t = stripTags(s);
+  if (!t || /^(null|undefined)$/i.test(t)) return undefined;
+  return t;
+}
+
 function tag(block: string, name: string): string | null {
   const re = new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)</${name}>`, 'i');
   const m = block.match(re);
@@ -84,13 +93,13 @@ export function parseFeed(xml: string, source: string): NewsItem[] {
       url = (tag(b, 'link') || attr(b, 'link', 'href') || tag(b, 'guid') || '').trim();
     }
     url = decodeEntities(url).trim();
-    if (!title || !url || !/^https?:\/\//.test(url)) continue;
+    if (!title || /^(null|undefined)$/i.test(title) || !url || !/^https?:\/\//.test(url)) continue;
 
     const published = toIso(
       isAtom ? tag(b, 'published') || tag(b, 'updated') : tag(b, 'pubDate') || tag(b, 'date')
     );
     const summaryRaw = isAtom ? tag(b, 'summary') || tag(b, 'content') : tag(b, 'description');
-    const summary = summaryRaw ? stripTags(summaryRaw).slice(0, 240) : undefined;
+    const summary = cleanText(summaryRaw)?.slice(0, 240);
     const imageUrl =
       attr(b, 'media:content', 'url') || attr(b, 'media:thumbnail', 'url') || attr(b, 'enclosure', 'url') || undefined;
 

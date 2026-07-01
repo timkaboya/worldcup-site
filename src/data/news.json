@@ -1,14 +1,23 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-01T18:26:12.016Z",
+  "updatedUtc": "2026-07-01T18:33:43.918Z",
   "items": [
     {
       "id": "evegp9",
       "title": "Copy of World Cup updates: Kane's incredible double rescue...",
       "source": "ESPN FC",
       "url": "https://www.espn.com/soccer/story/_/id/49233418/world-cup-daily-live-haaland-buys-cowboy-hat-usmnt-england-action",
-      "publishedUtc": "2026-07-01T19:15:17.000Z",
-      "summary": "null",
+      "publishedUtc": "2026-07-01T19:21:16.000Z",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1muotgx",
+      "title": "World Cup VAR review: England deserved penalty for...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49238553/world-cup-2026-var-review-england-penalty-foul-harry-kane-congo",
+      "publishedUtc": "2026-07-01T19:21:16.000Z",
       "topics": [
         "teams"
       ]
@@ -80,13 +89,13 @@
       ]
     },
     {
-      "id": "8rcfh3",
-      "title": "Kane keeps England's World Cup dream alive as DR Congo beaten",
+      "id": "1fb5jp3",
+      "title": "World Cup 2026 fixture schedule - day-by-day knockout guide",
       "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/england-vs-dr-congo/report/549847",
-      "publishedUtc": "2026-07-01T18:26:12.015Z",
-      "summary": "Harry Kane scored a brilliant double to inspire England to a come-from-behind 2-1 win over DR Congo and set up a World Cup last-16 showdown with co-hosts Mexico.",
-      "imageUrl": "https://e2.365dm.com/26/07/1920x1080/skysports-harry-kane-jude-bellingham_7287509.jpg?20260701185441",
+      "url": "https://www.skysports.com/football/news/11095/13481245/world-cup-2026-fixture-schedule-and-uk-kick-off-times-day-by-day-breakdown-of-all-104-matches-including-england-scotland",
+      "publishedUtc": "2026-07-01T18:33:43.914Z",
+      "summary": "Here's your day-by-day breakdown of the 48-team, 37-day World Cup, which has entered the knockout stages ahead of the final on July 19.",
+      "imageUrl": "https://e1.365dm.com/25/12/1920x1080/skysports-world-cup-trophy_7105535.jpg?20251209123529",
       "topics": [
         "teams"
       ]
@@ -96,7 +105,7 @@
       "title": "England's route to World Cup final: Now for the early start against Mexico",
       "source": "Sky Sports",
       "url": "https://www.skysports.com/football/news/11095/13479783/englands-world-cup-2026-fixtures-schedule-and-tournament-route-to-final-how-three-lions-could-lift-trophy-on-july-19",
-      "publishedUtc": "2026-07-01T18:26:12.015Z",
+      "publishedUtc": "2026-07-01T18:33:43.913Z",
       "summary": "What is England's potential path to World Cup glory?",
       "imageUrl": "https://e1.365dm.com/25/12/1920x1080/skysports-england-world-cup-26_7102088.jpg?20251205173549",
       "topics": [
@@ -108,7 +117,7 @@
       "title": "Why Mexico could provide a HUGE UPSET against England!",
       "source": "Sky Sports",
       "url": "https://www.skysports.com/watch/video/13559551/mexico-vs-england-why-mexico-could-provide-a-huge-upset-against-england",
-      "publishedUtc": "2026-07-01T18:26:12.015Z",
+      "publishedUtc": "2026-07-01T18:33:43.913Z",
       "summary": "Sky Sports' Sam Blitz explains why Mexico could provide a huge challenge to England in the Round of 16 at the World Cup.",
       "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-football-england_7287376.jpg?20260701154444",
       "topics": [
@@ -120,7 +129,7 @@
       "title": "More last-16 ties confirmed! World Cup bracket and all the knockout dates...",
       "source": "Sky Sports",
       "url": "https://www.skysports.com/football/news/11095/13556636/world-cup-2026-bracket-and-knockout-fixtures-whos-facing-who-in-the-last-32-and-route-to-final",
-      "publishedUtc": "2026-07-01T18:26:12.015Z",
+      "publishedUtc": "2026-07-01T18:33:43.913Z",
       "summary": "The World Cup group stage is over and the knockout rounds are under way, with all roads leading to the final on July 19...",
       "imageUrl": "https://e0.365dm.com/26/06/1920x1080/skysports-world-cup-2026-bracket_7280764.jpg?20260623105714",
       "topics": [
@@ -128,13 +137,25 @@
       ]
     },
     {
-      "id": "1fb5jp3",
-      "title": "World Cup 2026 fixture schedule - day-by-day knockout guide",
+      "id": "8rcfh3",
+      "title": "Kane keeps England's World Cup dream alive as DR Congo beaten",
       "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13481245/world-cup-2026-fixture-schedule-and-uk-kick-off-times-day-by-day-breakdown-of-all-104-matches-including-england-scotland",
-      "publishedUtc": "2026-07-01T18:26:12.015Z",
-      "summary": "Here's your day-by-day breakdown of the 48-team, 37-day World Cup, which has entered the knockout stages ahead of the final on July 19.",
-      "imageUrl": "https://e1.365dm.com/25/12/1920x1080/skysports-world-cup-trophy_7105535.jpg?20251209123529",
+      "url": "https://www.skysports.com/football/england-vs-dr-congo/report/549847",
+      "publishedUtc": "2026-07-01T18:33:43.912Z",
+      "summary": "Harry Kane scored a brilliant double to inspire England to a come-from-behind 2-1 win over DR Congo and set up a World Cup last-16 showdown with co-hosts Mexico.",
+      "imageUrl": "https://e2.365dm.com/26/07/1920x1080/skysports-harry-kane-jude-bellingham_7287509.jpg?20260701185441",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "lej88v",
+      "title": "Kane scores twice as England come from behind to reach last 16",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cx2j83vg72go?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-01T18:31:15.000Z",
+      "summary": "Harry Kane scores twice as England come from behind to beat DR Congo in the round of 32 after a tense encounter in Atlanta, and set up a round of 16 meeting with Mexico.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4ac8/live/7e783080-7577-11f1-b976-0b9c15b0ccfc.jpg",
       "topics": [
         "teams"
       ]
@@ -147,18 +168,6 @@
       "publishedUtc": "2026-07-01T18:17:02.000Z",
       "summary": "BBC Sport takes a look at what England will need to do to reach the final after progressing the last 16",
       "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fbaf/live/d94933c0-7576-11f1-afe7-df77d8cf5f2d.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1g046yq",
-      "title": "England 2-1 DR Congo: World Cup 2026 last 32 – live reaction",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/live/2026/jul/01/england-v-dr-congo-world-cup-2026-last-32-live",
-      "publishedUtc": "2026-07-01T18:13:35.000Z",
-      "summary": "<p>⚽️ Kick-off time: 12pm local/5pm BST/1am AEST<br>⚽️ <a href=\"https://www.theguardian.com/football/ng-interactive/2026/jun/04/world-cup-2026-complete-player-guide\">Player guide</a> | <a href=\"https://www.theguardian.com/football/ng-intera",
-      "imageUrl": "https://i.guim.co.uk/img/media/d50f62f2c4decae648def27d57dd1f5d0f1f5d70/28_0_4094_3275/master/4094.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=8be2b4c8b4a83e06da452bfc69d7783b",
       "topics": [
         "teams"
       ]
@@ -177,7 +186,7 @@
     },
     {
       "id": "gt7cxf",
-      "title": "England fans go crazy for Kane winner",
+      "title": "England fans go wild for Kane winner",
       "source": "BBC Sport",
       "url": "https://www.bbc.co.uk/sport/football/videos/ce954lydp00o?at_medium=RSS&at_campaign=rss",
       "publishedUtc": "2026-07-01T18:06:47.000Z",
@@ -200,12 +209,24 @@
       ]
     },
     {
+      "id": "254yg6",
+      "title": "Kane to the rescue with late double as England edge past DR Congo into last 16",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/jul/01/england-dr-congo-world-cup-2026-last-32-match-report",
+      "publishedUtc": "2026-07-01T18:00:44.000Z",
+      "summary": "<p></p><p>Thomas Tuchel’s mission to put a second World Cup star on the England shirt did not look as though it would reach the second knockout round. On a fraught and chaotic occasion in Atlanta, his team flirted aggressively with disaster",
+      "imageUrl": "https://i.guim.co.uk/img/media/e28b237373ec7a49487b00fdcf7b477488a28ace/1262_507_4926_3941/master/4926.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=73dc3b10c41152382b80024430973cfb",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
       "id": "1ctfyt9",
       "title": "England sneak through - but who had a nightmare start? Player ratings",
       "source": "BBC Sport",
       "url": "https://www.bbc.co.uk/sport/football/articles/ckg5x35zx04o?at_medium=RSS&at_campaign=rss",
       "publishedUtc": "2026-07-01T18:00:16.000Z",
-      "summary": "BBC Sport England reporter Alex Howell rates the players after the comeback World Cup win over DR Congo - plus have your say.",
+      "summary": "BBC Sport England reporter Alex Howell rates the players after the World Cup comeback win over DR Congo - plus have your say.",
       "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/50d5/live/ba14fdb0-7574-11f1-8cb9-93182970858a.jpg",
       "topics": [
         "teams"
@@ -663,18 +684,6 @@
       ]
     },
     {
-      "id": "dmmuao",
-      "title": "'The Azteca erupts!' Quinones fires Mexico into lead",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c8j2xwlgxzeo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T04:01:24.000Z",
-      "summary": "Julian Quinones times his run to perfection before rifling home a fierce shot to give Mexico the lead against Ecuador in their round of 32 World Cup match.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/67ae/live/d92b7730-74f5-11f1-8546-8f19e4fe30f4.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
       "id": "mdtaoz",
       "title": "Tuchel will stick to Southgate's penalty plan",
       "source": "BBC Sport",
@@ -696,18 +705,6 @@
       "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/dc6d/live/b724c890-74e5-11f1-970c-3df9d79440a4.jpg",
       "topics": [
         "coaches"
-      ]
-    },
-    {
-      "id": "11qf7w1",
-      "title": "How USMNT prepare for World Cup penalty drama: confidence, composure and consultants",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jun/30/usmnt-penalty-kicks-mauricio-pochettino-world-cup",
-      "publishedUtc": "2026-07-01T00:48:54.000Z",
-      "summary": "<p>The US have used outside companies, including one measuring players’ brainwaves, to help them determine who will shoot in a shootout</p><ul><li><p><a href=\"https://www.theguardian.com/football/2026/jun/27/usa-bracket-world-cup-path-to-fi",
-      "imageUrl": "https://i.guim.co.uk/img/media/0c51e45b61b5da5895bbd0bdbdb6243b709982b7/0_0_3000_2400/master/3000.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=890868298550ac515bee0f3df2520b7e",
-      "topics": [
-        "teams"
       ]
     }
   ]
