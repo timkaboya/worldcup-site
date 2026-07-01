@@ -13,6 +13,8 @@ import {
   partsInTz,
 } from '../lib/time';
 import { detectTimezone, loadPrefs, setTimezone, tzShortLabel } from '../lib/prefs';
+import { STATS } from '../data/stats';
+import MatchDrawer from './MatchDrawer';
 
 type Filter = 'all' | 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
 
@@ -54,6 +56,7 @@ export default function Schedule() {
   const [sources, setSources] = useState<string[]>([]);
   const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [pollState, setPollState] = useState<'ok' | 'pend' | 'err'>('pend');
+  const [selected, setSelected] = useState<Match | null>(null);
 
   // Init timezone from prefs.
   useEffect(() => {
@@ -233,24 +236,38 @@ export default function Schedule() {
               </div>
               <div class="matches">
                 {d.matches.map((m) => (
-                  <MatchCard m={m} tz={tz} st={statusOf(m, now)} key={m.id} />
+                  <MatchCard m={m} tz={tz} st={statusOf(m, now)} onOpen={() => setSelected(m)} key={m.id} />
                 ))}
               </div>
             </div>
           );
         })}
       </div>
+
+      {selected && (
+        <MatchDrawer
+          match={selected}
+          tz={tz}
+          status={statusOf(selected, now)}
+          stats={STATS[selected.id] ?? null}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </div>
   );
 }
 
-function MatchCard({ m, tz, st }: { m: Match; tz: string; st: MatchStatus }) {
+function MatchCard({ m, tz, st, onOpen }: { m: Match; tz: string; st: MatchStatus; onOpen: () => void }) {
   const hour = partsInTz(m.utc, tz).hour;
   const bucket = timeBucket(hour);
-  const isKo = m.stage !== 'group';
   const showScore = (st === 'finished' || st === 'live') && m.score;
   return (
-    <div class={`mc ${bucket}${st === 'finished' ? ' past' : ''}${st === 'live' ? ' live-m' : ''}`}>
+    <button
+      type="button"
+      class={`mc ${bucket}${st === 'finished' ? ' past' : ''}${st === 'live' ? ' live-m' : ''}`}
+      onClick={onOpen}
+      aria-label={`${m.home.name} versus ${m.away.name || 'TBD'} — view details`}
+    >
       <div class="mc-time">
         <div class="mc-tmain">{formatTime(m.utc, tz)}</div>
         {st === 'live' && <span class="mc-live-tag">LIVE</span>}
@@ -271,6 +288,7 @@ function MatchCard({ m, tz, st }: { m: Match; tz: string; st: MatchStatus }) {
           <span class="mc-venue">{m.venue}</span>
         </div>
       </div>
-    </div>
+      <span class="mc-chev" aria-hidden="true">›</span>
+    </button>
   );
 }

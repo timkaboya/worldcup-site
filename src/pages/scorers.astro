@@ -1,9 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
+import { SCORERS } from '../data/scorers';
+
+const max = Math.max(...SCORERS.map((s) => s.goals), 1);
+let rank = 0;
+let prevGoals = -1;
+const rows = SCORERS.map((s, i) => {
+  if (s.goals !== prevGoals) rank = i + 1;
+  prevGoals = s.goals;
+  return { ...s, rank };
+});
 ---
 
 <Base title="Scorers · World Cup 2026" active="scorers">
   <div class="container">
-    <p class="placeholder">Golden Boot race coming in Phase 2.</p>
+    <div class="page-head">
+      <h1 class="page-title">Golden Boot Race</h1>
+      <p class="page-sub">Goals scored so far — ties broken by assists.</p>
+    </div>
+    <ol class="scorer-list">
+      {rows.map((s) => (
+        <li class={`scorer-row${s.rank === 1 ? ' lead' : ''}`}>
+          <span class="sc-rank">{s.rank}</span>
+          <span class="sc-flag ef">{s.team.flag}</span>
+          <span class="sc-name">
+            <span class="sc-player">{s.name}</span>
+            <span class="sc-team">{s.team.name}</span>
+          </span>
+          <span class="sc-bar-wrap">
+            <span class="sc-bar" style={`width:${(s.goals / max) * 100}%`}></span>
+          </span>
+          <span class="sc-stat">
+            <span class="sc-goals">{s.goals}</span>
+            <span class="sc-goals-lbl">{s.goals === 1 ? 'goal' : 'goals'}</span>
+            {s.assists > 0 && <span class="sc-ast">{s.assists} A</span>}
+          </span>
+        </li>
+      ))}
+    </ol>
   </div>
 </Base>

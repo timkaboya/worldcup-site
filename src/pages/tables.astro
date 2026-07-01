@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import Tables from '../components/Tables.tsx';
 ---
 
 <Base title="Tables · World Cup 2026" active="tables">
   <div class="container">
-    <p class="placeholder">Group tables coming in Phase 2.</p>
+    <div class="page-head">
+      <h1 class="page-title">Group Standings</h1>
+    </div>
+    <Tables client:load />
   </div>
 </Base>
