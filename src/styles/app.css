@@ -181,6 +181,11 @@
 .br-flag { font-size: 1.1em; text-align: center; }
 .br-name { color: var(--text2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .br-score { font-family: 'Bebas Neue', sans-serif; font-size: .95rem; color: var(--navy); }
+.br-team.br-win .br-name { color: var(--navy); font-weight: 700; }
+.br-team.br-win .br-score { color: var(--gold, #d4a017); }
+.br-tie.br-live { border-color: #d33; box-shadow: 0 0 0 2px rgba(221,51,51,.15); }
+.br-note { padding: .3rem .55rem; font-size: .62rem; color: var(--text2); background: var(--border-l); border-top: 1px solid var(--border); }
+.bracket-note { margin: 0 0 .6rem; }
 
 /* MATCH DRAWER */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(13, 27, 62, .45); backdrop-filter: blur(2px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; animation: fade .15s ease; }

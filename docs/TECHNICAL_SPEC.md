@@ -53,7 +53,7 @@ Guiding constraints (from the Product Spec):
                          └────────┬─────────┘          └─────────┬──────────┘
                                   │ fetch/merge                  │ fetch/parse RSS
               ┌───────────────────┼───────────┐        ┌─────────┴───────────────┐
-              │ worldcup26.ir  openfootball  ESPN │    │ FIFA / BBC / ESPN / etc. │
+              │ ESPN FIFA World Cup API (scoreboard + standings) │    │ FIFA / BBC / ESPN / etc. │
               └───────────────────────────────────┘    └──────────────────────────┘
 ```
 
@@ -176,14 +176,26 @@ Each choice lists the decision, the alternatives considered, and the rationale u
 - **Attribution rule:** every item links out to the origin and names its source, satisfying the
   Product Spec's authenticity/attribution requirement and respecting publisher terms.
 
-### 3.11 Live-score aggregation — **scheduled multi-source merge, server-side**
+### 3.11 Live-score aggregation — **ESPN as source of truth (build-time + edge)**
 
-- **Decision:** port the POC's multi-source strategy (worldcup26.ir → openfootball → ESPN) into
-  a scheduled Worker that queries all sources, **merges** results (max coverage), reconciles by
-  **stable match identity**, and writes a single normalized scores snapshot to KV. Replace the
-  POC's fragile name-prefix matching with a **fixture-ID mapping table** per source.
-- **Rationale:** server-side merge removes browser CORS proxies, centralizes rate-limiting, and
-  gives every client a consistent, fast, cached snapshot.
+- **Decision:** use ESPN's public FIFA World Cup API as the single authoritative source for
+  fixtures, scores, knockout bracket, group standings, and top scorers. Two paths consume it:
+  1. **Build-time generator** (`scripts/fetch-espn.ts`, run in `prebuild`) pulls the whole
+     tournament (scoreboard date-chunks + standings + per-match goal events), maps it onto the
+     canonical model via `src/lib/espn.ts`, and writes `src/data/tournament.json` +
+     `public/standings.json` + `public/scorers.json`. These are the offline/static fallback and
+     the SSG source for the Bracket/Scorers pages.
+  2. **Edge functions** `/api/scores` and `/api/standings` fetch the same ESPN endpoints live
+     (parallel date-chunks, `Promise.all`), map them with the shared `src/lib/espn.ts` adapter,
+     and return a fresh snapshot with short edge-cache headers so in-progress matches update.
+- **Identity & mapping:** matches are keyed by **ESPN event id** (no fragile name-prefix
+  matching). Stages come from `season.slug`, group letters from the standings endpoint, statuses
+  from ESPN game state, and penalty-shootout outcomes from the competition `notes` headline.
+- **Rationale:** ESPN provides the real, continuously-updated tournament (verified live for WC
+  2026 — real R16 matchups, scores, and penalty results), removing the POC's fabricated
+  placeholder bracket and seed scores. One shared adapter guarantees the static fallback and the
+  live edge path stay identical.
+
 
 ### 3.12 PWA / offline — **service worker + web app manifest**
 
@@ -301,9 +313,10 @@ interface UserPrefs { timezone: string; favorites: string[]; lastSeenNewsUtc?: s
 
 | Endpoint | Method | Returns | Caching |
 |---|---|---|---|
-| `/api/scores` | GET | `ScoresSnapshot` | `ETag`, `Cache-Control: public, max-age=30, stale-while-revalidate=120` |
+| `/api/scores` | GET | `ScoresSnapshot` (live from ESPN) | `Cache-Control: public, max-age=30, stale-while-revalidate=120` |
+| `/api/standings` | GET | `{ standings: Standing[] }` (live from ESPN) | `Cache-Control: public, max-age=60, stale-while-revalidate=300` |
 | `/api/news` | GET | `NewsSnapshot` | `ETag`, `Cache-Control: public, max-age=300, stale-while-revalidate=900` |
-| `/fixtures.json` | GET (static) | seed `Match[]` | long-lived, immutable per deploy |
+| `/fixtures.json` | GET (static) | real `Match[]` (built from ESPN) | long-lived, immutable per deploy |
 
 - No write endpoints, no auth, no cookies. All mutation happens in scheduled workers.
 - Clients use conditional GET (`If-None-Match`) to minimize transfer.

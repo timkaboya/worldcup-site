@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Match, Standing } from '../lib/types';
-import { fetchScores } from '../lib/api';
+import { fetchScores, fetchStandings } from '../lib/api';
 import { computeStandings } from '../lib/standings';
 
 function EmojiFlag({ e }: { e: string }) {
@@ -14,9 +14,17 @@ export default function Tables() {
 
   async function refresh() {
     try {
-      const res = await fetchScores();
-      setStandings(computeStandings(res.snapshot.matches as Match[]));
-      setLive(res.live);
+      // Prefer the official (ESPN) standings — correct tiebreakers & advancement.
+      const res = await fetchStandings();
+      if (res.standings.length) {
+        setStandings(res.standings);
+        setLive(res.live);
+      } else {
+        // Fall back to computing from live match scores.
+        const s = await fetchScores();
+        setStandings(computeStandings(s.snapshot.matches as Match[]));
+        setLive(s.live);
+      }
     } catch {
       /* keep last render */
     } finally {

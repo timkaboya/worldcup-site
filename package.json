@@ -6,6 +6,8 @@
   "description": "World Cup 2026 Companion — lightweight, timezone-correct, no-accounts web app.",
   "scripts": {
     "dev": "astro dev",
+    "data": "node --experimental-strip-types scripts/fetch-espn.ts",
+    "prebuild": "node --experimental-strip-types scripts/fetch-espn.ts || exit 0",
     "build": "astro build",
     "preview": "astro preview",
     "preview:cf": "astro build && wrangler pages dev dist",

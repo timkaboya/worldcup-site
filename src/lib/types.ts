@@ -23,6 +23,8 @@ export interface Match {
   score?: { home: number; away: number } | null;
   status?: MatchStatus; // derived client-side
   sources?: string[]; // providers that contributed the score
+  note?: string; // e.g. penalty-shootout result
+  winner?: 'home' | 'away'; // knockout winner, when decided
 }
 
 export interface GoalEvent {
@@ -60,6 +62,8 @@ export interface StandingRow {
   gd: number;
   pts: number;
   qualification?: 'auto' | 'best3rd' | null;
+  rank?: number; // official ESPN rank within group
+  advanced?: boolean; // official qualification flag from source
 }
 
 export interface Standing {

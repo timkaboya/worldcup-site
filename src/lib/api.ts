@@ -1,4 +1,4 @@
-import type { NewsSnapshot, ScoresSnapshot } from './types';
+import type { NewsSnapshot, ScoresSnapshot, Standing } from './types';
 
 export interface FetchResult {
   snapshot: ScoresSnapshot;
@@ -31,6 +31,40 @@ export async function fetchScores(): Promise<FetchResult> {
   } catch {
     const snapshot = await getJson('/fixtures.json');
     return { snapshot, live: false, sources: [] };
+  }
+}
+
+export interface StandingsResult {
+  standings: Standing[];
+  live: boolean;
+}
+
+/**
+ * Fetch official group standings. Tries the live edge function first, falls back
+ * to the build-time static snapshot so the Tables page always renders real data.
+ */
+export async function fetchStandings(): Promise<StandingsResult> {
+  const get = async (url: string): Promise<Standing[]> => {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 8000);
+    try {
+      const r = await fetch(url, { signal: ctrl.signal });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const j = (await r.json()) as { standings?: Standing[] };
+      if (!j.standings?.length) throw new Error('empty');
+      return j.standings;
+    } finally {
+      clearTimeout(t);
+    }
+  };
+  try {
+    return { standings: await get('/api/standings'), live: true };
+  } catch {
+    try {
+      return { standings: await get('/standings.json'), live: false };
+    } catch {
+      return { standings: [], live: false };
+    }
   }
 }
 

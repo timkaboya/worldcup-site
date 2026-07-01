@@ -1,51 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
-import { MATCHES } from '../data/fixtures';
-import type { Stage } from '../lib/types';
-
-const COLS: { stage: Stage; label: string }[] = [
-  { stage: 'r32', label: 'Round of 32' },
-  { stage: 'r16', label: 'Round of 16' },
-  { stage: 'qf', label: 'Quarter-finals' },
-  { stage: 'sf', label: 'Semi-finals' },
-  { stage: 'final', label: 'Final' },
-];
-
-const byStage = (s: Stage) => MATCHES.filter((m) => m.stage === s);
+import Bracket from '../components/Bracket.tsx';
 ---
 
 <Base title="Bracket · World Cup 2026" active="bracket">
   <div class="container">
     <div class="page-head">
       <h1 class="page-title">Knockout Bracket</h1>
-      <p class="page-sub">Teams are confirmed as the group stage concludes. Scroll horizontally to explore.</p>
+      <p class="page-sub">Live results from the Round of 32 to the Final. Scroll horizontally to explore.</p>
     </div>
-    <div class="bracket-scroll">
-      <div class="bracket">
-        {COLS.map((col) => (
-          <div class="br-col">
-            <div class="br-col-hdr">{col.label}</div>
-            <div class="br-col-body">
-              {byStage(col.stage).map((m) => (
-                <div class={`br-tie${m.score ? ' played' : ''}`}>
-                  <div class="br-team">
-                    <span class="br-flag ef">{m.home.flag}</span>
-                    <span class="br-name">{m.home.name}</span>
-                    {m.score && <span class="br-score">{m.score.home}</span>}
-                  </div>
-                  {m.away.name && (
-                    <div class="br-team">
-                      <span class="br-flag ef">{m.away.flag}</span>
-                      <span class="br-name">{m.away.name}</span>
-                      {m.score && <span class="br-score">{m.score.away}</span>}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Bracket client:load />
   </div>
 </Base>

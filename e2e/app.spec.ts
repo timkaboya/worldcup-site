@@ -10,8 +10,11 @@ test('schedule renders fixtures and groups by day', async ({ page }) => {
 
 test('stage filter narrows the list', async ({ page }) => {
   await page.goto('/');
+  await expect(page.locator('.mc').first()).toBeVisible();
   await page.getByRole('tab', { name: 'Final' }).click();
-  await expect(page.getByText('World Cup Final')).toBeVisible();
+  // The Final stage shows only the final (1 card) at MetLife Stadium.
+  await expect(page.locator('.mc')).toHaveCount(1);
+  await expect(page.getByText(/MetLife/).first()).toBeVisible();
 });
 
 test('match drawer opens with details and closes on Escape', async ({ page }) => {

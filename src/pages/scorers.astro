@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SCORERS } from '../data/scorers';
+import tournament from '../data/tournament.json';
+import type { Scorer } from '../lib/types';
 
+const SCORERS = (tournament.scorers ?? []) as Scorer[];
 const max = Math.max(...SCORERS.map((s) => s.goals), 1);
 let rank = 0;
 let prevGoals = -1;
