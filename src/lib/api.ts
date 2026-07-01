@@ -1,4 +1,5 @@
-import type { NewsSnapshot, ScoresSnapshot, Standing } from './types';
+import type { MatchDetail, NewsSnapshot, ScoresSnapshot, Standing } from './types';
+import { espnSummaryUrl, mapSummary } from './espn';
 
 export interface FetchResult {
   snapshot: ScoresSnapshot;
@@ -98,5 +99,36 @@ export async function fetchNews(): Promise<NewsResult> {
       () => ({ version: 1, updatedUtc: new Date().toISOString(), items: [] }) as NewsSnapshot
     );
     return { snapshot, live: false };
+  }
+}
+
+/**
+ * Fetch rich per-match detail for the drawer. Tries the live edge function
+ * first; if unavailable (e.g. local `astro dev`, where /api/* is Cloudflare-
+ * only), falls back to calling ESPN's summary endpoint directly — its CORS
+ * policy is `*`, so the same shared mapper runs in the browser.
+ */
+export async function fetchMatchDetail(eventId: number): Promise<MatchDetail | null> {
+  const withTimeout = async (url: string, ms = 8000): Promise<Response> => {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), ms);
+    try {
+      return await fetch(url, { signal: ctrl.signal });
+    } finally {
+      clearTimeout(t);
+    }
+  };
+  try {
+    const r = await withTimeout(`/api/match?event=${eventId}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return (await r.json()) as MatchDetail;
+  } catch {
+    try {
+      const r = await withTimeout(espnSummaryUrl(eventId));
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return mapSummary(await r.json(), eventId);
+    } catch {
+      return null;
+    }
   }
 }

@@ -2,11 +2,26 @@
 // Runs identically in Node (build-time generator) and Cloudflare Workers (edge fn).
 // Maps ESPN's public scoreboard + standings JSON onto our canonical data model.
 
-import type { Match, Stage, Standing, StandingRow, Team } from './types';
+import type {
+  Match,
+  MatchDetail,
+  MatchEvent,
+  MatchEventType,
+  MatchStatItem,
+  Stage,
+  Standing,
+  StandingRow,
+  Team,
+  TeamLineup,
+  LineupPlayer,
+  FormGame,
+  H2HGame,
+} from './types';
 
 export const ESPN_LEAGUE = 'fifa.world';
 export const ESPN_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${ESPN_LEAGUE}`;
 export const ESPN_STANDINGS = `https://site.api.espn.com/apis/v2/sports/soccer/${ESPN_LEAGUE}/standings`;
+export const espnSummaryUrl = (event: number | string) => `${ESPN_BASE}/summary?event=${event}`;
 
 // ESPN 3-letter code -> ISO-3166 alpha-2 (for regional-indicator emoji).
 const CODE_TO_A2: Record<string, string> = {
@@ -185,6 +200,191 @@ export function parseStandings(json: any): { standings: Standing[]; groupOf: Rec
 
   standings.sort((a, b) => a.group.localeCompare(b.group));
   return { standings, groupOf };
+}
+
+// ── Match detail (ESPN summary endpoint) ──────────────────────────────────
+
+// Curated stat rows in display order: ESPN statistic name -> label / format.
+const STAT_MAP: { name: string; label: string; pct?: boolean }[] = [
+  { name: 'possessionPct', label: 'Possession', pct: true },
+  { name: 'totalShots', label: 'Shots' },
+  { name: 'shotsOnTarget', label: 'Shots on target' },
+  { name: 'wonCorners', label: 'Corners' },
+  { name: 'offsides', label: 'Offsides' },
+  { name: 'foulsCommitted', label: 'Fouls' },
+  { name: 'yellowCards', label: 'Yellow cards' },
+  { name: 'redCards', label: 'Red cards' },
+  { name: 'saves', label: 'Saves' },
+  { name: 'totalPasses', label: 'Passes' },
+  { name: 'passPct', label: 'Pass accuracy', pct: true },
+  { name: 'accurateCrosses', label: 'Accurate crosses' },
+  { name: 'totalTackles', label: 'Tackles' },
+  { name: 'interceptions', label: 'Interceptions' },
+];
+
+function eventType(text: string | undefined): MatchEventType {
+  const t = (text || '').toLowerCase();
+  if (t.includes('red card')) return 'red';
+  if (t.includes('yellow card')) return 'yellow';
+  if (t.includes('substitution')) return 'sub';
+  if (t.includes('goal')) return 'goal';
+  return 'other';
+}
+
+function sideOf(teamId: string, homeId: string, awayId: string): 'home' | 'away' | '' {
+  if (teamId && teamId === homeId) return 'home';
+  if (teamId && teamId === awayId) return 'away';
+  return '';
+}
+
+function subMinute(p: any): string {
+  const play = (p.plays ?? []).find((x: any) => /substitution/i.test(x.type?.text || x.text || ''));
+  return play?.clock?.displayValue || 'out';
+}
+
+function mapLineup(rosterEntry: any): TeamLineup {
+  const players: LineupPlayer[] = (rosterEntry?.roster ?? []).map((p: any): LineupPlayer => {
+    const st = p.stats ?? [];
+    const statVal = (abbr: string) => {
+      const s = st.find((x: any) => x.abbreviation === abbr || x.name === abbr);
+      return Number(s?.value ?? parseFloat(String(s?.displayValue ?? '0')) ?? 0) || 0;
+    };
+    return {
+      num: String(p.jersey ?? ''),
+      name: p.athlete?.displayName || p.athlete?.shortName || '',
+      pos: p.position?.abbreviation || '',
+      fp: Number(p.formationPlace ?? 0),
+      starter: !!p.starter,
+      goals: statVal('G') || undefined,
+      yellow: statVal('YC') > 0 || undefined,
+      red: statVal('RC') > 0 || undefined,
+      subOut: p.subbedOut ? subMinute(p) : undefined,
+      subIn: p.subbedIn ? subMinute(p) : undefined,
+    };
+  });
+  return {
+    formation: rosterEntry?.formation || undefined,
+    starters: players.filter((p) => p.starter).sort((a, b) => a.fp - b.fp),
+    subs: players.filter((p) => !p.starter),
+  };
+}
+
+function mapFormList(entry: any, teamName: string): FormGame[] {
+  const evs: any[] = entry?.events ?? [];
+  return evs.slice(0, 5).map((e): FormGame => ({
+    date: e.gameDate || '',
+    opponent: e.opponent?.abbreviation || e.opponent?.displayName || '',
+    score: e.score || `${e.homeTeamScore}-${e.awayTeamScore}`,
+    result: (e.gameResult as 'W' | 'D' | 'L') || '',
+    competition: e.leagueAbbreviation || e.competitionName || '',
+  }));
+}
+
+/**
+ * Map an ESPN match-summary payload to canonical MatchDetail.
+ * Pure — runs in Node, Workers and the browser. Returns partial data
+ * gracefully (upcoming matches have no lineups/stats/commentary).
+ */
+export function mapSummary(json: any, fallbackId?: number | string): MatchDetail {
+  const comp = json?.header?.competitions?.[0];
+  const cs: any[] = comp?.competitors ?? [];
+  const homeC = cs.find((c) => c.homeAway === 'home');
+  const awayC = cs.find((c) => c.homeAway === 'away');
+  const homeId = homeC?.team?.id || homeC?.id || '';
+  const awayId = awayC?.team?.id || awayC?.id || '';
+  const state = comp?.status?.type?.state;
+  const status = statusFromState(state);
+
+  const detail: MatchDetail = {
+    id: Number(comp?.id ?? fallbackId ?? 0),
+    status,
+    clock: comp?.status?.type?.shortDetail || comp?.status?.type?.description || undefined,
+    info: {},
+  };
+
+  // Game info: venue, attendance, referee, odds.
+  const gi = json?.gameInfo ?? {};
+  detail.info.venue = gi.venue?.fullName || undefined;
+  detail.info.attendance = Number(gi.attendance) || undefined;
+  const ref = (gi.officials ?? []).find((o: any) => /referee/i.test(o.position?.displayName || ''));
+  detail.info.referee = ref?.displayName || undefined;
+  detail.info.odds = json?.odds?.[0]?.details || undefined;
+
+  // Lineups.
+  const rosters: any[] = json?.rosters ?? [];
+  const hR = rosters.find((r) => r.homeAway === 'home');
+  const aR = rosters.find((r) => r.homeAway === 'away');
+  if (hR?.roster?.length && aR?.roster?.length) {
+    detail.lineups = { home: mapLineup(hR), away: mapLineup(aR) };
+  }
+
+  // Statistics.
+  const teams: any[] = json?.boxscore?.teams ?? [];
+  const hT = teams.find((t) => t.homeAway === 'home') ?? teams[0];
+  const aT = teams.find((t) => t.homeAway === 'away') ?? teams[1];
+  if (hT?.statistics?.length && aT?.statistics?.length) {
+    // ESPN team stats expose `displayValue` (string); percentage stats are
+    // inconsistent (possession "60.5" but passPct "0.9"), so normalise ratios.
+    const val = (t: any, name: string, pct?: boolean): number => {
+      const raw = t.statistics.find((s: any) => s.name === name)?.displayValue;
+      let n = parseFloat(String(raw ?? '').replace('%', ''));
+      if (!Number.isFinite(n)) return 0;
+      if (pct && n <= 1) n *= 100;
+      return pct ? Math.round(n) : n;
+    };
+    const stats: MatchStatItem[] = STAT_MAP.map((r) => ({
+      key: r.name,
+      label: r.label,
+      home: val(hT, r.name, r.pct),
+      away: val(aT, r.name, r.pct),
+      pct: r.pct,
+    })).filter((s) => s.home || s.away);
+    if (stats.length) detail.stats = stats;
+  }
+
+  // Timeline (goals/cards/subs).
+  const keyEvents: any[] = json?.keyEvents ?? [];
+  const events: MatchEvent[] = keyEvents
+    .map((e): MatchEvent => ({
+      min: e.clock?.displayValue || '',
+      type: eventType(e.type?.text),
+      side: sideOf(e.team?.id || '', homeId, awayId),
+      text: e.text || e.type?.text || '',
+      players: (e.participants ?? []).map((p: any) => p.athlete?.displayName).filter(Boolean),
+    }))
+    .filter((e) => e.type !== 'other');
+  if (events.length) detail.events = events;
+
+  // Commentary (newest first).
+  const commentary: any[] = json?.commentary ?? [];
+  const comm = commentary
+    .filter((c) => c.text)
+    .map((c) => ({ min: c.time?.displayValue || '', text: c.text as string }));
+  if (comm.length) detail.commentary = comm;
+
+  // Recent form (last 5).
+  const lfg: any[] = json?.lastFiveGames ?? [];
+  const hForm = lfg.find((x) => x.team?.id === homeId) ?? lfg[0];
+  const aForm = lfg.find((x) => x.team?.id === awayId) ?? lfg[1];
+  if (hForm || aForm) {
+    detail.form = {
+      home: mapFormList(hForm, homeC?.team?.displayName),
+      away: mapFormList(aForm, awayC?.team?.displayName),
+    };
+  }
+
+  // Head-to-head (from home team's perspective).
+  const h2hEntry = (json?.headToHeadGames ?? [])[0];
+  const h2h: H2HGame[] = (h2hEntry?.events ?? []).slice(0, 6).map((e: any): H2HGame => ({
+    date: e.gameDate || '',
+    opponent: e.opponent?.abbreviation || e.opponent?.displayName || '',
+    score: e.score || `${e.homeTeamScore}-${e.awayTeamScore}`,
+    result: (e.gameResult as 'W' | 'D' | 'L') || '',
+    competition: e.leagueAbbreviation || e.competitionName || '',
+  }));
+  if (h2h.length) detail.h2h = h2h;
+
+  return detail;
 }
 
 /** Tag group-stage matches with their group letter using the standings lookup. */

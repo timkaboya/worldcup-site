@@ -13,7 +13,6 @@ import {
   partsInTz,
 } from '../lib/time';
 import { detectTimezone, loadPrefs, setTimezone, toggleFavorite, tzShortLabel } from '../lib/prefs';
-import { STATS } from '../data/stats';
 import MatchDrawer from './MatchDrawer';
 
 type Filter = 'all' | 'fav' | 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
@@ -269,7 +268,6 @@ export default function Schedule() {
           match={selected}
           tz={tz}
           status={statusOf(selected, now)}
-          stats={STATS[selected.id] ?? null}
           favorites={favSet}
           onToggleFav={onToggleFav}
           onClose={() => setSelected(null)}

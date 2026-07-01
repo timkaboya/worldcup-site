@@ -188,6 +188,12 @@ Each choice lists the decision, the alternatives considered, and the rationale u
   2. **Edge functions** `/api/scores` and `/api/standings` fetch the same ESPN endpoints live
      (parallel date-chunks, `Promise.all`), map them with the shared `src/lib/espn.ts` adapter,
      and return a fresh snapshot with short edge-cache headers so in-progress matches update.
+  3. **Match detail** `/api/match?event=<id>` fetches ESPN's `summary` endpoint on demand (when a
+     match drawer is opened) and maps it via `mapSummary()` into a `MatchDetail`: line-ups with
+     formation, 14 curated team stats, a goal/card/sub timeline, play-by-play commentary, last-5
+     form and head-to-head. The client (`fetchMatchDetail`) tries `/api/match` first and, in local
+     `astro dev` where `/api/*` is unavailable, falls back to calling ESPN `summary` directly in the
+     browser (its CORS policy is `*`), running the same shared mapper — so detail works everywhere.
 - **Identity & mapping:** matches are keyed by **ESPN event id** (no fragile name-prefix
   matching). Stages come from `season.slug`, group letters from the standings endpoint, statuses
   from ESPN game state, and penalty-shootout outcomes from the competition `notes` headline.
@@ -315,6 +321,7 @@ interface UserPrefs { timezone: string; favorites: string[]; lastSeenNewsUtc?: s
 |---|---|---|---|
 | `/api/scores` | GET | `ScoresSnapshot` (live from ESPN) | `Cache-Control: public, max-age=30, stale-while-revalidate=120` |
 | `/api/standings` | GET | `{ standings: Standing[] }` (live from ESPN) | `Cache-Control: public, max-age=60, stale-while-revalidate=300` |
+| `/api/match?event=<id>` | GET | `MatchDetail` — lineups+formation, team stats, goal/card/sub timeline, play-by-play commentary, recent form and head-to-head (live from ESPN `summary`) | `Cache-Control: public, max-age=30, stale-while-revalidate=120` |
 | `/api/news` | GET | `NewsSnapshot` | `ETag`, `Cache-Control: public, max-age=300, stale-while-revalidate=900` |
 | `/fixtures.json` | GET (static) | real `Match[]` (built from ESPN) | long-lived, immutable per deploy |
 
