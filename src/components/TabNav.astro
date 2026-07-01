@@ -1,0 +1,29 @@
+---
+interface Props {
+  active: 'schedule' | 'tables' | 'scorers' | 'bracket' | 'news';
+}
+const { active } = Astro.props;
+
+const tabs = [
+  { id: 'schedule', href: '/', emoji: '📅', label: 'Schedule' },
+  { id: 'tables', href: '/tables', emoji: '📊', label: 'Tables' },
+  { id: 'scorers', href: '/scorers', emoji: '👟', label: 'Scorers' },
+  { id: 'bracket', href: '/bracket', emoji: '🏆', label: 'Bracket' },
+  { id: 'news', href: '/news', emoji: '📰', label: 'News' },
+] as const;
+---
+
+<nav class="tabs" aria-label="Primary">
+  {
+    tabs.map((t) => (
+      <a
+        class:list={['tab', { active: active === t.id }]}
+        href={t.href}
+        aria-current={active === t.id ? 'page' : undefined}
+      >
+        <span class="ef">{t.emoji}</span>
+        <span class="tab-lbl">{t.label}</span>
+      </a>
+    ))
+  }
+</nav>

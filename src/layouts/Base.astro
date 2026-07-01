@@ -1,0 +1,55 @@
+---
+import '../styles/tokens.css';
+import '../styles/app.css';
+import TabNav from '../components/TabNav.astro';
+
+interface Props {
+  title?: string;
+  active: 'schedule' | 'tables' | 'scorers' | 'bracket' | 'news';
+}
+
+const { title = 'World Cup 2026', active } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1b3e" />
+    <meta
+      name="description"
+      content="Follow the FIFA World Cup 2026 — live scores, stats, tables, top scorers, bracket, and news, in your timezone. No sign-up."
+    />
+    <title>{title}</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Noto+Color+Emoji&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hdr">
+      <div class="brand">
+        <span class="ef ef-lg">⚽</span>
+        <div>
+          <div class="brand-name">World Cup 2026</div>
+          <div class="brand-sub">Your timezone · Live</div>
+        </div>
+      </div>
+      <div class="hdr-right">
+        <span id="live-pill" class="live-pill"><span class="pulse"></span>LIVE</span>
+        <span id="tz-badge" class="tz-badge">🕐 <span id="tz-label">Local</span></span>
+      </div>
+    </header>
+
+    <TabNav active={active} />
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

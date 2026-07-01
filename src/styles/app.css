@@ -1,0 +1,110 @@
+/* App shell & shared layout styles — ported/adapted from the POC. */
+
+/* HEADER */
+.hdr {
+  background: var(--navy);
+  padding: .7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: .55rem; }
+.brand-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: .1em;
+  color: #fff;
+}
+.brand-sub {
+  font-size: .6rem;
+  color: rgba(255, 255, 255, .45);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.hdr-right { display: flex; align-items: center; gap: .6rem; }
+.tz-badge {
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, .85);
+  font-size: .65rem;
+  font-weight: 600;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.live-pill {
+  display: none;
+  align-items: center;
+  gap: .3rem;
+  background: rgba(220, 38, 38, .15);
+  border: 1px solid rgba(220, 38, 38, .4);
+  color: #fca5a5;
+  font-size: .65rem;
+  font-weight: 700;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+}
+.live-pill.on { display: flex; }
+.pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: pulse 1.2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: .5; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* STICKY TABS */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  box-shadow: var(--sh);
+}
+.tab {
+  flex: 1;
+  padding: .65rem .25rem;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text3);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  transition: color .15s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  text-decoration: none;
+}
+.tab.active { color: var(--navy); }
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--navy);
+}
+.tab:hover:not(.active) { color: var(--text2); background: var(--bg); }
+.tab-lbl { display: none; }
+@media (min-width: 400px) { .tab-lbl { display: inline; } }
+
+/* Generic container + placeholder */
+.container { max-width: 800px; margin: 0 auto; padding: .85rem 1.2rem 2rem; }
+.placeholder {
+  color: var(--text3);
+  font-size: .8rem;
+  text-align: center;
+  padding: 2rem 1rem;
+}

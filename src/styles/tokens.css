@@ -1,0 +1,72 @@
+/*
+  Design tokens — carried over from the POC (worldcup2026-eat.html).
+  Source of truth for colors, radii, shadows, and typography scale.
+*/
+:root {
+  --white: #fff;
+  --bg: #f4f6fb;
+  --surface: #fff;
+  --card: #fff;
+  --border: #e2e6f0;
+  --border-l: #eef0f7;
+  --navy: #0d1b3e;
+  --navy2: #1a2f5e;
+  --gold: #c8860a;
+  --gold-bg: #fff8e6;
+  --gold-b: #f0c040;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --green-b: #86efac;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --red-b: #fca5a5;
+  --blue: #2563eb;
+  --orange: #ea580c;
+  --purple: #7c3aed;
+  --text: #111827;
+  --text2: #374151;
+  --text3: #6b7280;
+  --text4: #9ca3af;
+  --live: #dc2626;
+  --sh: 0 1px 3px rgba(0, 0, 0, .07), 0 1px 2px rgba(0, 0, 0, .04);
+  --sh-md: 0 4px 12px rgba(0, 0, 0, .08);
+  --r: 10px;
+  --rs: 6px;
+  --rl: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Emoji — force color emoji font so flag glyphs render correctly. */
+.ef {
+  font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  font-size: 1.1em;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+.ef-lg { font-size: 1.6em; }
+.ef-xl { font-size: 2rem; }
+
+/* Visually-hidden utility for a11y labels. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
