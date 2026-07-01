@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Match, MatchStatus, Stage } from '../lib/types';
 import { fetchScores } from '../lib/api';
 import {
@@ -145,6 +145,26 @@ export default function Schedule() {
 
   const today = todayKey(tz, now);
 
+  // Auto-scroll focus: today's matches, else the most recent past day.
+  const focusKey = useMemo(() => {
+    if (days.length === 0) return null;
+    const keys = days.map((d) => d.key);
+    if (keys.includes(today)) return today;
+    const past = keys.filter((k) => k <= today);
+    if (past.length) return past[past.length - 1];
+    return keys[0];
+  }, [days, today]);
+
+  const scrolledRef = useRef(false);
+  useEffect(() => {
+    if (loading || scrolledRef.current || !focusKey) return;
+    const el = document.getElementById(`day-${focusKey}`);
+    if (el) {
+      el.scrollIntoView({ block: 'start' });
+      scrolledRef.current = true;
+    }
+  }, [loading, focusKey]);
+
   // "Up next": next live/upcoming matches.
   const upNext = useMemo(() => {
     return matches
@@ -197,18 +217,33 @@ export default function Schedule() {
           <>
             <div class="next-lbl">⚡ Up next</div>
             <div class="next-row">
-              {upNext.map(({ m, st }) => (
-                <div class={`nc${st === 'live' ? ' live' : ''}`} key={m.id}>
-                  <div class={`nc-time${st === 'live' ? ' live' : ''}`}>
-                    {st === 'live' ? 'LIVE' : formatTime(m.utc, tz)}
-                  </div>
-                  <div class="nc-match">
-                    <EmojiFlag e={m.home.flag} /> {m.home.name}
-                    {m.away.name ? <> v {m.away.name} <EmojiFlag e={m.away.flag} /></> : null}
-                  </div>
-                  <div class="nc-meta">{formatDayHeading(m.utc, tz)}</div>
-                </div>
-              ))}
+              {upNext.map(({ m, st }) => {
+                const showScore = st === 'live' && m.score;
+                return (
+                  <button
+                    type="button"
+                    class={`nc${st === 'live' ? ' live' : ''}`}
+                    key={m.id}
+                    onClick={() => setSelected(m)}
+                    aria-label={`${m.home.name} versus ${m.away.name || 'TBD'} — view details`}
+                  >
+                    <div class={`nc-time${st === 'live' ? ' live' : ''}`}>
+                      {st === 'live' ? 'LIVE' : formatTime(m.utc, tz)}
+                    </div>
+                    {showScore ? (
+                      <div class="nc-match">
+                        <EmojiFlag e={m.home.flag} /> {m.home.name} {m.score!.home}–{m.score!.away} {m.away.name} <EmojiFlag e={m.away.flag} />
+                      </div>
+                    ) : (
+                      <div class="nc-match">
+                        <EmojiFlag e={m.home.flag} /> {m.home.name}
+                        {m.away.name ? <> v {m.away.name} <EmojiFlag e={m.away.flag} /></> : null}
+                      </div>
+                    )}
+                    <div class="nc-meta">{formatDayHeading(m.utc, tz)}</div>
+                  </button>
+                );
+              })}
             </div>
           </>
         )}
@@ -247,7 +282,7 @@ export default function Schedule() {
           const isToday = d.key === today;
           const isPast = d.key < today;
           return (
-            <div class={`day-block${isToday ? ' today' : ''}${isPast ? ' past' : ''}`} key={d.key}>
+            <div id={`day-${d.key}`} class={`day-block${isToday ? ' today' : ''}${isPast ? ' past' : ''}`} key={d.key}>
               <div class="day-hdr">
                 <span class="day-name">{d.heading}</span>
                 {isToday && <span class="day-pill">Today</span>}

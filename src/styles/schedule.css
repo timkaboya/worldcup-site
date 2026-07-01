@@ -27,8 +27,11 @@
 .next-lbl { font-size: .6rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; color: rgba(255, 255, 255, .5); margin-bottom: .35rem; }
 .next-row { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .15rem; scrollbar-width: none; }
 .next-row::-webkit-scrollbar { display: none; }
-.nc { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); border-radius: var(--rs); padding: .45rem .7rem; flex-shrink: 0; }
+.nc { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); border-radius: var(--rs); padding: .45rem .7rem; flex-shrink: 0; font-family: 'Inter', sans-serif; text-align: left; cursor: pointer; transition: background .15s, border-color .15s; }
+.nc:hover { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .28); }
+.nc:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .nc.live { background: rgba(220, 38, 38, .15); border-color: rgba(220, 38, 38, .4); }
+.nc.live:hover { background: rgba(220, 38, 38, .24); }
 .nc-time { font-family: 'Bebas Neue', sans-serif; font-size: .95rem; color: #fff; letter-spacing: .05em; }
 .nc-time.live { color: #fca5a5; }
 .nc-match { font-size: .72rem; font-weight: 600; color: rgba(255, 255, 255, .9); white-space: nowrap; }
@@ -45,7 +48,7 @@
 .fb.active { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 600; }
 
 #sched-list { max-width: 800px; margin: 0 auto; padding: .75rem 1.2rem 1.5rem; }
-.day-block { margin-bottom: 1.1rem; }
+.day-block { margin-bottom: 1.1rem; scroll-margin-top: 64px; }
 .day-block.past { opacity: .55; }
 .day-block.past:hover { opacity: 1; }
 .day-hdr { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border-l); }
