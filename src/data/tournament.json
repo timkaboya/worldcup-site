@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-01T17:02:54.279Z",
+  "updatedUtc": "2026-07-01T17:46:19.315Z",
   "matches": [
     {
       "id": 760415,
@@ -2191,7 +2191,7 @@
       },
       "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1
       },
       "status": "live",

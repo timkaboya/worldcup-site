@@ -161,16 +161,21 @@ Each choice lists the decision, the alternatives considered, and the rationale u
   conversion for any user, with **zero extra dependencies** (a small tz label/list is the only
   addition; a library like `@date-fns/tz` or Luxon may be used if richer formatting is needed).
 
-### 3.10 News aggregation — **scheduled RSS/Atom fetch + normalize, server-side**
+### 3.10 News aggregation — **build-time RSS/Atom fetch + normalize (World-Cup-filtered)**
 
-- **Decision:** a scheduled Worker fetches **RSS/Atom feeds** from a curated allow-list of
-  authentic outlets, parses and normalizes them to `NewsItem`, de-duplicates by URL/title
-  similarity, sorts newest-first, trims to a bounded count, and writes to KV. `/api/news`
-  serves it.
-- **Candidate sources (to finalize w/ attribution/licensing review):** official FIFA news feed,
-  BBC Sport (football), ESPN (soccer), The Guardian (football), Reuters/AP sports. Only
-  **headline + source + timestamp + summary + link** are stored/shown; full articles are never
-  republished.
+- **Decision:** `scripts/fetch-news.ts` (wired into `prebuild` via `scripts/prebuild.mjs`) fetches
+  **RSS/Atom feeds** from a curated allow-list, parses and normalizes them to `NewsItem`, keeps only
+  **World-Cup-relevant** stories, de-duplicates by URL/title similarity, sorts newest-first, trims to
+  a bounded count, and writes a static snapshot to `src/data/news.json`. `src/pages/news.json.ts`
+  serves it at `/news.json`, so News works on **any** host — including the Workers deployment where
+  `/api/*` isn't served. The `/api/news` Pages Function still provides live refresh where available.
+- **World-Cup filtering:** feeds are tagged `worldCup: true` when the feed itself is WC-scoped
+  (BBC World Cup, Guardian World Cup 2026) — kept verbatim. General football feeds (ESPN soccer, Sky
+  Sports football) are filtered by `isWorldCupRelevant()` (`WORLD_CUP_RE` positive, `OTHER_SPORT_RE`
+  negative) so only World-Cup stories pass and cross-sport World Cups (cricket/rugby) are excluded.
+- **Sources:** BBC Sport (World Cup feed), The Guardian (World Cup 2026 feed), ESPN (soccer), Sky
+  Sports (football). Only **headline + source + timestamp + summary + image + link** are stored/shown;
+  full articles are never republished — the in-site reader links out to the origin.
 - **Alternatives:** a paid aggregator API (e.g., NewsAPI) — adds keys, cost, and quota; direct
   RSS keeps us dependency-light and free. Optional `P1`: enrich with Open Graph image/summary.
 - **Attribution rule:** every item links out to the origin and names its source, satisfying the

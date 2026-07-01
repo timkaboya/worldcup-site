@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseFeed, mergeNews, tagTopics, hashId, decodeEntities } from '../src/lib/news';
+import { parseFeed, mergeNews, tagTopics, hashId, decodeEntities, isWorldCupRelevant } from '../src/lib/news';
 
 const RSS = `<?xml version="1.0"?>
 <rss version="2.0"><channel>
@@ -76,6 +76,23 @@ describe('mergeNews', () => {
       publishedUtc: new Date(2026, 0, i + 1).toISOString(),
     }));
     expect(mergeNews([many], 5)).toHaveLength(5);
+  });
+});
+
+describe('isWorldCupRelevant', () => {
+  const mk = (title: string, summary = '') => ({
+    id: 'x', title, source: 'S', url: 'https://x', publishedUtc: '2026-06-20T00:00:00Z', summary,
+  });
+  it('keeps World Cup stories', () => {
+    expect(isWorldCupRelevant(mk('England reach World Cup last 16'))).toBe(true);
+    expect(isWorldCupRelevant(mk('Transfer news', 'signed ahead of the World Cup 2026'))).toBe(true);
+  });
+  it('drops non-World-Cup football stories', () => {
+    expect(isWorldCupRelevant(mk('Premier League club agrees transfer'))).toBe(false);
+  });
+  it('drops other-sport World Cups (cricket/rugby)', () => {
+    expect(isWorldCupRelevant(mk('England name squad for Cricket World Cup'))).toBe(false);
+    expect(isWorldCupRelevant(mk('Rugby World Cup semi-final preview'))).toBe(false);
   });
 });
 

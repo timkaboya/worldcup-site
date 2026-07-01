@@ -108,6 +108,18 @@ export function parseFeed(xml: string, source: string): NewsItem[] {
   return items;
 }
 
+/** Matches World-Cup-related headlines/summaries. Used to filter general feeds. */
+export const WORLD_CUP_RE = /\bworld[\s-]?cup\b|\bwc[\s-]?2026\b|\bmundial\b/i;
+
+/** Other-sport World Cups (cricket, rugby, etc.) that must NOT leak into a football app. */
+export const OTHER_SPORT_RE =
+  /\b(cricket|rugby|netball|hockey|wicket|odi|test match|six nations|nrl|nfl|nba|baseball|tennis|golf|formula\s?1|f1)\b/i;
+
+export function isWorldCupRelevant(item: NewsItem): boolean {
+  const text = `${item.title} ${item.summary ?? ''}`;
+  return WORLD_CUP_RE.test(text) && !OTHER_SPORT_RE.test(text);
+}
+
 /** Merge feeds: de-dup by id (and by normalized title), newest first, capped. */
 export function mergeNews(lists: NewsItem[][], limit = 60): NewsItem[] {
   const byId = new Map<string, NewsItem>();

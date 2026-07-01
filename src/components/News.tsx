@@ -25,19 +25,59 @@ function timeAgo(iso: string): string {
 function fmtDate(iso: string, tz: string): string {
   try {
     return new Intl.DateTimeFormat('en-GB', {
-      timeZone: tz, day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+      timeZone: tz, weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
     }).format(new Date(iso));
   } catch {
     return new Date(iso).toUTCString();
   }
 }
 
+function NewsReader({ item, tz, onClose }: { item: NewsItem; tz: string; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div class="drawer-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={item.title}>
+      <article class="drawer news-reader" onClick={(e) => e.stopPropagation()}>
+        <div class="drawer-grab" />
+        <button class="drawer-close" onClick={onClose} aria-label="Close article">✕</button>
+
+        {item.imageUrl && (
+          <img class="news-reader-img" src={item.imageUrl} alt="" loading="lazy" decoding="async" />
+        )}
+        <div class="news-reader-meta">
+          <span class="news-source">{item.source}</span>
+          <span class="news-dot">·</span>
+          <span>{fmtDate(item.publishedUtc, tz)}</span>
+        </div>
+        <h2 class="news-reader-title">{item.title}</h2>
+        {item.topics && item.topics.filter((t) => t !== 'teams').length > 0 && (
+          <div class="news-reader-tags">
+            {item.topics.filter((t) => t !== 'teams').map((t) => (
+              <span class="news-tag" key={t}>{t}</span>
+            ))}
+          </div>
+        )}
+        {item.summary && <p class="news-reader-body">{item.summary}</p>}
+        <a class="news-read-btn" href={item.url} target="_blank" rel="noopener noreferrer">
+          Read full article on {item.source}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+        <p class="news-reader-note">Full articles open on the publisher’s site.</p>
+      </article>
+    </div>
+  );
+}
+
 export default function News() {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [live, setLive] = useState(false);
   const [topic, setTopic] = useState<'all' | NewsTopic>('all');
   const [tz, setTz] = useState('UTC');
+  const [selected, setSelected] = useState<NewsItem | null>(null);
 
   useEffect(() => {
     setTz(loadPrefs().timezone || detectTimezone());
@@ -46,8 +86,10 @@ export default function News() {
   async function refresh() {
     try {
       const res = await fetchNews();
-      setItems(res.snapshot.items);
-      setLive(res.live);
+      // Newest first — the snapshot is pre-sorted, but guard against source order.
+      setItems(
+        [...res.snapshot.items].sort((a, b) => Date.parse(b.publishedUtc) - Date.parse(a.publishedUtc))
+      );
     } finally {
       setLoading(false);
     }
@@ -69,7 +111,7 @@ export default function News() {
       <div class="page-head">
         <h1 class="page-title">World Cup News</h1>
         <p class="page-sub">
-          Headlines from trusted football sources. Links open the original article.
+          The latest World Cup 2026 stories from BBC Sport, The Guardian, ESPN and Sky Sports — newest first.
         </p>
       </div>
 
@@ -90,15 +132,15 @@ export default function News() {
         <div class="sched-empty">Loading news…</div>
       ) : filtered.length === 0 ? (
         <div class="news-empty">
-          {live
+          {items.length
             ? 'No stories for this topic yet — check back soon.'
-            : 'Live news is unavailable right now. Please try again shortly.'}
+            : 'No World Cup stories right now. Please try again shortly.'}
         </div>
       ) : (
         <ul class="news-list">
           {filtered.map((n) => (
             <li class="news-card" key={n.id}>
-              <a class="news-link" href={n.url} target="_blank" rel="noopener noreferrer">
+              <button class="news-link" type="button" onClick={() => setSelected(n)}>
                 {n.imageUrl && (
                   <img class="news-img" src={n.imageUrl} alt="" loading="lazy" decoding="async" />
                 )}
@@ -116,11 +158,13 @@ export default function News() {
                     ))}
                   </div>
                 </div>
-              </a>
+              </button>
             </li>
           ))}
         </ul>
       )}
+
+      {selected && <NewsReader item={selected} tz={tz} onClose={() => setSelected(null)} />}
     </div>
   );
 }
