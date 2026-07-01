@@ -44,8 +44,10 @@ const asset = (p: string) => base.replace(/\/$/, '') + p;
         </div>
       </div>
       <div class="hdr-right">
-        <span id="live-pill" class="live-pill"><span class="pulse"></span>LIVE</span>
-        <span id="tz-badge" class="tz-badge">🕐 <span id="tz-label">Local</span></span>
+        <span id="live-pill" class="live-pill" title="This site is live and auto-refreshing">
+          <span class="pulse"></span><span id="live-label">Live</span>
+        </span>
+        <span id="tz-badge" class="tz-badge">🕐 <span id="tz-label"></span></span>
       </div>
     </header>
 
@@ -61,6 +63,24 @@ const asset = (p: string) => base.replace(/\/$/, '') + p;
           navigator.serviceWorker.register(swPath).catch(() => {});
         });
       }
+    </script>
+
+    <!-- Show the viewer's real timezone in the header on every page (the
+         interactive Schedule island only runs on one route). -->
+    <script is:inline>
+      (function () {
+        try {
+          var tz;
+          var raw = localStorage.getItem('wc2026:prefs');
+          if (raw) tz = (JSON.parse(raw) || {}).timezone;
+          tz = tz || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+          var seg = (tz.split('/').pop() || tz).replace(/_/g, ' ');
+          var el = document.getElementById('tz-label');
+          if (el) el.textContent = seg;
+        } catch (e) {
+          /* no-op */
+        }
+      })();
     </script>
   </body>
 </html>

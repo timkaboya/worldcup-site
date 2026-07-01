@@ -105,6 +105,8 @@ export default function Schedule() {
   useEffect(() => {
     const pill = document.getElementById('live-pill');
     if (pill) pill.classList.toggle('on', anyLive);
+    const liveLbl = document.getElementById('live-label');
+    if (liveLbl) liveLbl.textContent = anyLive ? 'LIVE' : 'Live';
     const lbl = document.getElementById('tz-label');
     if (lbl) lbl.textContent = tzShortLabel(tz);
   }, [anyLive, tz]);

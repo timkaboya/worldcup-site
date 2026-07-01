@@ -2,7 +2,7 @@
 
 **Status:** Living document (v0.2 — pre-implementation)
 **Owner:** @timkaboya
-**Related:** [`PRODUCT_SPEC.md`](./PRODUCT_SPEC.md) · Reference POC: [`../worldcup2026-eat.html`](../worldcup2026-eat.html)
+**Related:** [`PRODUCT_SPEC.md`](./PRODUCT_SPEC.md)
 
 ---
 
@@ -342,7 +342,6 @@ worldcup-site/
 ├─ docs/
 │  ├─ PRODUCT_SPEC.md
 │  └─ TECHNICAL_SPEC.md
-├─ worldcup2026-eat.html         # original POC (kept for reference)
 ├─ src/                          # Astro app (added at implementation time)
 │  ├─ pages/                     # schedule (index), tables, scorers, bracket, news
 │  ├─ components/                # islands + static components

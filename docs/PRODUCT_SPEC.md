@@ -2,7 +2,7 @@
 
 **Status:** Living document (v0.2 — pre-implementation)
 **Owner:** @timkaboya
-**Related:** [`TECHNICAL_SPEC.md`](./TECHNICAL_SPEC.md) · Reference POC: [`../worldcup2026-eat.html`](../worldcup2026-eat.html)
+**Related:** [`TECHNICAL_SPEC.md`](./TECHNICAL_SPEC.md)
 
 ---
 

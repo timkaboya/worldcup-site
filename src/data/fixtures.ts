@@ -1,6 +1,6 @@
 import type { Match, Stage, Team } from '../lib/types';
 
-// Canonical WC2026 fixtures, ported from the POC (worldcup2026-eat.html).
+// Canonical WC2026 fixtures, ported from the original single-file POC.
 // Kickoff times are UTC ISO-8601 — the single source of truth for time.
 // Team ids are stable slugs derived from the team name.
 
