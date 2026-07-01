@@ -59,6 +59,8 @@
 .mc:hover { border-color: var(--navy); box-shadow: var(--sh-md); }
 .mc:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .mc-chev { color: var(--text4); font-size: 1.3rem; line-height: 1; padding-right: .1rem; }
+.mc.fav { border-left-width: 3px; }
+.mc-fav { color: var(--gold); font-size: .8rem; line-height: 1; }
 .mc.past { background: var(--bg); border-color: var(--border-l); box-shadow: none; }
 .mc.live-m { border-color: var(--red); background: var(--red-bg); }
 .mc.t-mo { border-left: 3px solid var(--green); }

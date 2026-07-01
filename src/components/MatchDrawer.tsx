@@ -37,12 +37,16 @@ export default function MatchDrawer({
   tz,
   status,
   stats,
+  favorites,
+  onToggleFav,
   onClose,
 }: {
   match: Match;
   tz: string;
   status: MatchStatus;
   stats: MatchStats | null;
+  favorites?: Set<string>;
+  onToggleFav?: (teamId: string) => void;
   onClose: () => void;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
@@ -61,6 +65,22 @@ export default function MatchDrawer({
   }, [onClose]);
 
   const showScore = (status === 'finished' || status === 'live') && match.score;
+
+  const favBtn = (teamId: string, teamName: string) => {
+    if (!onToggleFav || !teamName) return null;
+    const on = favorites?.has(teamId) ?? false;
+    return (
+      <button
+        class={`fav-btn${on ? ' on' : ''}`}
+        onClick={() => onToggleFav(teamId)}
+        aria-pressed={on}
+        aria-label={`${on ? 'Unfollow' : 'Follow'} ${teamName}`}
+        title={on ? 'Unfollow' : 'Follow'}
+      >
+        {on ? '★' : '☆'}
+      </button>
+    );
+  };
 
   return (
     <div class="drawer-overlay" onClick={onClose}>
@@ -85,6 +105,7 @@ export default function MatchDrawer({
             <div class="dh-team">
               <EmojiFlag e={match.home.flag} />
               <span>{match.home.name}</span>
+              {favBtn(match.home.id, match.home.name)}
             </div>
             <div class="dh-score">
               {showScore ? (
@@ -100,6 +121,7 @@ export default function MatchDrawer({
             <div class="dh-team a">
               <EmojiFlag e={match.away.flag} />
               <span>{match.away.name || 'TBD'}</span>
+              {favBtn(match.away.id, match.away.name)}
             </div>
           </div>
           {status === 'live' && <div class="dh-live">● LIVE</div>}

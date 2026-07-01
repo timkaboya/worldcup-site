@@ -185,6 +185,9 @@
 .dh-team { display: flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .9rem; color: var(--text); }
 .dh-team .ef { font-size: 1.6em; }
 .dh-team.a { flex-direction: row-reverse; }
+.fav-btn { background: none; border: none; cursor: pointer; color: var(--text4); font-size: 1rem; line-height: 1; padding: .1rem; }
+.fav-btn.on { color: var(--gold); }
+.fav-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 3px; }
 .dh-score { display: flex; align-items: center; gap: .4rem; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--navy); line-height: 1; }
 .dh-dash { color: var(--text4); }
 .dh-vs { font-size: 1rem; color: var(--text4); }
@@ -207,3 +210,21 @@
 .stat-bar { height: 100%; }
 .stat-bar.h { background: var(--navy); }
 .stat-bar.a { background: var(--gold); }
+
+/* NEWS */
+.news-empty { color: var(--text3); text-align: center; padding: 2.5rem 1rem; font-size: .8rem; }
+.news-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-top: .9rem; }
+.news-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh); overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.news-card:hover { border-color: var(--navy); box-shadow: var(--sh-md); }
+.news-link { display: grid; grid-template-columns: 96px 1fr; text-decoration: none; color: inherit; }
+.news-link:has(.news-img) { min-height: 96px; }
+.news-card:not(:has(.news-img)) .news-link { grid-template-columns: 1fr; }
+.news-img { width: 96px; height: 100%; min-height: 96px; object-fit: cover; background: var(--bg); }
+.news-body { padding: .6rem .8rem; min-width: 0; }
+.news-title { font-size: .86rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+.news-summary { font-size: .72rem; color: var(--text3); margin-top: .25rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.news-meta { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; margin-top: .4rem; font-size: .62rem; color: var(--text4); }
+.news-source { font-weight: 700; color: var(--navy2); }
+.news-dot { color: var(--border); }
+.news-tag { text-transform: capitalize; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: .04rem .4rem; color: var(--text3); }
+@media (max-width: 420px) { .news-link { grid-template-columns: 72px 1fr; } .news-img { width: 72px; } }

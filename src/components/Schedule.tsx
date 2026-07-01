@@ -12,14 +12,15 @@ import {
   formatClock,
   partsInTz,
 } from '../lib/time';
-import { detectTimezone, loadPrefs, setTimezone, tzShortLabel } from '../lib/prefs';
+import { detectTimezone, loadPrefs, setTimezone, toggleFavorite, tzShortLabel } from '../lib/prefs';
 import { STATS } from '../data/stats';
 import MatchDrawer from './MatchDrawer';
 
-type Filter = 'all' | 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
+type Filter = 'all' | 'fav' | 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
 
 const FILTERS: { id: Filter; label: string }[] = [
   { id: 'all', label: 'All' },
+  { id: 'fav', label: '★ Favorites' },
   { id: 'group', label: 'Groups' },
   { id: 'r32', label: 'R32' },
   { id: 'r16', label: 'R16' },
@@ -38,7 +39,7 @@ const COMMON_TZS = [
 ];
 
 function stageMatchesFilter(stage: Stage, f: Filter): boolean {
-  if (f === 'all') return true;
+  if (f === 'all' || f === 'fav') return true;
   return stage === f;
 }
 
@@ -57,12 +58,18 @@ export default function Schedule() {
   const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [pollState, setPollState] = useState<'ok' | 'pend' | 'err'>('pend');
   const [selected, setSelected] = useState<Match | null>(null);
+  const [favorites, setFavorites] = useState<string[]>([]);
 
-  // Init timezone from prefs.
+  // Init timezone + favorites from prefs.
   useEffect(() => {
     const p = loadPrefs();
     setTz(p.timezone || detectTimezone());
+    setFavorites(p.favorites);
   }, []);
+
+  function onToggleFav(teamId: string) {
+    setFavorites(toggleFavorite(teamId).favorites);
+  }
 
   async function refresh() {
     setPollState('pend');
@@ -109,9 +116,16 @@ export default function Schedule() {
     setTimezone(next);
   }
 
+  const favSet = useMemo(() => new Set(favorites), [favorites]);
+
   const filtered = useMemo(
-    () => matches.filter((m) => stageMatchesFilter(m.stage, filter)),
-    [matches, filter]
+    () =>
+      matches.filter((m) => {
+        if (!stageMatchesFilter(m.stage, filter)) return false;
+        if (filter === 'fav') return favSet.has(m.home.id) || favSet.has(m.away.id);
+        return true;
+      }),
+    [matches, filter, favSet]
   );
 
   // Group by day (in selected tz), sorted.
@@ -223,7 +237,13 @@ export default function Schedule() {
       </div>
 
       <div id="sched-list">
-        {days.length === 0 && !loading && <div class="sched-empty">No matches for this filter.</div>}
+        {days.length === 0 && !loading && (
+          <div class="sched-empty">
+            {filter === 'fav'
+              ? 'No favorite teams yet. Open a match and tap ☆ to follow a team.'
+              : 'No matches for this filter.'}
+          </div>
+        )}
         {days.map((d) => {
           const isToday = d.key === today;
           const isPast = d.key < today;
@@ -236,7 +256,7 @@ export default function Schedule() {
               </div>
               <div class="matches">
                 {d.matches.map((m) => (
-                  <MatchCard m={m} tz={tz} st={statusOf(m, now)} onOpen={() => setSelected(m)} key={m.id} />
+                  <MatchCard m={m} tz={tz} st={statusOf(m, now)} fav={favSet} onOpen={() => setSelected(m)} key={m.id} />
                 ))}
               </div>
             </div>
@@ -250,6 +270,8 @@ export default function Schedule() {
           tz={tz}
           status={statusOf(selected, now)}
           stats={STATS[selected.id] ?? null}
+          favorites={favSet}
+          onToggleFav={onToggleFav}
           onClose={() => setSelected(null)}
         />
       )}
@@ -257,14 +279,15 @@ export default function Schedule() {
   );
 }
 
-function MatchCard({ m, tz, st, onOpen }: { m: Match; tz: string; st: MatchStatus; onOpen: () => void }) {
+function MatchCard({ m, tz, st, fav, onOpen }: { m: Match; tz: string; st: MatchStatus; fav: Set<string>; onOpen: () => void }) {
   const hour = partsInTz(m.utc, tz).hour;
   const bucket = timeBucket(hour);
   const showScore = (st === 'finished' || st === 'live') && m.score;
+  const isFav = fav.has(m.home.id) || fav.has(m.away.id);
   return (
     <button
       type="button"
-      class={`mc ${bucket}${st === 'finished' ? ' past' : ''}${st === 'live' ? ' live-m' : ''}`}
+      class={`mc ${bucket}${st === 'finished' ? ' past' : ''}${st === 'live' ? ' live-m' : ''}${isFav ? ' fav' : ''}`}
       onClick={onOpen}
       aria-label={`${m.home.name} versus ${m.away.name || 'TBD'} — view details`}
     >
@@ -285,6 +308,7 @@ function MatchCard({ m, tz, st, onOpen }: { m: Match; tz: string; st: MatchStatu
         )}
         <div class="mc-meta">
           {m.group ? <span class="mc-grp">Grp {m.group}</span> : <span class={`mc-grp ko`}>{m.stage.toUpperCase()}</span>}
+          {isFav && <span class="mc-fav" aria-label="Favorite team">★</span>}
           <span class="mc-venue">{m.venue}</span>
         </div>
       </div>
