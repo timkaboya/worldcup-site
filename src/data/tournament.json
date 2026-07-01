@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-01T17:53:41.349Z",
+  "updatedUtc": "2026-07-01T18:14:34.101Z",
   "matches": [
     {
       "id": 760415,
@@ -2194,10 +2194,11 @@
         "home": 2,
         "away": 1
       },
-      "status": "live",
+      "status": "finished",
       "sources": [
         "ESPN"
-      ]
+      ],
+      "winner": "home"
     },
     {
       "id": 760493,
@@ -2440,9 +2441,9 @@
         "flag": "🇲🇽"
       },
       "away": {
-        "id": "rd32-w8",
-        "name": "RD32 W8",
-        "flag": "⚽"
+        "id": "england",
+        "name": "England",
+        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
       },
       "venue": "Estadio Banorte, Mexico City",
       "score": null,
@@ -3730,6 +3731,16 @@
       "assists": 1
     },
     {
+      "name": "Harry Kane",
+      "team": {
+        "id": "england",
+        "name": "England",
+        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+      },
+      "goals": 4,
+      "assists": 0
+    },
+    {
       "name": "Deniz Undav",
       "team": {
         "id": "germany",
@@ -3965,16 +3976,6 @@
         "id": "portugal",
         "name": "Portugal",
         "flag": "🇵🇹"
-      },
-      "goals": 2,
-      "assists": 0
-    },
-    {
-      "name": "Cyle Larin",
-      "team": {
-        "id": "canada",
-        "name": "Canada",
-        "flag": "🇨🇦"
       },
       "goals": 2,
       "assists": 0

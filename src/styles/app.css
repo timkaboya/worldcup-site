@@ -168,40 +168,74 @@
 .sc-ast { font-size: .58rem; color: var(--text3); background: var(--bg); border: 1px solid var(--border); padding: .05rem .3rem; border-radius: 999px; margin-left: .2rem; }
 @media (max-width: 440px) { .scorer-row { grid-template-columns: 1.4rem 1.4rem 1fr auto; } .sc-bar-wrap { display: none; } }
 
-/* BRACKET */
-.bracket-scroll { overflow-x: auto; padding-bottom: .5rem; }
-.bracket { display: flex; gap: 1rem; min-width: min-content; }
-.br-col { flex: 0 0 auto; width: 12rem; }
-.br-col-hdr { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text4); margin-bottom: .5rem; padding-bottom: .3rem; border-bottom: 1px solid var(--border); }
-.br-col-body { display: flex; flex-direction: column; gap: .5rem; }
-.br-tie { background: var(--card); border: 1px solid var(--border); border-radius: var(--rs); box-shadow: var(--sh); overflow: hidden; }
-.br-tie.played { border-color: var(--navy2); }
-.br-team { display: grid; grid-template-columns: 1.4rem 1fr auto; align-items: center; gap: .4rem; padding: .4rem .55rem; font-size: .72rem; }
-.br-team + .br-team { border-top: 1px solid var(--border-l); }
-.br-flag { font-size: 1.1em; text-align: center; }
-.br-name { color: var(--text2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.br-score { font-family: 'Bebas Neue', sans-serif; font-size: .95rem; color: var(--navy); }
-.br-team.br-win .br-name { color: var(--navy); font-weight: 700; }
-.br-team.br-win .br-score { color: var(--gold, #d4a017); }
-.br-tie.br-live { border-color: #d33; box-shadow: 0 0 0 2px rgba(221,51,51,.15); }
-.br-note { padding: .3rem .55rem; font-size: .62rem; color: var(--text2); background: var(--border-l); border-top: 1px solid var(--border); }
+/* BRACKET — circular / radial */
 .bracket-note { margin: 0 0 .6rem; }
+.rbracket { display: flex; flex-direction: column; align-items: center; }
+.rbracket-stage {
+  position: relative;
+  width: min(92vw, 720px);
+  aspect-ratio: 1 / 1;
+  margin: .25rem auto .5rem;
+}
+.rbracket-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.rb-conn { fill: none; stroke: #b7c0d6; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.rb-dot { fill: #b7c0d6; }
+.rb-label { fill: var(--text3); font-size: 15px; font-weight: 600; font-family: inherit; }
+.rb-champ-ring { fill: none; stroke: var(--gold, #d4a017); stroke-width: 2; opacity: .5; }
 
-/* Two-sided bracket: left half → Final (center) ← right half.
-   .bracket-fit scales the whole tree to fit the viewport (no horizontal scroll). */
-.bracket-fit { overflow: hidden; }
-.bracket2 { display: flex; align-items: stretch; gap: 1rem; width: max-content; }
-.br-side { display: flex; gap: 1rem; }
-.br-side .br-col-body { justify-content: space-around; height: 100%; }
-.br-side .br-col { display: flex; flex-direction: column; }
-.br-final-col { flex: 0 0 auto; width: 12.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: .5rem; }
-.br-final-hdr, .br-third-hdr { text-align: center; color: var(--navy); border-bottom-color: var(--navy2); }
-.br-final-col > .br-tie { border-color: var(--gold, #d4a017); box-shadow: 0 0 0 2px rgba(212,160,23,.18), var(--sh); }
-.br-final-col .br-third-hdr { margin-top: .6rem; }
-.br-tie.br-tbd { padding: .6rem; text-align: center; color: var(--text4); font-size: .7rem; }
-@media (max-width: 720px) {
-  .br-col, .br-side .br-col { width: 10.5rem; }
-  .br-final-col { width: 11rem; }
+/* Circular flags positioned over the SVG */
+.rb-flag {
+  position: absolute; transform: translate(-50%, -50%);
+  padding: 0; border: 2px solid #fff; border-radius: 50%;
+  background: var(--card); box-shadow: 0 1px 4px rgba(13,27,62,.22);
+  cursor: pointer; overflow: hidden; aspect-ratio: 1 / 1; line-height: 0;
+  transition: transform .15s ease, box-shadow .15s ease, width .2s ease;
+}
+.rb-flag img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rb-flag .ef { font-size: 1.1rem; }
+.rb-flag.lvl0 { width: 6.6%; }
+.rb-flag.lvl1 { width: 5.7%; }
+.rb-flag.lvl2 { width: 5.3%; }
+.rb-flag.lvl3 { width: 5.1%; }
+.rb-flag.lvl4 { width: 5.1%; }
+.rb-flag:hover, .rb-flag:focus-visible { transform: translate(-50%, -50%) scale(1.16); box-shadow: 0 3px 10px rgba(13,27,62,.35); outline: none; z-index: 5; }
+.rb-flag.win { border-color: var(--gold, #d4a017); }
+.rb-flag.out { filter: grayscale(.7) opacity(.55); }
+
+/* Center trophy / champion */
+.rb-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 4; }
+.rb-champ {
+  display: flex; flex-direction: column; align-items: center; gap: .3rem;
+  background: none; border: 0; cursor: pointer; padding: 0;
+}
+.rb-champ img { width: 3.4rem; height: 3.4rem; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--gold, #d4a017); box-shadow: 0 0 0 4px rgba(212,160,23,.18), 0 3px 10px rgba(13,27,62,.3); }
+.rb-champ .ef, .rb-trophy { font-size: 2.4rem; line-height: 1; }
+.rb-champ-name { font-family: 'Bebas Neue', sans-serif; letter-spacing: .04em; font-size: 1rem; color: var(--navy); white-space: nowrap; }
+.rb-champ-tbd .rb-champ-name { color: var(--text4); }
+
+.rb-hint { color: var(--text4); font-size: .72rem; text-align: center; margin: .1rem 0 .3rem; }
+
+/* Third-place play-off card */
+.rb-third { margin: .4rem auto 0; width: min(92vw, 340px); }
+.rb-third-hdr { text-align: center; font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text4); margin-bottom: .35rem; }
+.rb-third-card { display: flex; flex-direction: column; gap: 0; width: 100%; text-align: left;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--rs); box-shadow: var(--sh); overflow: hidden; cursor: pointer; }
+.rb-third-row { display: grid; grid-template-columns: 1.6rem 1fr auto; align-items: center; gap: .5rem; padding: .45rem .6rem; font-size: .8rem; }
+.rb-third-row + .rb-third-row { border-top: 1px solid var(--border-l); }
+.rb-third-flag { width: 1.4rem; height: 1.4rem; border-radius: 50%; object-fit: cover; }
+.rb-third-name { color: var(--text2); font-weight: 500; }
+.rb-third-row.win .rb-third-name { color: var(--navy); font-weight: 700; }
+.rb-third-score { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--navy); }
+
+@media (max-width: 520px) {
+  .rb-label { font-size: 20px; }
+  .rb-champ-name { font-size: .82rem; }
+  .rb-flag.lvl0 { width: 7.4%; }
+  .rb-flag.lvl1 { width: 6.4%; }
+  .rb-flag.lvl2 { width: 6%; }
+  .rb-flag.lvl3 { width: 5.7%; }
+  .rb-flag.lvl4 { width: 5.7%; }
 }
 
 /* MATCH DRAWER */
