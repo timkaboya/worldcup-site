@@ -187,8 +187,10 @@
 .br-note { padding: .3rem .55rem; font-size: .62rem; color: var(--text2); background: var(--border-l); border-top: 1px solid var(--border); }
 .bracket-note { margin: 0 0 .6rem; }
 
-/* Two-sided bracket: left half → Final (center) ← right half */
-.bracket2 { display: flex; align-items: stretch; gap: 1rem; min-width: min-content; }
+/* Two-sided bracket: left half → Final (center) ← right half.
+   .bracket-fit scales the whole tree to fit the viewport (no horizontal scroll). */
+.bracket-fit { overflow: hidden; }
+.bracket2 { display: flex; align-items: stretch; gap: 1rem; width: max-content; }
 .br-side { display: flex; gap: 1rem; }
 .br-side .br-col-body { justify-content: space-around; height: 100%; }
 .br-side .br-col { display: flex; flex-direction: column; }

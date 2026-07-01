@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Match, Stage } from '../lib/types';
 import { fetchScores } from '../lib/api';
 
@@ -38,6 +38,8 @@ export default function Bracket() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [live, setLive] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
 
   async function refresh() {
     try {
@@ -56,6 +58,32 @@ export default function Bracket() {
     const poll = setInterval(refresh, 60_000);
     return () => clearInterval(poll);
   }, []);
+
+  // Scale the full bracket to fit the container width — no horizontal scroll on
+  // desktop or mobile; the whole tree is always visible.
+  function fit() {
+    const wrap = wrapRef.current;
+    const inner = innerRef.current;
+    if (!wrap || !inner) return;
+    inner.style.transform = 'none';
+    const natW = inner.scrollWidth;
+    const natH = inner.scrollHeight;
+    if (!natW) return;
+    const wrapW = wrap.clientWidth;
+    const s = Math.min(1, wrapW / natW);
+    const tx = Math.max(0, (wrapW - natW * s) / 2);
+    inner.style.transformOrigin = 'top left';
+    inner.style.transform = `translateX(${tx}px) scale(${s})`;
+    wrap.style.height = `${Math.ceil(natH * s)}px`;
+  }
+
+  useEffect(() => {
+    fit();
+    const onResize = () => fit();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matches, loading]);
 
   if (loading) return <div class="sched-empty">Loading bracket…</div>;
 
@@ -101,8 +129,8 @@ export default function Bracket() {
       {!live && (
         <p class="tbl-note bracket-note">Live sources unreachable · showing last confirmed bracket.</p>
       )}
-      <div class="bracket-scroll">
-        <div class="bracket2">
+      <div class="bracket-fit" ref={wrapRef}>
+        <div class="bracket2" ref={innerRef}>
           <SideCols side="left" />
           <div class="br-final-col">
             <div class="br-col-hdr br-final-hdr">🏆 Final</div>
