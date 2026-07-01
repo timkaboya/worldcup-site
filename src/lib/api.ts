@@ -1,5 +1,6 @@
 import type { MatchDetail, NewsSnapshot, ScoresSnapshot, Standing } from './types';
 import { espnSummaryUrl, mapSummary } from './espn';
+import { withBase } from './base';
 
 export interface FetchResult {
   snapshot: ScoresSnapshot;
@@ -24,13 +25,13 @@ async function getJson(url: string, timeoutMs = 8000): Promise<ScoresSnapshot> {
  */
 export async function fetchScores(): Promise<FetchResult> {
   try {
-    const snapshot = await getJson('/api/scores');
+    const snapshot = await getJson(withBase('/api/scores'));
     const sources = Array.from(
       new Set(snapshot.matches.flatMap((m) => m.sources ?? []))
     );
     return { snapshot, live: true, sources };
   } catch {
-    const snapshot = await getJson('/fixtures.json');
+    const snapshot = await getJson(withBase('/fixtures.json'));
     return { snapshot, live: false, sources: [] };
   }
 }
@@ -59,10 +60,10 @@ export async function fetchStandings(): Promise<StandingsResult> {
     }
   };
   try {
-    return { standings: await get('/api/standings'), live: true };
+    return { standings: await get(withBase('/api/standings')), live: true };
   } catch {
     try {
-      return { standings: await get('/standings.json'), live: false };
+      return { standings: await get(withBase('/standings.json')), live: false };
     } catch {
       return { standings: [], live: false };
     }
@@ -91,11 +92,11 @@ export async function fetchNews(): Promise<NewsResult> {
     }
   };
   try {
-    const snapshot = await get('/api/news');
+    const snapshot = await get(withBase('/api/news'));
     if (!snapshot.items?.length) throw new Error('empty');
     return { snapshot, live: true };
   } catch {
-    const snapshot = await get('/news.json').catch(
+    const snapshot = await get(withBase('/news.json')).catch(
       () => ({ version: 1, updatedUtc: new Date().toISOString(), items: [] }) as NewsSnapshot
     );
     return { snapshot, live: false };
@@ -119,7 +120,7 @@ export async function fetchMatchDetail(eventId: number): Promise<MatchDetail | n
     }
   };
   try {
-    const r = await withTimeout(`/api/match?event=${eventId}`);
+    const r = await withTimeout(withBase(`/api/match?event=${eventId}`));
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return (await r.json()) as MatchDetail;
   } catch {

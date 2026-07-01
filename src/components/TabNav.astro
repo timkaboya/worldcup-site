@@ -4,6 +4,9 @@ interface Props {
 }
 const { active } = Astro.props;
 
+const base = import.meta.env.BASE_URL; // '/', or e.g. '/worldcup-site/'
+const link = (href: string) => (href === '/' ? base : base.replace(/\/$/, '') + href);
+
 const tabs = [
   { id: 'schedule', href: '/', emoji: '📅', label: 'Schedule' },
   { id: 'tables', href: '/tables', emoji: '📊', label: 'Tables' },
@@ -18,7 +21,7 @@ const tabs = [
     tabs.map((t) => (
       <a
         class:list={['tab', { active: active === t.id }]}
-        href={t.href}
+        href={link(t.href)}
         aria-label={t.label}
         aria-current={active === t.id ? 'page' : undefined}
       >

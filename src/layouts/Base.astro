@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { title = 'World Cup 2026', active } = Astro.props;
+const base = import.meta.env.BASE_URL; // '/', or e.g. '/worldcup-site/'
+const asset = (p: string) => base.replace(/\/$/, '') + p;
 ---
 
 <!DOCTYPE html>
@@ -22,8 +24,8 @@ const { title = 'World Cup 2026', active } = Astro.props;
       content="Follow the FIFA World Cup 2026 — live scores, stats, tables, top scorers, bracket, and news, in your timezone. No sign-up."
     />
     <title>{title}</title>
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href={asset('/manifest.webmanifest')} />
+    <link rel="icon" href={asset('/icons/favicon.svg')} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,10 +55,10 @@ const { title = 'World Cup 2026', active } = Astro.props;
       <slot />
     </main>
 
-    <script is:inline>
+    <script is:inline define:vars={{ swPath: asset('/sw.js') }}>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(() => {});
+          navigator.serviceWorker.register(swPath).catch(() => {});
         });
       }
     </script>

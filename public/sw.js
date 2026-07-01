@@ -6,24 +6,29 @@
 //     network-first so the latest scores/tables/bracket always win, with a
 //     cached last-known snapshot as offline fallback.
 //   • Other static assets (JS/CSS/icons): cache-first, revalidate in background.
-const VERSION = 'wc2026-v8';
+const VERSION = 'wc2026-v9';
 const SHELL = `${VERSION}-shell`;
 const RUNTIME = `${VERSION}-runtime`;
 
+// Base path this SW controls: '' at the site root (Cloudflare), or e.g.
+// '/worldcup-site' under a GitHub Pages project subpath. Derived from the
+// registration scope so the same file works on both deployments.
+const BASE = new URL(self.registration.scope).pathname.replace(/\/$/, '');
+
 const PRECACHE = [
-  '/',
-  '/tables/',
-  '/scorers/',
-  '/bracket/',
-  '/news/',
-  '/fixtures.json',
-  '/standings.json',
-  '/scorers.json',
-  '/news.json',
-  '/manifest.webmanifest',
-  '/icons/favicon.svg',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  `${BASE}/`,
+  `${BASE}/tables/`,
+  `${BASE}/scorers/`,
+  `${BASE}/bracket/`,
+  `${BASE}/news/`,
+  `${BASE}/fixtures.json`,
+  `${BASE}/standings.json`,
+  `${BASE}/scorers.json`,
+  `${BASE}/news.json`,
+  `${BASE}/manifest.webmanifest`,
+  `${BASE}/icons/favicon.svg`,
+  `${BASE}/icons/icon-192.png`,
+  `${BASE}/icons/icon-512.png`,
 ];
 
 self.addEventListener('install', (event) => {
@@ -94,12 +99,13 @@ function cacheFirst(request) {
 
 // Fresh-data endpoints: live API + build-time data snapshots.
 function isData(pathname) {
+  const rel = pathname.startsWith(BASE) ? pathname.slice(BASE.length) : pathname;
   return (
-    pathname.startsWith('/api/') ||
-    pathname === '/fixtures.json' ||
-    pathname === '/standings.json' ||
-    pathname === '/scorers.json' ||
-    pathname === '/news.json'
+    rel.startsWith('/api/') ||
+    rel === '/fixtures.json' ||
+    rel === '/standings.json' ||
+    rel === '/scorers.json' ||
+    rel === '/news.json'
   );
 }
 
@@ -115,7 +121,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (request.mode === 'navigate') {
-    event.respondWith(networkFirst(request, 3500).then((res) => res || caches.match('/')));
+    event.respondWith(networkFirst(request, 3500).then((res) => res || caches.match(`${BASE}/`)));
     return;
   }
 
