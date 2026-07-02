@@ -14,6 +14,27 @@ The app is a static Astro site plus Cloudflare Pages Functions for the read-only
    `GET /api/scores` runs at the edge (aggregating live sources server-side, edge-cached ~30s).
 5. Preview deployments are created automatically for each pull request.
 
+### Automated deploys via GitHub Actions (fallback)
+
+Cloudflare's Git integration occasionally stops picking up new commits. The
+`.github/workflows/deploy-cloudflare.yml` workflow is a reliable fallback: on every
+push to `main` it builds the site and runs `wrangler pages deploy dist
+--project-name=worldcup-site --branch=main`, updating the **same** Live Pages project.
+
+It is a safe no-op until you enable it — the deploy step only runs when the
+`CLOUDFLARE_API_TOKEN` secret is present. To turn it on, add two **repository secrets**
+(Settings → Secrets and variables → Actions):
+
+| Secret | How to get it |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → My Profile → API Tokens → Create Token → **Cloudflare Pages: Edit** template. |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → Workers & Pages → right sidebar **Account ID**. |
+
+The public Paystack build vars are read from repository **Variables**
+(`PUBLIC_PAYSTACK_KEY`, `PUBLIC_PAYSTACK_CURRENCY`); the Paystack secret key stays in the
+Cloudflare project environment (runtime only). After adding the secrets, re-run the workflow
+(Actions → Deploy to Cloudflare Pages → Run workflow) or push any commit.
+
 No environment variables or KV bindings are required for the MVP: `/api/scores` aggregates the
 public sources at request time and relies on Cloudflare's edge cache. If provider rate limits
 become an issue at tournament scale, add a Workers KV binding + a scheduled Worker to refresh a
