@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: 'schedule' | 'tables' | 'scorers' | 'bracket' | 'news';
+  active: 'schedule' | 'tables' | 'scorers' | 'assists' | 'bracket' | 'news';
 }
 const { active } = Astro.props;
 
@@ -10,7 +10,8 @@ const link = (href: string) => (href === '/' ? base : base.replace(/\/$/, '') + 
 const tabs = [
   { id: 'schedule', href: '/', emoji: '📅', label: 'Schedule' },
   { id: 'tables', href: '/tables', emoji: '📊', label: 'Tables' },
-  { id: 'scorers', href: '/scorers', emoji: '👟', label: 'Scorers' },
+  { id: 'scorers', href: '/scorers', emoji: '👟', label: 'Top Scorers' },
+  { id: 'assists', href: '/assists', emoji: '🅰️', label: 'Assists' },
   { id: 'bracket', href: '/bracket', emoji: '🏆', label: 'Bracket' },
   { id: 'news', href: '/news', emoji: '📰', label: 'News' },
 ] as const;

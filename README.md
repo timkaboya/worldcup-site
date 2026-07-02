@@ -1,7 +1,7 @@
 # World Cup 2026 Companion ⚽
 
 A fast, lightweight web app for following the **FIFA World Cup 2026** in real time — live
-scores, match stats, group tables, top scorers, a circular knockout bracket, and curated news —
+scores, match stats, group tables, top scorers, assists, a circular knockout bracket, and curated news —
 localized to **your timezone**, on mobile and web, with **no sign-up**.
 
 Static-first, installable (PWA), and backed only by a thin read-only edge data layer.
@@ -24,6 +24,7 @@ falls back to the prerendered JSON snapshots, so it's ideal for previewing UI ch
 - **Live scores & match detail** — expandable match view with facts, line-ups, and stats.
 - **Group tables** — standings with qualification highlighting.
 - **Top scorers** — the Golden Boot race.
+- **Assists** — the playmaker race, ranking the tournament's top assist providers.
 - **Bracket** — a circular knockout tree that fills in as matches finish; tap any flag for details.
 - **News** — curated, attributed World Cup stories from reputable outlets, newest first.
 - **PWA** — installable, offline-tolerant, with a service worker.

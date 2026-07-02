@@ -6,6 +6,7 @@
 //   public/fixtures.json    — ScoresSnapshot (all matches, real teams/scores/bracket)
 //   public/standings.json   — Standing[] (official group tables)
 //   public/scorers.json     — Scorer[] (aggregated golden-boot race)
+//   public/assists.json     — Scorer[] (aggregated assist providers)
 //   src/data/tournament.json — combined payload for SSG pages
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -69,8 +70,8 @@ async function fetchAllMatches(): Promise<Match[]> {
   return Array.from(byId.values()).sort((a, b) => a.utc.localeCompare(b.utc));
 }
 
-// Aggregate real top scorers from finished-match key events.
-async function fetchScorers(matches: Match[]): Promise<Scorer[]> {
+// Aggregate real top scorers AND assist providers from finished-match key events.
+async function fetchLeaders(matches: Match[]): Promise<{ scorers: Scorer[]; assists: Scorer[] }> {
   const finished = matches.filter((m) => m.status === 'finished');
   const tally = new Map<string, Scorer>();
   const teamByName = (name: string, flag: string): Team => ({ id: teamId(name), name, flag });
@@ -130,10 +131,16 @@ async function fetchScorers(matches: Match[]): Promise<Scorer[]> {
   };
   await Promise.all(Array.from({ length: 5 }, worker));
 
-  return Array.from(tally.values())
+  const all = Array.from(tally.values());
+  const scorers = all
     .filter((s) => s.goals > 0)
     .sort((a, b) => b.goals - a.goals || b.assists - a.assists || a.name.localeCompare(b.name))
     .slice(0, 30);
+  const assists = all
+    .filter((s) => s.assists > 0)
+    .sort((a, b) => b.assists - a.assists || b.goals - a.goals || a.name.localeCompare(b.name))
+    .slice(0, 30);
+  return { scorers, assists };
 }
 
 function write(rel: string, data: unknown) {
@@ -151,9 +158,9 @@ async function main() {
   const { standings, groupOf } = parseStandings(standingsJson);
   assignGroups(matches, groupOf);
 
-  const scorers = await fetchScorers(matches).catch((e) => {
-    console.warn('scorer aggregation failed:', e);
-    return [] as Scorer[];
+  const { scorers, assists } = await fetchLeaders(matches).catch((e) => {
+    console.warn('leader aggregation failed:', e);
+    return { scorers: [] as Scorer[], assists: [] as Scorer[] };
   });
 
   const updatedUtc = new Date().toISOString();
@@ -162,11 +169,12 @@ async function main() {
   // from src/data/tournament.json, so we don't write public/fixtures.json here.
   write('public/standings.json', { version: 1, updatedUtc, standings });
   write('public/scorers.json', { version: 1, updatedUtc, scorers });
-  write('src/data/tournament.json', { version: 1, updatedUtc, matches, standings, scorers });
+  write('public/assists.json', { version: 1, updatedUtc, assists });
+  write('src/data/tournament.json', { version: 1, updatedUtc, matches, standings, scorers, assists });
 
   const played = matches.filter((m) => m.score).length;
   console.log(
-    `Done: ${matches.length} matches (${played} played), ${standings.length} groups, ${scorers.length} scorers.`
+    `Done: ${matches.length} matches (${played} played), ${standings.length} groups, ${scorers.length} scorers, ${assists.length} assist providers.`
   );
 }
 

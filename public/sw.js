@@ -6,7 +6,7 @@
 //     network-first so the latest scores/tables/bracket always win, with a
 //     cached last-known snapshot as offline fallback.
 //   • Other static assets (JS/CSS/icons): cache-first, revalidate in background.
-const VERSION = 'wc2026-v15';
+const VERSION = 'wc2026-v16';
 const SHELL = `${VERSION}-shell`;
 const RUNTIME = `${VERSION}-runtime`;
 
@@ -19,11 +19,13 @@ const PRECACHE = [
   `${BASE}/`,
   `${BASE}/tables/`,
   `${BASE}/scorers/`,
+  `${BASE}/assists/`,
   `${BASE}/bracket/`,
   `${BASE}/news/`,
   `${BASE}/fixtures.json`,
   `${BASE}/standings.json`,
   `${BASE}/scorers.json`,
+  `${BASE}/assists.json`,
   `${BASE}/news.json`,
   `${BASE}/manifest.webmanifest`,
   `${BASE}/icons/favicon.svg`,
@@ -105,6 +107,7 @@ function isData(pathname) {
     rel === '/fixtures.json' ||
     rel === '/standings.json' ||
     rel === '/scorers.json' ||
+    rel === '/assists.json' ||
     rel === '/news.json'
   );
 }

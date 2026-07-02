@@ -39,7 +39,8 @@ test('primary navigation reaches every section', async ({ page }) => {
   await page.goto('/');
   for (const [name, heading] of [
     ['Tables', 'Group Standings'],
-    ['Scorers', 'Golden Boot Race'],
+    ['Top Scorers', 'Golden Boot Race'],
+    ['Assists', 'Playmaker Race'],
     ['Bracket', 'Knockout Bracket'],
     ['News', 'World Cup News'],
   ] as const) {

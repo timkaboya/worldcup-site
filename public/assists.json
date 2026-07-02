@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "updatedUtc": "2026-07-02T15:00:28.953Z",
+  "assists": [
+    {
+      "name": "Michael Olise",
+      "team": {
+        "id": "france",
+        "name": "France",
+        "flag": "🇫🇷"
+      },
+      "goals": 0,
+      "assists": 5
+    },
+    {
+      "name": "Bruno Guimarães",
+      "team": {
+        "id": "brazil",
+        "name": "Brazil",
+        "flag": "🇧🇷"
+      },
+      "goals": 0,
+      "assists": 4
+    },
+    {
+      "name": "Alexander Isak",
+      "team": {
+        "id": "sweden",
+        "name": "Sweden",
+        "flag": "🇸🇪"
+      },
+      "goals": 1,
+      "assists": 3
+    },
+    {
+      "name": "Florian Wirtz",
+      "team": {
+        "id": "germany",
+        "name": "Germany",
+        "flag": "🇩🇪"
+      },
+      "goals": 0,
+      "assists": 3
+    },
+    {
+      "name": "Martin Ødegaard",
+      "team": {
+        "id": "norway",
+        "name": "Norway",
+        "flag": "🇳🇴"
+      },
+      "goals": 0,
+      "assists": 3
+    },
+    {
+      "name": "Roberto Alvarado",
+      "team": {
+        "id": "mexico",
+        "name": "Mexico",
+        "flag": "🇲🇽"
+      },
+      "goals": 0,
+      "assists": 3
+    },
+    {
+      "name": "Kylian Mbappé",
+      "team": {
+        "id": "france",
+        "name": "France",
+        "flag": "🇫🇷"
+      },
+      "goals": 6,
+      "assists": 2
+    },
+    {
+      "name": "Ousmane Dembélé",
+      "team": {
+        "id": "france",
+        "name": "France",
+        "flag": "🇫🇷"
+      },
+      "goals": 4,
+      "assists": 2
+    },
+    {
+      "name": "Deniz Undav",
+      "team": {
+        "id": "germany",
+        "name": "Germany",
+        "flag": "🇩🇪"
+      },
+      "goals": 3,
+      "assists": 2
+    },
+    {
+      "name": "Crysencio Summerville",
+      "team": {
+        "id": "netherlands",
+        "name": "Netherlands",
+        "flag": "🇳🇱"
+      },
+      "goals": 2,
+      "assists": 2
+    },
+    {
+      "name": "Iliman Ndiaye",
+      "team": {
+        "id": "senegal",
+        "name": "Senegal",
+        "flag": "🇸🇳"
+      },
+      "goals": 1,
+      "assists": 2
+    },
+    {
+      "name": "Julio Enciso",
+      "team": {
+        "id": "paraguay",
+        "name": "Paraguay",
+        "flag": "🇵🇾"
+      },
+      "goals": 1,
+      "assists": 2
+    },
+    {
+      "name": "Mohamed Salah",
+      "team": {
+        "id": "egypt",
+        "name": "Egypt",
+        "flag": "🇪🇬"
+      },
+      "goals": 1,
+      "assists": 2
+    },
+    {
+      "name": "Nathan Saliba",
+      "team": {
+        "id": "canada",
+        "name": "Canada",
+        "flag": "🇨🇦"
+      },
+      "goals": 1,
+      "assists": 2
+    },
+    {
+      "name": "Viktor Gyökeres",
+      "team": {
+        "id": "sweden",
+        "name": "Sweden",
+        "flag": "🇸🇪"
+      },
+      "goals": 1,
+      "assists": 2
+    },
+    {
+      "name": "Anthony Gordon",
+      "team": {
+        "id": "england",
+        "name": "England",
+        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Brahim Díaz",
+      "team": {
+        "id": "morocco",
+        "name": "Morocco",
+        "flag": "🇲🇦"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Breel Embolo",
+      "team": {
+        "id": "switzerland",
+        "name": "Switzerland",
+        "flag": "🇨🇭"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Bukayo Saka",
+      "team": {
+        "id": "england",
+        "name": "England",
+        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Chris Wood",
+      "team": {
+        "id": "new-zealand",
+        "name": "New Zealand",
+        "flag": "🇳🇿"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Denzel Dumfries",
+      "team": {
+        "id": "netherlands",
+        "name": "Netherlands",
+        "flag": "🇳🇱"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Hannibal Mejbri",
+      "team": {
+        "id": "tunisia",
+        "name": "Tunisia",
+        "flag": "🇹🇳"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Houssem Aouar",
+      "team": {
+        "id": "algeria",
+        "name": "Algeria",
+        "flag": "🇩🇿"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Joshua Kimmich",
+      "team": {
+        "id": "germany",
+        "name": "Germany",
+        "flag": "🇩🇪"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Patrick Berg",
+      "team": {
+        "id": "norway",
+        "name": "Norway",
+        "flag": "🇳🇴"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Ryan Gravenberch",
+      "team": {
+        "id": "netherlands",
+        "name": "Netherlands",
+        "flag": "🇳🇱"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
+      "name": "Ismaïla Sarr",
+      "team": {
+        "id": "senegal",
+        "name": "Senegal",
+        "flag": "🇸🇳"
+      },
+      "goals": 4,
+      "assists": 1
+    },
+    {
+      "name": "Vinícius Júnior",
+      "team": {
+        "id": "brazil",
+        "name": "Brazil",
+        "flag": "🇧🇷"
+      },
+      "goals": 4,
+      "assists": 1
+    },
+    {
+      "name": "Cody Gakpo",
+      "team": {
+        "id": "netherlands",
+        "name": "Netherlands",
+        "flag": "🇳🇱"
+      },
+      "goals": 3,
+      "assists": 1
+    },
+    {
+      "name": "Johan Manzambi",
+      "team": {
+        "id": "switzerland",
+        "name": "Switzerland",
+        "flag": "🇨🇭"
+      },
+      "goals": 3,
+      "assists": 1
+    }
+  ]
+}
