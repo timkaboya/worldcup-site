@@ -4,8 +4,7 @@
 // canonical model, tag group-stage matches with their group, and return a
 // ScoresSnapshot. Edge-cached briefly so live matches update without hammering.
 
-import { ESPN_BASE, ESPN_STANDINGS, assignGroups, mapScoreboard, parseStandings } from '../../src/lib/espn';
-import type { Match } from '../../src/lib/types';
+import { buildScoresSnapshot } from '../../src/lib/espn';
 
 async function fetchJson(url: string, timeoutMs = 6000): Promise<any> {
   const ctrl = new AbortController();
@@ -19,39 +18,8 @@ async function fetchJson(url: string, timeoutMs = 6000): Promise<any> {
   }
 }
 
-// Six-day chunks covering the whole tournament (Jun 11 – Jul 19, 2026).
-const RANGES = [
-  '20260611-20260616',
-  '20260617-20260622',
-  '20260623-20260628',
-  '20260629-20260704',
-  '20260705-20260710',
-  '20260711-20260716',
-  '20260717-20260719',
-];
-
 export const onRequestGet: PagesFunction = async () => {
-  const [scoreboards, standingsJson] = await Promise.all([
-    Promise.all(
-      RANGES.map((r) => fetchJson(`${ESPN_BASE}/scoreboard?dates=${r}`).catch(() => ({ events: [] })))
-    ),
-    fetchJson(ESPN_STANDINGS).catch(() => ({})),
-  ]);
-
-  const byId = new Map<number, Match>();
-  for (const sb of scoreboards) {
-    for (const m of mapScoreboard(sb)) byId.set(m.id, m);
-  }
-  const matches = Array.from(byId.values()).sort((a, b) => a.utc.localeCompare(b.utc));
-
-  const { groupOf } = parseStandings(standingsJson);
-  assignGroups(matches, groupOf);
-
-  const snap = {
-    version: 1,
-    updatedUtc: new Date().toISOString(),
-    matches,
-  };
+  const snap = await buildScoresSnapshot(fetchJson);
 
   return new Response(JSON.stringify(snap), {
     headers: {

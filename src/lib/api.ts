@@ -1,10 +1,10 @@
 import type { MatchDetail, NewsSnapshot, ScoresSnapshot, Standing } from './types';
-import { espnSummaryUrl, mapSummary } from './espn';
+import { buildScoresSnapshot, espnSummaryUrl, mapSummary } from './espn';
 import { withBase } from './base';
 
 export interface FetchResult {
   snapshot: ScoresSnapshot;
-  live: boolean; // true if from /api/scores, false if from static fallback
+  live: boolean; // true if from live source (edge fn or direct ESPN), false if static fallback
   sources: string[];
 }
 
@@ -19,21 +19,56 @@ async function getJson(url: string, timeoutMs = 8000): Promise<ScoresSnapshot> {
     clearTimeout(t);
   }
 }
+
 /**
- * Fetch the scores snapshot. Tries the live edge function first,
- * falls back to the static base snapshot so the app always renders.
+ * Fetch arbitrary JSON with a timeout — used for the direct-to-ESPN browser
+ * fallback. ESPN's public API sends `Access-Control-Allow-Origin: *`, so these
+ * requests succeed from the browser on any host (GitHub Pages, local dev).
+ */
+async function fetchAny(url: string, timeoutMs = 8000): Promise<any> {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const r = await fetch(url, { signal: ctrl.signal });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+/**
+ * Fetch the scores snapshot. Order of preference:
+ *   1. Live edge function (`/api/scores`) — present on Cloudflare.
+ *   2. Direct ESPN from the browser — works everywhere (GitHub Pages, dev),
+ *      so recently-ended matches always show fresh scores on load.
+ *   3. Static build-time snapshot (`/fixtures.json`) — last-known fallback.
  */
 export async function fetchScores(): Promise<FetchResult> {
+  // 1) Edge function (Cloudflare Pages Function).
   try {
     const snapshot = await getJson(withBase('/api/scores'));
-    const sources = Array.from(
-      new Set(snapshot.matches.flatMap((m) => m.sources ?? []))
-    );
-    return { snapshot, live: true, sources };
+    if (snapshot.matches?.length) {
+      const sources = Array.from(new Set(snapshot.matches.flatMap((m) => m.sources ?? [])));
+      return { snapshot, live: true, sources };
+    }
   } catch {
-    const snapshot = await getJson(withBase('/fixtures.json'));
-    return { snapshot, live: false, sources: [] };
+    /* fall through to direct ESPN */
   }
+
+  // 2) Direct ESPN from the browser (CORS *) — same builder the edge fn uses.
+  try {
+    const snapshot = await buildScoresSnapshot((url) => fetchAny(url));
+    if (snapshot.matches?.length) {
+      return { snapshot, live: true, sources: ['ESPN'] };
+    }
+  } catch {
+    /* fall through to static snapshot */
+  }
+
+  // 3) Static build-time snapshot — always renders something.
+  const snapshot = await getJson(withBase('/fixtures.json'));
+  return { snapshot, live: false, sources: [] };
 }
 
 export interface StandingsResult {

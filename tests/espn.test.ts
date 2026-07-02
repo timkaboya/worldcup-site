@@ -181,8 +181,8 @@ const summary = {
         id: '760415',
         status: { type: { state: 'post', shortDetail: 'FT', description: 'Full Time' } },
         competitors: [
-          { homeAway: 'home', team: { id: '203', displayName: 'Mexico' } },
-          { homeAway: 'away', team: { id: '467', displayName: 'South Africa' } },
+          { homeAway: 'home', team: { id: '203', displayName: 'Mexico' }, score: '2', winner: true },
+          { homeAway: 'away', team: { id: '467', displayName: 'South Africa' }, score: '0', winner: false },
         ],
       },
     ],
@@ -247,6 +247,11 @@ describe('mapSummary', () => {
     expect(d.info.odds).toBe('MEX -1.5');
   });
 
+  it('extracts the authoritative scoreline and winner from the header', () => {
+    expect(d.score).toEqual({ home: 2, away: 0 });
+    expect(d.winner).toBe('home');
+  });
+
   it('parses lineups with formation, starters, subs and goal markers', () => {
     expect(d.lineups!.home.formation).toBe('4-1-4-1');
     expect(d.lineups!.home.starters).toHaveLength(2);
@@ -282,6 +287,7 @@ describe('mapSummary', () => {
       header: { competitions: [{ id: '1', status: { type: { state: 'pre' } }, competitors: [] }] },
     });
     expect(up.status).toBe('upcoming');
+    expect(up.score).toBeUndefined();
     expect(up.lineups).toBeUndefined();
     expect(up.stats).toBeUndefined();
     expect(up.events).toBeUndefined();

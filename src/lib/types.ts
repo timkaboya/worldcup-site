@@ -154,6 +154,8 @@ export interface MatchDetail {
   id: number;
   status: MatchStatus;
   clock?: string; // live clock / "Full time" etc.
+  score?: { home: number; away: number } | null; // authoritative live/final score
+  winner?: 'home' | 'away'; // knockout winner, when decided
   info: { venue?: string; attendance?: number; referee?: string; odds?: string };
   lineups?: { home: TeamLineup; away: TeamLineup };
   stats?: MatchStatItem[];

@@ -230,7 +230,13 @@ export default function MatchDrawer({
     if (!tabs.includes(tab)) setTab('facts');
   }, [tabs, tab]);
 
-  const showScore = (status === 'finished' || status === 'live') && match.score;
+  // Prefer the list snapshot's score, but fall back to the freshly-fetched
+  // match detail so the header shows a real scoreline even when the list
+  // snapshot is momentarily stale (e.g. a match that just ended).
+  const liveScore = match.score ?? detail?.score ?? null;
+  const played = status === 'finished' || status === 'live' ||
+    detail?.status === 'finished' || detail?.status === 'live';
+  const showScore = played && !!liveScore;
 
   function addToCalendar() {
     const blob = new Blob([buildIcs(match)], { type: 'text/calendar;charset=utf-8' });
@@ -291,9 +297,9 @@ export default function MatchDrawer({
             <div class="dh-score">
               {showScore ? (
                 <>
-                  <span>{match.score!.home}</span>
+                  <span>{liveScore!.home}</span>
                   <span class="dh-dash">–</span>
-                  <span>{match.score!.away}</span>
+                  <span>{liveScore!.away}</span>
                 </>
               ) : (
                 <span class="dh-vs">v</span>

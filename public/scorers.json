@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-01T19:47:54.018Z",
+  "updatedUtc": "2026-07-02T11:03:57.221Z",
   "scorers": [
     {
       "name": "Kylian Mbappé",
@@ -43,6 +43,16 @@
       "assists": 2
     },
     {
+      "name": "Ismaïla Sarr",
+      "team": {
+        "id": "senegal",
+        "name": "Senegal",
+        "flag": "🇸🇳"
+      },
+      "goals": 4,
+      "assists": 1
+    },
+    {
       "name": "Vinícius Júnior",
       "team": {
         "id": "brazil",
@@ -83,16 +93,6 @@
       "assists": 1
     },
     {
-      "name": "Ismaïla Sarr",
-      "team": {
-        "id": "senegal",
-        "name": "Senegal",
-        "flag": "🇸🇳"
-      },
-      "goals": 3,
-      "assists": 1
-    },
-    {
       "name": "Johan Manzambi",
       "team": {
         "id": "switzerland",
@@ -128,6 +128,16 @@
         "id": "new-zealand",
         "name": "New Zealand",
         "flag": "🇳🇿"
+      },
+      "goals": 3,
+      "assists": 0
+    },
+    {
+      "name": "Folarin Balogun",
+      "team": {
+        "id": "united-states",
+        "name": "United States",
+        "flag": "⚽"
       },
       "goals": 3,
       "assists": 0
@@ -203,6 +213,16 @@
       "assists": 1
     },
     {
+      "name": "Leandro Trossard",
+      "team": {
+        "id": "belgium",
+        "name": "Belgium",
+        "flag": "🇧🇪"
+      },
+      "goals": 2,
+      "assists": 1
+    },
+    {
       "name": "Maxi Araújo",
       "team": {
         "id": "uruguay",
@@ -263,6 +283,16 @@
       "assists": 1
     },
     {
+      "name": "Romelu Lukaku",
+      "team": {
+        "id": "belgium",
+        "name": "Belgium",
+        "flag": "🇧🇪"
+      },
+      "goals": 2,
+      "assists": 1
+    },
+    {
       "name": "Rubén Vargas",
       "team": {
         "id": "switzerland",
@@ -271,36 +301,6 @@
       },
       "goals": 2,
       "assists": 1
-    },
-    {
-      "name": "Amad Diallo",
-      "team": {
-        "id": "ivory-coast",
-        "name": "Ivory Coast",
-        "flag": "🇨🇮"
-      },
-      "goals": 2,
-      "assists": 0
-    },
-    {
-      "name": "Anthony Elanga",
-      "team": {
-        "id": "sweden",
-        "name": "Sweden",
-        "flag": "🇸🇪"
-      },
-      "goals": 2,
-      "assists": 0
-    },
-    {
-      "name": "Cristiano Ronaldo",
-      "team": {
-        "id": "portugal",
-        "name": "Portugal",
-        "flag": "🇵🇹"
-      },
-      "goals": 2,
-      "assists": 0
     }
   ]
 }

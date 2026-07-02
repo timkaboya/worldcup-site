@@ -8,6 +8,7 @@ import type {
   MatchEvent,
   MatchEventType,
   MatchStatItem,
+  ScoresSnapshot,
   Stage,
   Standing,
   StandingRow,
@@ -144,6 +145,49 @@ export function mapEvent(ev: any): Match | null {
 export function mapScoreboard(json: any): Match[] {
   const evs: any[] = json?.events ?? [];
   return evs.map(mapEvent).filter((m): m is Match => m !== null);
+}
+
+// Six-day chunks covering the whole tournament (Jun 11 – Jul 19, 2026).
+// Shared by the edge function and the browser fallback so both pull the
+// identical live window from ESPN.
+export const SCORE_RANGES = [
+  '20260611-20260616',
+  '20260617-20260622',
+  '20260623-20260628',
+  '20260629-20260704',
+  '20260705-20260710',
+  '20260711-20260716',
+  '20260717-20260719',
+];
+
+/**
+ * Build a live ScoresSnapshot straight from ESPN's public API. Pure aside from
+ * the injected `fetchJson`, so it runs identically in Cloudflare Workers (edge
+ * function) and in the browser (client-side fallback for GitHub Pages / offline
+ * edge). Never throws for a single failed range — returns whatever ESPN gave.
+ */
+export async function buildScoresSnapshot(
+  fetchJson: (url: string) => Promise<any>
+): Promise<ScoresSnapshot> {
+  const [scoreboards, standingsJson] = await Promise.all([
+    Promise.all(
+      SCORE_RANGES.map((r) =>
+        fetchJson(`${ESPN_BASE}/scoreboard?dates=${r}`).catch(() => ({ events: [] }))
+      )
+    ),
+    fetchJson(ESPN_STANDINGS).catch(() => ({})),
+  ]);
+
+  const byId = new Map<number, Match>();
+  for (const sb of scoreboards) {
+    for (const m of mapScoreboard(sb)) byId.set(m.id, m);
+  }
+  const matches = Array.from(byId.values()).sort((a, b) => a.utc.localeCompare(b.utc));
+
+  const { groupOf } = parseStandings(standingsJson);
+  assignGroups(matches, groupOf);
+
+  return { version: 1, updatedUtc: new Date().toISOString(), matches };
 }
 
 /**
@@ -301,6 +345,16 @@ export function mapSummary(json: any, fallbackId?: number | string): MatchDetail
     clock: comp?.status?.type?.shortDetail || comp?.status?.type?.description || undefined,
     info: {},
   };
+
+  // Authoritative scoreline from the summary header — lets the drawer show the
+  // real score even when the list snapshot hasn't refreshed yet.
+  const hs = parseInt(homeC?.score, 10);
+  const as = parseInt(awayC?.score, 10);
+  if ((state === 'in' || state === 'post') && Number.isFinite(hs) && Number.isFinite(as)) {
+    detail.score = { home: hs, away: as };
+    if (homeC?.winner === true) detail.winner = 'home';
+    else if (awayC?.winner === true) detail.winner = 'away';
+  }
 
   // Game info: venue, attendance, referee, odds.
   const gi = json?.gameInfo ?? {};
