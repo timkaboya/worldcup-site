@@ -33,6 +33,10 @@ jobs:
           # Repo name → project-site subpath. Change both if the repo is renamed.
           BASE_PATH: /worldcup-site/
           SITE_URL: https://timkaboya.github.io
+          # Paystack "Support" button (public keys — safe to expose). Set these
+          # as repository Variables; if unset, the button simply stays hidden.
+          PUBLIC_PAYSTACK_KEY: ${{ vars.PUBLIC_PAYSTACK_KEY }}
+          PUBLIC_PAYSTACK_CURRENCY: ${{ vars.PUBLIC_PAYSTACK_CURRENCY }}
         run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
