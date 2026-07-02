@@ -24,5 +24,11 @@ export default defineConfig({
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    // Public test key so the Support (Paystack) button renders in e2e. Public
+    // keys are safe to expose; the test never completes a real payment.
+    env: {
+      PUBLIC_PAYSTACK_KEY: 'pk_test_e2e_placeholder',
+      PUBLIC_PAYSTACK_CURRENCY: 'NGN',
+    },
   },
 });

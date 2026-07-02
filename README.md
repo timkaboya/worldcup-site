@@ -68,6 +68,23 @@ Contributions are welcome! Please read **[CONTRIBUTING.md](./CONTRIBUTING.md)** 
 the branch/PR workflow and the checks every change must pass (typecheck, tests, build, e2e, and the
 bundle-size budget). All pull requests run these automatically via GitHub Actions.
 
+## ☕ Support
+
+A footer **"Support this project"** button lets fans chip in via [Paystack](https://paystack.com/)
+(cards, bank & mobile money). It's optional and fully self-hosted — no third-party JS loads until a
+visitor actually opens the donation modal.
+
+Configure it with environment variables (see [`.env.example`](./.env.example)):
+
+| Variable | Where | Notes |
+| --- | --- | --- |
+| `PUBLIC_PAYSTACK_KEY` | build-time (public) | `pk_test_…` / `pk_live_…`. If unset, the button is hidden. |
+| `PUBLIC_PAYSTACK_CURRENCY` | build-time (public) | e.g. `NGN`, `KES`, `GHS`, `ZAR`, `USD`. |
+| `PAYSTACK_SECRET_KEY` | Cloudflare env **secret** | Powers `/api/verify-payment`; **never committed**. Set with `npx wrangler pages secret put PAYSTACK_SECRET_KEY`. |
+
+On Cloudflare, payments are verified server-side before showing a confirmation. On GitHub Pages
+(no edge functions) the app falls back to Paystack's own inline success callback.
+
 ## 🧭 Principles
 
 Lightweight first · No accounts · Your timezone · Mobile + web · Authentic, attributed content.

@@ -57,3 +57,25 @@ test('favoriting a team from the drawer enables the Favorites filter', async ({ 
   await page.getByRole('tab', { name: '★ Favorites' }).click();
   await expect(page.locator('.mc.fav').first()).toBeVisible();
 });
+
+test('support button opens the donation modal and validates input', async ({ page }) => {
+  await page.goto('/');
+  const supportBtn = page.getByRole('button', { name: /Support this project/ });
+  await expect(supportBtn).toBeVisible();
+  await supportBtn.click();
+
+  const dialog = page.getByRole('dialog', { name: 'Support this project' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText(/Buy me a coffee/)).toBeVisible();
+
+  const cta = dialog.getByRole('button', { name: /Donate securely/ });
+  await expect(cta).toBeDisabled(); // no email/amount yet
+
+  await dialog.getByLabel(/Your email/).fill('fan@example.com');
+  await dialog.getByRole('button', { name: /1,000/ }).click();
+  await expect(cta).toBeEnabled();
+
+  // Close without triggering a real payment (Paystack SDK never loads).
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+});

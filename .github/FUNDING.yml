@@ -1,0 +1,4 @@
+# GitHub repository "Sponsor" button.
+# Paystack isn't a native GitHub funding provider, so we surface it via the
+# custom link, pointing at the live site's in-page "Support this project" button.
+custom: ['https://worldcup-site.timothy-kaboya.workers.dev/']
