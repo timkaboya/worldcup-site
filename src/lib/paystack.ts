@@ -14,10 +14,12 @@ export interface PaystackConfig {
  * and a keyless build stays a safe no-op.
  */
 export function paystackConfig(): PaystackConfig | null {
-  const env = (import.meta as any).env ?? {};
-  const key = String(env.PUBLIC_PAYSTACK_KEY ?? '').trim();
+  // NOTE: reference `import.meta.env.PUBLIC_*` directly (no aliasing) so Vite
+  // statically inlines the literal values into the client bundle at build time.
+  const key = String(import.meta.env.PUBLIC_PAYSTACK_KEY ?? '').trim();
   if (!key) return null;
-  const currency = String(env.PUBLIC_PAYSTACK_CURRENCY ?? 'NGN').trim().toUpperCase() || 'NGN';
+  const currency =
+    String(import.meta.env.PUBLIC_PAYSTACK_CURRENCY ?? 'NGN').trim().toUpperCase() || 'NGN';
   return { key, currency };
 }
 
