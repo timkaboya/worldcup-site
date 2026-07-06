@@ -1,117 +1,162 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-02T15:00:30.078Z",
+  "updatedUtc": "2026-07-06T13:13:09.833Z",
   "items": [
     {
-      "id": "qqwugg",
-      "title": "USMNT beats Bosnia for 1st WC KO win since '02",
+      "id": "qamcfx",
+      "title": "UEFA: FIFA crossed 'red line' on Balogun ban",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49243502/usa-bosnia-herzegovina-2026-fifa-world-cup-knockout-round-32",
-      "publishedUtc": "2026-07-02T15:53:44.000Z",
-      "summary": "The USMNT beat Bosnia-Herzegovina 2-0 in the World Cup round of 32 on Wednesday night for its first knockout win since 2002.",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1hc7ge5",
-      "title": "Kane passes Pelé WC goals total in England win",
-      "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49237509/harry-kane-breaks-pele-world-cup-goals-tally",
-      "publishedUtc": "2026-07-02T15:53:44.000Z",
-      "summary": "Harry Kane has surpassed Pelé's World Cup goals total after scoring two goals against Congo DR on Wednesday to bring his goal tally to 13 and lead England to a 2-1 victory and a spot in the round of 16 at the World Cup.",
+      "url": "https://www.espn.com/soccer/story/_/id/49284889/uefa-fifa-folarin-balogun-red-card-ban-overturned-usmnt",
+      "publishedUtc": "2026-07-06T14:01:06.000Z",
+      "summary": "UEFA have strongly criticised FIFA's decision to suspend USMNT striker Folarin Balogun's red card, thus allowing the United States striker to be available for the World Cup round-of-16 match against Belgium.",
       "topics": [
         "players"
       ]
     },
     {
-      "id": "q1qkvp",
-      "title": "✈️FIFA prez Infantino clocks up 39,000 WC miles",
+      "id": "101a56d",
+      "title": "Mexico proud, but 'hurt' after exiting World Cup",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49116383/infantino-fifa-presidents-epic-world-cup-tour",
-      "publishedUtc": "2026-07-02T15:53:44.000Z",
-      "summary": "The FIFA president has been flying all across the World Cup host nations on his private jet. Here's where he has been so far during the tournament.",
+      "url": "https://www.espn.com/soccer/story/_/id/49283428/mexico-proud-hurt-exiting-world-cup-england",
+      "publishedUtc": "2026-07-06T14:01:06.000Z",
+      "summary": "Mexico manager Javier Aguirre said he feels proud but hurt after being eliminated from the FIFA World Cup with a 3-2 loss against England on Sunday night at the Estadio Azteca.",
       "topics": [
-        "teams"
+        "coaches"
       ]
     },
     {
-      "id": "na08iw",
-      "title": "Tielemans on Trossard fight: 'Part of football'",
+      "id": "1gazw3c",
+      "title": "FIFA suspends Balogun red card, can face Belgium",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49246195/belgium-youri-tielemans-downplays-leandro-trossard-clash-part-football",
-      "publishedUtc": "2026-07-02T15:53:28.000Z",
-      "summary": "Youri Tielemans has played down talks of a rift with teammate Leandro Trossard following their on-field scuffle during Belgium's round-of-32 World Cup win against Senegal.",
+      "url": "https://www.espn.com/soccer/story/_/id/49277378/usmnt-folarin-balogun-red-card-suspended-belgium",
+      "publishedUtc": "2026-07-06T14:01:06.000Z",
+      "summary": "FIFA has suspended the red card U.S. striker Folarin Balogun received in the team's match against Bosnia-Herzegovina, making him available to face Belgium in the round of 16 at the World Cup.",
+      "topics": [
+        "players"
+      ]
+    },
+    {
+      "id": "1o47100",
+      "title": "England survive to beat Mexico in Azteca thriller",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49282902/england-mexico-2026-world-cup-azteca-red-card-bellingham",
+      "publishedUtc": "2026-07-06T14:01:06.000Z",
+      "summary": "England survived a raucous Azteca Stadium atmosphere and a red card early in the second half to prevail past co-hosts Mexico 3-2 in a thrilling World Cup round-of-16 clash in Mexico City on Sunday.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "ir8fr3",
-      "title": "Merse: Mexico is heads-or-tails match - they could run England off their feet",
-      "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13559758/mexico-vs-england-world-cup-last-16-tie-is-heads-or-tails-match-they-could-run-us-off-our-feet-says-paul-merson",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "Sky Sports' Paul Merson looks ahead to England's last-16 World Cup encounter with co-hosts Mexico on Monday, a game he thinks is too close to call.",
-      "imageUrl": "https://e0.365dm.com/26/07/1920x1080/skysports-world-cup-merson-says_7287983.jpg?20260702115239",
+      "id": "mwgjl",
+      "title": "🏆2026-27 UCL season begins mid-World Cup",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49254165/imps-saints-vikings-action-2026-27-champions-league-kicks-off",
+      "publishedUtc": "2026-07-06T14:01:06.000Z",
+      "summary": "The new Champions League campaign begins 38 days after last season's final. Plenty of unheralded clubs are involved, all with their own fascinating stories.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1ywrq43",
-      "title": "'A huge advantage for Mexico' - England face an Azteca altitude problem",
-      "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13559666/mexico-vs-england-thomas-tuchels-side-face-a-huge-altitude-problem-by-playing-world-cup-round-of-16-at-7000-feet",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "\"It is one of the most beautiful fixtures you can have playing Mexico in the Azteca,\" said Thomas Tuchel after England booked their World Cup last 16 spot. But it is also one of the hardest fixtures in football.",
-      "imageUrl": "https://e0.365dm.com/26/07/1920x1080/skysports-england-mexico-azteca-stadium_7288006.jpg?20260702120417",
+      "id": "xzkk3u",
+      "title": "Tearful Neymar retires from Brazil after WC exit",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49281072/neymar-brazil-retires-world-cup-2026-exit-norway",
+      "publishedUtc": "2026-07-06T14:01:05.000Z",
+      "summary": "An emotional Neymar said his career with Brazil had \"finished\" after his team's World Cup exit at the hands of Norway in the round of 16 on Sunday.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "jestpq",
-      "title": "How to survive England's 1am World Cup tie with Mexico...",
-      "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13559769/world-cup-2026-mexico-vs-england-how-to-survive-three-lions-1am-last-16-tie-on-monday",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "England face Mexico for a place in the World Cup quarter-finals, but with the tie not kicking off until 1am UK time on Monday, we have a handy guide for you on how best to prep for the early-morning start.",
-      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-world-cup-last-16_7287902.jpg?20260702103256",
+      "id": "10dbfj",
+      "title": "Ronaldo: 'This will be my last World Cup'",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49278881/cristiano-ronaldo-world-cup-2026-portugal",
+      "publishedUtc": "2026-07-06T14:01:05.000Z",
+      "summary": "Cristiano Ronaldo has admitted that this will be his last World Cup, as he prepares to face Spain with Portugal in Monday's round of 16 clash in Dallas.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1rcwtul",
-      "title": "How has Wonderwall become England's World Cup soundtrack?",
+      "id": "6c22iq",
+      "title": "England ratings: Bellingham shines but heroic defence secures QF spot",
       "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13559743/englands-wonderwall-anthem-how-oasis-hit-became-new-world-cup-soundtrack-as-harry-kane-and-jude-bellingham-lead-singalongs",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "Today is gonna be the day that they’re gonna throw it back to... well, Harry Kane, hopefully. England's soundtrack of this summer's World Cup, Oasis hit Wonderwall, can be many different things to many people. At this tournament, it's been ",
-      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-england-declan-rice_7287866.jpg?20260702092736",
+      "url": "https://www.skysports.com/football/news/11095/13560798/mexico-2-3-england-jude-bellingham-and-harry-kane-shine-again-in-heroic-defensive-display-at-azteca-stadium",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "England held on for an excruciating 3-2 win against Mexico thanks to a heroic defensive performance to book their place in the quarter-finals of the World Cup.",
+      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-jude-bellingham-harry-kane_7290713.jpg?20260706024917",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1nvlf7d",
-      "title": "Is Rice the solution to England's right-back problem?",
+      "id": "19lmy3m",
+      "title": "'Crossed a red line': UEFA hits out at FIFA call to allow banned Balogun to play",
       "source": "Sky Sports",
-      "url": "https://www.skysports.com/football/news/11095/13559645/declan-rice-could-be-best-solution-to-thomas-tuchels-right-back-issue-after-cameo-in-england-win-over-dr-congo",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "England are through to the last 16 of the World Cup. Nobody will remember that they flirted with disaster in the round of 32 if they go on and lift the trophy. But Thomas Tuchel will be aware of the need for improvement if they are to go th",
-      "imageUrl": "https://e0.365dm.com/26/07/1920x1080/skysports-decln-rice-jude-bellingham_7287647.jpg?20260701212812",
+      "url": "https://www.skysports.com/football/news/11095/13560915/world-cup-2026-uefa-hits-out-at-fifa-decision-to-allow-banned-folarin-balogun-to-play-usa-last-16-tie",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "UEFA says FIFA has \"crossed a red line\" and has put the \"integrity of the game at stake\" in allowing USA striker Folarin Balogun to play in their World Cup tie against Belgium on Tuesday.",
+      "imageUrl": "https://e0.365dm.com/26/07/1920x1080/skysports-balogun-usa_7287725.jpg?20260702023831",
+      "topics": [
+        "players"
+      ]
+    },
+    {
+      "id": "qpss14",
+      "title": "Ronaldo: This World Cup will be my last - but I hope Spain clash isn't my farewell",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/11095/13560011/cristiano-ronaldo-portugal-legend-announces-retirement-from-international-duty-following-world-cup-exit",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "Cristiano Ronaldo has confirmed the 2026 World Cup will be his last as a player.",
+      "imageUrl": "https://e0.365dm.com/26/06/1920x1080/skysports-cristiano-ronaldo_7276226.jpg?20260617222704",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "2nsf5w",
+      "title": "Three Lions roar at alti-Jude! Bellingham and Kane send 10-man England to QFs after thriller",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/mexico-vs-england/report/549857",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "England are through to the World Cup quarter-finals after earning one of their greatest knockout results by eliminating co-hosts Mexico with a gutsy 3-2 victory in an extraordinary tie at the Azteca.",
+      "imageUrl": "https://e2.365dm.com/26/07/1920x1080/skysports-bellingham-jude-england_7290716.jpg?20260706030311",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1b0dtsn",
+      "title": "World Cup bracket: Norway await England in quarter-finals",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/11095/13556636/world-cup-2026-bracket-and-knockout-fixtures-whos-facing-who-in-the-last-16-and-route-to-final",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "The last 16 of the World Cup is under way - so how is the route to the final on July 19 now shaping up?",
+      "imageUrl": "https://e0.365dm.com/26/06/1920x1080/skysports-world-cup-2026-bracket_7280764.jpg?20260623105714",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "ds9uad",
+      "title": "Explained: Why England may have upper hand on Haaland in quarter-final",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/watch/video/13560203/explained-why-england-may-have-upper-hand-on-erling-haaland-in-quarter-final",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
+      "summary": "England face the daunting task of taking on Norway and Erling Haaland in the quarter-final of the World Cup, but Thomas Tuchel's men may just have the upper hand.",
+      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-haaland-konsa-england_7289046.jpg?20260703173806",
       "topics": [
         "teams"
       ]
     },
     {
       "id": "mk8at5",
-      "title": "England's route to World Cup final: Now for the early start against Mexico",
+      "title": "England's route to the World Cup final becomes clear...",
       "source": "Sky Sports",
       "url": "https://www.skysports.com/football/news/11095/13479783/englands-world-cup-2026-fixtures-schedule-and-tournament-route-to-final-how-three-lions-could-lift-trophy-on-july-19",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
+      "publishedUtc": "2026-07-06T13:13:09.750Z",
       "summary": "What is England's potential path to World Cup glory?",
       "imageUrl": "https://e1.365dm.com/25/12/1920x1080/skysports-england-world-cup-26_7102088.jpg?20251205173549",
       "topics": [
@@ -119,593 +164,543 @@
       ]
     },
     {
-      "id": "btypwc",
-      "title": "Why Mexico could provide a HUGE UPSET against England!",
+      "id": "1mbf6cd",
+      "title": "England’s best World Cup win on foreign soil? Tuchel proving decisive",
       "source": "Sky Sports",
-      "url": "https://www.skysports.com/watch/video/13559551/mexico-vs-england-why-mexico-could-provide-a-huge-upset-against-england",
-      "publishedUtc": "2026-07-02T15:00:30.077Z",
-      "summary": "Sky Sports' Sam Blitz explains why Mexico could provide a huge challenge to England in the Round of 16 at the World Cup.",
-      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-football-england_7287376.jpg?20260701154444",
+      "url": "https://www.skysports.com/football/news/11095/13560963/mexico-2-3-england-thomas-tuchels-decisive-calls-at-this-world-cup-could-make-the-difference-after-historic-win",
+      "publishedUtc": "2026-07-06T13:13:09.749Z",
+      "summary": "Was that England's greatest World Cup win on foreign soil? Sir Geoff Hurst has asked the question himself, suggesting that the 3-2 win over Mexico in the round of 16 might be the best performance since the Wembley final in 1966.",
+      "imageUrl": "https://e1.365dm.com/26/07/1920x1080/skysports-thomas-tuchel-england_7291130.jpg?20260706123454",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "f99waq",
-      "title": "Copy of Copy of World Cup VAR review: Misapplied protocols leave B...",
-      "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49244156/world-cup-var-review-misapplied-protocols-leave-usmnt-folarin-balogun-wrongly-red-carded-world-cup-vs-bosnia-herzegovina",
-      "publishedUtc": "2026-07-02T15:00:13.000Z",
+      "id": "1rkhqk1",
+      "title": "'Not good enough!' Tuchel fumes at refs after 'heroic' England win",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/11095/13560838/england-beat-mexico-in-world-cup-thomas-tuchel-hits-out-at-referees-after-three-lions-thrilling-win",
+      "publishedUtc": "2026-07-06T13:13:09.749Z",
+      "summary": "Thomas Tuchel hit out at officials and praised England's \"heroic\" performance in their thrilling 3-2 win over Mexico in the World Cup last 16.",
+      "imageUrl": "https://e0.365dm.com/26/07/1920x1080/skysports-world-cup-mexico_7290879.jpg?20260706082238",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "cd03yd",
-      "title": "Welcome to Pete's Garden: Messi, Argentina's World...",
-      "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49242532/world-cup-2026-kansas-city-petes-garden-food-distribution-argentina-lionel-messi",
-      "publishedUtc": "2026-07-02T14:47:08.000Z",
-      "summary": "Pete's Garden, a nonprofit organization in Kansas City, is dedicated to minimizing food waste at the World Cup and helping families in need.",
+      "id": "4voz14",
+      "title": "England's greatest World Cup performance? Your views after Azteca redemption!",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/mexico-vs-england/live/549857",
+      "publishedUtc": "2026-07-06T13:13:09.749Z",
+      "imageUrl": "https://e2.365dm.com/26/07/1920x1080/skysports-harry-kane-england_7290724.jpg?20260706032648",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "14nax9l",
-      "title": "World Cup 2026: England, USA and Belgium through; Spain and Portugal face last-32 tests – live",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/live/2026/jul/02/world-cup-2026-england-and-belgium-fight-back-spain-v-austria-buildup-and-more-live",
-      "publishedUtc": "2026-07-02T14:45:46.000Z",
-      "summary": "<p>⚽ All the latest news from day 22 of the tournament<br>⚽ <a href=\"https://www.theguardian.com/football/ng-interactive/2026/jun/04/bracketology-predict-a-path-to-world-cup-victory\">Bracketology</a> | <a href=\"https://www.theguardian.com/f",
-      "imageUrl": "https://i.guim.co.uk/img/media/c429b7c371aa7150dabe4ed20f1f67ddcbcf9db8/423_0_5000_4000/master/5000.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=9c145f50bc19fac456669a3ecdd6ac77",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "mko8wf",
-      "title": "World Cup Q&A: England reporter Jacob Steinberg answers your questions – live",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/live/2026/jul/02/world-cup-qa-ask-england-reporter-jacob-steinberg-your-questions-now",
-      "publishedUtc": "2026-07-02T14:44:27.000Z",
-      "summary": "<p>Jacob was in Atlanta last night to witness England’s Harry Kane-led comeback against DR Congo. He is online now answering all your questions about the Three Lions’ chances against Mexico, England’s defensive frailties and anything else y",
-      "imageUrl": "https://i.guim.co.uk/img/media/fea9cd3ca95675262cfb46195f09eb63bf412a29/0_0_5000_4000/master/5000.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=c84b82058bcce4d8561f02712c287956",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1agoo45",
-      "title": "Trump is avoiding the World Cup because it’s packed with good things he doesn’t like | Barney Ronay",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/donald-trump-world-cup-fifa",
-      "publishedUtc": "2026-07-02T14:31:43.000Z",
-      "summary": "<p>For all its gloss and elitist governance, football will not bend to the will of a president so eager to demonise and exclude</p><p>At 4.38pm on 28 June Donald Trump dropped a Truth. Nothing unusual in that. Trump’s Truth Social feed is r",
-      "imageUrl": "https://i.guim.co.uk/img/media/47fdc27962ded60a5ff244be7eebfe610f8730af/0_0_2500_2000/master/2500.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=7e3ae9c27f8068e54451f6b0dd73af37",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "9uwqvq",
-      "title": "Bellingham's incredible reaction to Kane's winning goal",
+      "id": "8d2ux",
+      "title": "How to get through World Cup-induced sleep deprivation",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/videos/c8j2k107jlxo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T14:17:47.000Z",
-      "summary": "Watch Jude Bellingham and Thomas Tuchel react to Harry Kane scoring the winning goal against DR Congo.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fd53/live/951f6710-7615-11f1-b976-0b9c15b0ccfc.jpg",
+      "url": "https://www.bbc.co.uk/news/articles/cx2kkrndr00o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T13:09:31.000Z",
+      "summary": "The euphoria from England's dramatic victory over Mexico might not be enough to get you through Monday.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8066/live/a26e1000-792c-11f1-bb09-19b977572e60.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "suii6z",
+      "title": "World Cup 2026: England set up Norway quarter-final after Mexico thriller; Uefa says Fifa ‘crossed line’ over Balogun – live",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/live/2026/jul/06/world-cup-2026-england-set-up-norway-quarter-final-after-mexico-thriller-trump-lobbied-for-balogun-red-card-reversal-live",
+      "publishedUtc": "2026-07-06T12:57:35.000Z",
+      "summary": "<p>⚽️ World Cup news and reaction as the last 16 continues<br>⚽️ <a href=\"https://www.theguardian.com/football/2026/jul/06/belgium-appeal-fifa-lifting-folarin-balogun-red-card-ban-last-16-us-world-cup\">Uefa accuses Fifa of ‘crossing red lin",
+      "imageUrl": "https://i.guim.co.uk/img/media/8c534fe71f77b12c06fbb709aa07a1aa5d0cdbfc/465_0_4179_3344/master/4179.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=ce5db393c2fd7c8bd32058e2b6c4db72",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1oq1v0a",
+      "title": "England end Mexico's World Cup with best win on fo...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49283101/england-end-mexico-world-cup-best-win-foreign-soil-their-history",
+      "publishedUtc": "2026-07-06T12:53:25.000Z",
+      "summary": "Outside of England, the Three Lions' World Cup history is mixed at best, but they defied the odds to grind out an emotional last-16 win over Mexico.",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1igueto",
+      "title": "England star's street skills were always 'cut above', says school head",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/news/articles/c77yyem0y8vo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T12:45:02.000Z",
+      "summary": "Nico O'Reilly stood out from a very early age, the head teacher of his former school says.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a825/live/645f94a0-7931-11f1-84e1-059650f3613e.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "ofapui",
+      "title": "Harry Kane should be knighted for leadership, says MP",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/news/articles/cql11gnpn41o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T12:34:07.000Z",
+      "summary": "Oxfordshire MP Layla Moran says the England captain should be honoured for his 'inspirational leadership'.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/09d1/live/6fed0d70-5dbb-11f1-8b6d-5b89cbb85786.jpg",
       "topics": [
         "players"
       ]
     },
     {
-      "id": "1ni37uz",
-      "title": "Malik Tillman’s bloody sock game rockets into US World Cup history",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/malik-tillman-free-kick-bloody-sock-broken-boot-usmnt-world-cup",
-      "publishedUtc": "2026-07-02T14:00:01.000Z",
-      "summary": "<p>The midfielder had to work hard to win his place in Mauricio Pochettino’s squad for this tournament. He is more than repaying his coach’s faith</p><p>While Malik Tillman was unsure of what to expect from the United States’ <a href=\"https",
-      "imageUrl": "https://i.guim.co.uk/img/media/80b2c2d496d88bdc7c158734ec0cc4ab63c22963/910_0_4777_3820/master/4777.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=1d452c70e21e559618cdd0d3c3ab6a51",
-      "topics": [
-        "coaches",
-        "players"
-      ]
-    },
-    {
-      "id": "1bn8e2c",
-      "title": "England have 'big concerns' - so who would you pick to face Mexico?",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cr7x18r0z59o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T13:00:15.000Z",
-      "summary": "Who should play at right-back? Does Anthony Gordon deserve to start? Select and share your England team to face Mexico.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f0e3/live/a2756110-760d-11f1-a627-714adb4eed6e.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1aqaqwz",
-      "title": "Football Daily | England survive a Lionel M masterclass and roll on to the Azteca … just",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/england-football-daily-geopolitics-world-cup",
-      "publishedUtc": "2026-07-02T12:52:12.000Z",
-      "summary": "<p><a href=\"https://www.theguardian.com/info/2022/nov/14/football-daily-email-sign-up\"><strong>Sign up now! Sign up now! Sign up now? Sign up now!</strong></a></p><p>“For us now, it’s absolutely not a time to panic,” Anthony Barry urged in ",
-      "imageUrl": "https://i.guim.co.uk/img/media/3579b305a5d9ca81f135fb50ecb56d2a928b5187/933_258_5734_4587/master/5734.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=e36493633544f072e8c85b0d27624bda",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "14qqklj",
-      "title": "Can pubs stay open for England's 1am game?",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cm2r5x24mm6o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:49:33.000Z",
-      "summary": "With England's next game against Mexico kicking off at 1am on Monday, are pubs allowed to stay open?",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/39c6/live/627a2eb0-7603-11f1-a627-714adb4eed6e.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "pywbbg",
-      "title": "The World Cup's free agents looking for their next move",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c5yzleqqvjqo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:44:02.000Z",
-      "summary": "Fourteen players still at the World Cup have no club to return to once the tournament is over.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/08e4/live/5cfe25b0-7610-11f1-a627-714adb4eed6e.png",
-      "topics": [
-        "clubs"
-      ]
-    },
-    {
-      "id": "1yze6i0",
-      "title": "'We want to win World Cup for him' - Portugal carry Jota's memory",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c1kyl71wxw9o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:43:53.000Z",
-      "summary": "One year after his death, Portugal are using Diogo Jota's memory to help inspire them at the 2026 World Cup.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/aad4/live/d747ae60-7479-11f1-9125-bd35be688627.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1mi6nto",
-      "title": "16.3m tune in to watch England beat DR Congo",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cvg40883026o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:15:18.000Z",
-      "summary": "England's dramatic win over DR Congo in the World Cup last 16 attracts an audience of 16.3m on the BBC.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9d99/live/e7b45390-75f8-11f1-8c3f-e37c76e39331.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "f7n3nw",
-      "title": "From Benidorm bar to Azteca - one fan's gamble",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/news/articles/cx2wv53p190o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:11:15.000Z",
-      "summary": "Ashley Price from Walsall will cheer on the Lions from the Azteca stadium on Sunday.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/dcae/live/1af158c0-7603-11f1-809a-9753198cd5fc.png",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1xvamzo",
-      "title": "First Afcon, now World Cup - Senegal trapped in 'football hell'",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cm20kegmlp5o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T12:03:33.000Z",
-      "summary": "Senegal's nightmarish year continues, with a heart-breaking collapse against Belgium featuring late penalty drama which was remarkably similar to events in this year's chaotic Afcon final.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3813/live/877fdb90-760a-11f1-b976-0b9c15b0ccfc.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "109swfw",
-      "title": "England were 15 minutes from humiliation - the issues Tuchel must solve",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/czx59l1knv0o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T10:37:10.000Z",
-      "summary": "Before England's World Cup last-16 tie against Mexico, BBC Sport's Phil McNulty looks at the issues that remain for Thomas Tuchel.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e5b/live/31d97ee0-75af-11f1-ad58-1b9b2309c3b3.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "10wix8b",
-      "title": "Cape Verde’s Sidny Lopes Cabral: ‘If you’re like “oh, it’s Messi”, you’re gonna lose your mind’",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/cape-verde-sidny-lopes-cabral-interview-argentina-lionel-messi-world-cup",
-      "publishedUtc": "2026-07-02T10:32:39.000Z",
-      "summary": "<p>The full-back on defying the odds, dealing with racism, Cape Verde’s party people and taking on Lionel Messi</p><p>“When we saw 1%, we just laughed.” Cape Verde liked those odds, and so did Sidny Lopes Cabral. “They gave us a 1% chance o",
-      "imageUrl": "https://i.guim.co.uk/img/media/1743544e3756ae3dc48daf0f26da80396a15f559/561_0_4167_3333/master/4167.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=8e53b0ea3bcef219726b7607b3735228",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1voc0m2",
-      "title": "England fans face resale prices of at least £2.6k for Mexico tickets",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cdxdg73n911o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T10:18:29.000Z",
-      "summary": "England fans hoping to attend the World Cup last-16 showdown with Mexico face paying a minimum of £2,600 for one ticket on Fifa's resale site.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/855d/live/b9fbc3d0-7589-11f1-92e5-efd489c4d444.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "f14pgw",
-      "title": "World Cup daily: Balogun celly in USMNT win gets L...",
+      "id": "owej5d",
+      "title": "Nobody benefits from FIFA letting Balogun off the ...",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49244994/world-cup-daily-spain-portugal-action-round-32-continues",
-      "publishedUtc": "2026-07-02T10:06:47.000Z",
-      "summary": "Follow live for the latest analysis, reaction and news as the FIFA World Cup round of 32 continues.",
+      "url": "https://www.espn.com/soccer/story/_/id/49278521/nobody-benefits-fifa-letting-balogun-hook-not-even-usmnt",
+      "publishedUtc": "2026-07-06T12:22:43.000Z",
+      "summary": "The U.S. will be buzzing to have Folarin Balogun available vs. Belgium on Monday, but FIFA's U-turn on his suspension is a bad look for this World Cup",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "57omuj",
-      "title": "Harry Kane’s heroics and USA stay ahead despite red | World Cup Daily – video",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/video/2026/jul/02/harry-kanes-heroics-and-usa-stay-ahead-despite-red-world-cup-daily-video",
-      "publishedUtc": "2026-07-02T09:26:31.000Z",
-      "summary": "<p><a href=\"https://bsky.app/profile/maxrushden.bsky.social\">Max Rushden</a> is joined by <a href=\"https://bsky.app/profile/did:plc:i55lfvhkg573wfmby5sdnvq6\">Barry Glendenning</a>, Archie Rhind-Tutt and Osasu Obayiuwana as Harry Kane’s seco",
-      "imageUrl": "https://i.guim.co.uk/img/media/8208ca23819bf33f4fede18a1f8f099e3d34da92/225_0_1820_1456/master/1820.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=cb4dbbf8d342ea530f91649a400331a1",
+      "id": "prw5c5",
+      "title": "World Cup Daily live: Harry Kane loses voice in hi...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49284373/world-cup-daily-live-usmnt-belgium-spain-portugal-cristiano-ronaldo-round-16",
+      "publishedUtc": "2026-07-06T12:22:17.000Z",
+      "summary": "Enjoy all the features, news, video analysis and color from around the World Cup as Portugal face Spain and the USMNT take on Belgium.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "d7e4rz",
-      "title": "Gueye quits Senegal until coaching staff replaced",
+      "id": "160y74t",
+      "title": "Hundreds gather in early hours to cheer on England",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cqj18d7q2vwo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T09:02:10.000Z",
-      "summary": "Senegal midfielder Pape Gueye says he will be \"taking a break\" from playing for his country while the current management is in charge.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/88e1/live/621dc690-75f2-11f1-8c3f-e37c76e39331.jpg",
-      "topics": [
-        "players"
-      ]
-    },
-    {
-      "id": "1vg2z8h",
-      "title": "How a bad loss to France help reshape Colombia's W...",
-      "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49245153/how-bad-loss-france-help-reshape-colombias-world-cup-campaign",
-      "publishedUtc": "2026-07-02T08:44:50.000Z",
-      "summary": "Colombia have won their World Cup group and head into the knockout stage dreaming of a deep run, one that may have been sparked by a humbling defeat to France just months earlier.",
+      "url": "https://www.bbc.co.uk/news/articles/c9822n2k57no?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T12:14:16.000Z",
+      "summary": "Football fans across the South West came out in the their numbers from 02:00 to watch England beat Mexico.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1b3e/live/1c1a4d50-7901-11f1-a747-b74b596ba83c.jpg",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "12tiwwv",
-      "title": "World Cup VAR review: Did Belgium deserve penalty ...",
-      "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49027532/world-cup-2026-var-review-red-card-penalty-handball-goal-line-technology",
-      "publishedUtc": "2026-07-02T08:37:59.000Z",
-      "summary": "For the tournament, we are taking a look at the major incidents to examine and explain the process in terms of both VAR protocol and the laws of the game.",
+      "id": "uxda5t",
+      "title": "Fans celebrate England's heroic World Cup win",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/news/articles/c9v22x33yk9o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T12:14:02.000Z",
+      "summary": "The 3-2 victory against Mexico means the Three Lions will face Norway in the quarter-finals.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/15d9/live/cd10aa70-791d-11f1-b02f-7384b6bb008f.jpg",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1den7cz",
-      "title": "Do Brazil have a plan? One big question for every ...",
+      "id": "n73lq5",
+      "title": "Haaland brings the thunder, strikes down Brazil as...",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49228332/world-cup-round-16-analysis-brazil-canada-paraguay-morocco-ryan-ohanlon",
-      "publishedUtc": "2026-07-02T08:30:10.000Z",
-      "summary": "As this week sees the World Cup field cut from 32 to 16, we're wondering what the biggest issue is for each team still in the tournament -- like can France win if they don't control possession?",
+      "url": "https://www.espn.com/soccer/story/_/id/49280315/haaland-brings-thunder-strikes-brazil-norway-reach-quarterfinals-2026-world-cup",
+      "publishedUtc": "2026-07-06T12:09:21.000Z",
+      "summary": "Brazil's World Cup hopes were dashed by Erling Haaland, whose stunning brace propelled Norway to the quarterfinals.",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "143drqw",
+      "title": "How England used five mini games to beat Mexico",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqx113327eyo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T11:57:53.000Z",
+      "summary": "The tactical breakdown of how Thomas Tuchel's 10-man England pulled off a remarkable World Cup win in a hostile Mexico City.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/46e3/live/455e11e0-7930-11f1-84e1-059650f3613e.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "k0zg1o",
+      "title": "Copy of Pride, joy and anxiety: What watching a family mem...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49266645/world-cup-pride-joy-anxiety-watching-family-member-play-means",
+      "publishedUtc": "2026-07-06T11:23:14.000Z",
+      "summary": "It's incredible for families who have seen loved ones go from kicking a ball around the house to walking out on the biggest stage there is at a World Cup.",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "nlgluk",
+      "title": "'You've been trying to kill me for 23 years' - should Ronaldo start?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cz7523l9rdvo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T11:21:44.000Z",
+      "summary": "Appearing at his sixth World Cup, will Cristiano Ronaldo lift the famous trophy for the first time before he retires?",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/18a2/live/5c5dfe00-7895-11f1-b200-7987f6593f8c.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "2r9rag",
+      "title": "The numbers behind Spain defence chasing World Cup history",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwy00jx3y91o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T11:07:49.000Z",
+      "summary": "With Spain yet to concede at the 2026 World Cup and on the brink of another tournament record, BBC Sport examines the numbers behind the shutouts.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3e05/live/70ff3900-784f-11f1-9cc3-8d218550015b.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "elcprr",
+      "title": "How England's epic night at the Azteca unfolded",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c9q225nn0dqo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T11:05:52.000Z",
+      "summary": "Relive all the drama from England’s 3-2 win over Mexico, as Thomas Tuchel’s team progressed to a quarter-final meeting with Norway on Saturday.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9098/live/d3a1b5d0-7924-11f1-9510-1546718f668b.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "g08vx4",
+      "title": "Red card system in disarray over Trump, Fifa and Balogun decision",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cly99dxjkxxo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T09:06:26.000Z",
+      "summary": "The decision to effectively overturn the red card shown to United States forward Folarin Balogun leaves many unanswered questions.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4bd9/live/bba5b650-78d6-11f1-b976-0b9c15b0ccfc.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1ru9kop",
+      "title": "Unwelcome and undue: Trump’s red-card intervention hurts the US’s World Cup more than it helps | Pablo Iglesias Maurer",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/jul/06/donald-trump-folarin-balogun-world-cup-usmnt-intervention",
+      "publishedUtc": "2026-07-06T09:00:01.000Z",
+      "summary": "<p>In pushing Fifa to reverse Folarin Balogun’s suspension, the president did the most American thing possible: assert unasked-for power to get his way</p><p>The story of Garrincha’s red card in the 1962 World Cup is the stuff of legend. Th",
+      "imageUrl": "https://i.guim.co.uk/img/media/23897680574587a70a6ba6f3e54ec45852d6e765/177_0_2961_2368/master/2961.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=806a2ab2988fdf85453414364d3c8d31",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1n0bvqo",
+      "title": "Integrity of game at stake over Fifa Balogun decision - Uefa",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c5yzzd73871o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T08:36:59.000Z",
+      "summary": "Uefa says Fifa's decision not to uphold Folarin Balogun's immediate ban at the World Cup is \"unprecedented, incomprehensible and unjustifiable\".",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/09db/live/3f792730-7938-11f1-a8cf-13bdb1aa2cdd.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1u0mnnj",
+      "title": "World Cup 2026 Power Rankings before round of 16: ...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49251656/fifa-world-cup-power-rankings-spain-brazil-germany-usa-mexico-england-argentina-france",
+      "publishedUtc": "2026-07-06T08:33:38.000Z",
+      "summary": "In the blink of an eye, we're down to the final 16 nations left competing for the 2026 World Cup. What do our writers and experts think the field looks like from worst to best of the teams remaining?",
       "topics": [
         "teams"
       ]
     },
     {
       "id": "1y4x82k",
-      "title": "Copy of Grades for every team eliminated from the World Cu...",
+      "title": "Grades for every team eliminated from the World Cu...",
       "source": "ESPN FC",
       "url": "https://www.espn.com/soccer/story/_/id/49178425/world-cup-grades-every-eliminated-team-rating-exit-tournament",
-      "publishedUtc": "2026-07-02T08:30:10.000Z",
+      "publishedUtc": "2026-07-06T08:33:38.000Z",
       "summary": "When the World Cup ends, 47 teams will have been eliminated, and we're grading every one on how their run compared with expectations.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1jipiij",
-      "title": "'You can't catch your breath' - how will Azteca altitude impact England?",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c4gy0v05qyro?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T08:21:52.000Z",
-      "summary": "BBC Sport explores how playing football at high altitude affects the body and mind as England prepare to visit Mexico and their fortress Azteca Stadium.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0010/live/08736230-73f4-11f1-bb7f-e5226e63ffb3.jpg",
+      "id": "1ml898q",
+      "title": "A key USMNT World Cup perk: An embedded barber who...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49271996/where-does-usmnt-rank-great-world-cup-hairstyles",
+      "publishedUtc": "2026-07-06T08:26:24.000Z",
+      "summary": "The USMNT's unique hairstyles are turning heads at the World Cup, and it's thanks to their embedded barber who gives them fresh cuts in camp.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1slkftj",
-      "title": "Lopes will relish Messi duel, says Cape Verde defender's mother",
+      "id": "19fu4sw",
+      "title": "Opposition scouting: Former USMNT boss Bruce Arena...",
+      "source": "ESPN FC",
+      "url": "https://www.espn.com/soccer/story/_/id/49281763/former-usmnt-boss-bruce-arena-breaks-belgium",
+      "publishedUtc": "2026-07-06T08:26:12.000Z",
+      "summary": "Who better to detail how the U.S. can beat Belgium and reach the quarterfinals than the last coach to take the Americans to the World Cup's last eight?",
+      "topics": [
+        "coaches"
+      ]
+    },
+    {
+      "id": "1smgebc",
+      "title": "Quiz: Name every team England have played in a World Cup quarter-final",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c07yjj5j299o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T07:02:26.000Z",
-      "summary": "The prospect of facing World Cup record goalscorer Lionel Messi in a knockout game would strike fear into most defenders, but not Roberto Lopes, according to the Cape Verde defender's mother.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/bc48/live/d3d67f60-751c-11f1-adcf-e1eef1a1ef9c.jpg",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c8j22mvdgp4o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T08:12:59.000Z",
+      "summary": "Norway will be the 11th team England will have faced in a World Cup quarter-final - so can you name the other 10?",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/74ec/live/983410c0-78ec-11f1-a627-714adb4eed6e.png",
       "topics": [
-        "players"
+        "teams"
       ]
     },
     {
-      "id": "nzltal",
-      "title": "Modric and Ronaldo reunited at World Cup as Croatia aim to snap Portugal’s streak",
+      "id": "1pzdgly",
+      "title": "‘Bullshit’: Socceroo Awer Mabil hits out at Pauline Hanson’s monoculture claim",
       "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/modric-ronaldo-reunited-world-cup-croatia-portugal",
-      "publishedUtc": "2026-07-02T07:00:06.000Z",
-      "summary": "<p>Two of international football’s 200 club have had parallel careers with their countries, but will this be their last meeting?</p><p>Can you remember what you were doing on 1&nbsp;March 2006? Perhaps you were at Anfield, watching England ",
-      "imageUrl": "https://i.guim.co.uk/img/media/cba98f97d2471d5b8302ce4efa32f9ecad3de1b9/0_5_2494_1995/master/2494.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=d5992b4c96c8b9e59e6ec1d4b250d716",
+      "url": "https://www.theguardian.com/football/2026/jul/06/socceroo-awer-mabil-on-pauline-hanson-monoculture-claim",
+      "publishedUtc": "2026-07-06T07:56:13.000Z",
+      "summary": "<ul><li><p>‘We know what we represent,’ says Australian footballer</p></li><li><p>Mabil returns home after Socceroos’ World Cup exit </p></li></ul><p>The suggestion that Australia is not a multicultural society is “bullshit”, Socceroo Awer ",
+      "imageUrl": "https://i.guim.co.uk/img/media/f5e07c46124cbacbfa8509e3da81862a70a459a1/1024_0_5101_4083/master/5101.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=c3b71cf6c0ac66e643c8939985661b7c",
       "topics": [
-        "clubs"
+        "teams"
       ]
     },
     {
-      "id": "18jkz8m",
+      "id": "1e1zjeq",
       "title": "Football Daily",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sounds/play/p0ns844v?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T06:58:00.000Z",
-      "summary": "England are through... now the Azteca awaits.",
-      "imageUrl": "https://ichef.bbci.co.uk/images/ic/240x135/p0ntl4qr.jpg",
+      "url": "https://www.bbc.co.uk/sounds/play/p0ns8bjn?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T07:51:00.000Z",
+      "summary": "England survive a World Cup classic. Plus, Greg James checks in.",
+      "imageUrl": "https://ichef.bbci.co.uk/images/ic/240x135/p0ntl9tr.jpg",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "k4fume",
-      "title": "Who am I? Guess World Cup star No 25",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cj4pl4jdk4ko?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T05:51:25.000Z",
-      "summary": "Will you get today's player in as few attempts as possible?",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8c3c/live/bcbc2f10-6b93-11f1-8546-8f19e4fe30f4.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1regmjc",
-      "title": "A goal, a red and a LeBron James shout: Folarin Balogun gets the spotlight in US’s wild World Cup win",
+      "id": "g65r4t",
+      "title": "Brazil’s World Cup exit raises a question: are they more a brand than a team?",
       "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/01/folarin-balogun-red-card-goal-usmnt-world-cup-birthright-citizenship",
-      "publishedUtc": "2026-07-02T05:11:35.000Z",
-      "summary": "<p>The versatile striker was dangerous in his time on the field on Wednesday, but that time was prematurely ended with a surprising ejection</p><p>The day after<strong> </strong>the US supreme court <a href=\"https://www.theguardian.com/us-n",
-      "imageUrl": "https://i.guim.co.uk/img/media/0ea1c3fbb44e5f81279c23cc61cb18c90d706df8/289_0_4144_3317/master/4144.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=5df7576059c5bdd519061ca3cc0b9a92",
+      "url": "https://www.theguardian.com/football/2026/jul/06/brazil-world-cup-2026-norway-defeat",
+      "publishedUtc": "2026-07-06T07:00:06.000Z",
+      "summary": "<p>A decidedly unremarkable Brazilian team had looked tentative at this tournament. A sixth World Cup title looks a long way off</p><p><a href=\"https://www.theguardian.com/football/2026/jul/05/brazil-norway-world-cup-2026-last-16-match-repo",
+      "imageUrl": "https://i.guim.co.uk/img/media/4fcd0b45a9f7854730b50d0ac5343084d8b1e1b5/177_0_3184_2547/master/3184.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=36ac1524c04733cd281a2990a89ca2a2",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "16mycgt",
+      "title": "Let’s talk about Mikel Oyarzabal: Spain’s quiet man forced into the limelight",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/jul/06/mikel-oyarzabal-spain-world-cup-2026-portugal",
+      "publishedUtc": "2026-07-06T07:00:06.000Z",
+      "summary": "<p>The 29-year-old forward always avoided attention, but his World Cup goals have dragged him into the centre of the conversation</p><p>We have to talk about Mikel Oyarzabal. When Spain scored their third goal against Austria in Los Angeles",
+      "imageUrl": "https://i.guim.co.uk/img/media/e41e2784e8dce203b551d75ceb63f85984f39acb/376_0_2918_2334/master/2918.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=0526097f63a5a0da2fe32b8db87e13ed",
       "topics": [
         "players"
       ]
     },
     {
-      "id": "6hzcqx",
-      "title": "USA march on but will Balogun red card prove costly?",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cgjx07ql6v0o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T03:53:14.000Z",
-      "summary": "Mauricio Pochettino's USA side set up a World Cup last-16 meeting with Belgium, but how costly will forward Folarin Balogun's red card prove?",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/16d4/live/a81240e0-75f2-11f1-9510-1546718f668b.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1hhc3z5",
-      "title": "Balogun scores & sees red as USA beat Bosnia",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cp8r61l7g12o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T03:11:24.000Z",
-      "summary": "Folarin Balogun scores and is later sent off as the United States advance past a lacklustre Bosnia-Herzegovina in Santa Clara to reach the last 16 of the World Cup.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3d24/live/47de3db0-75ba-11f1-b976-0b9c15b0ccfc.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1jykrmn",
-      "title": "Germany are no longer a tournament team and must reconnect with our own identity | Philipp Lahm",
+      "id": "7wegz8",
+      "title": "England’s unbelievable night at the Azteca | World Cup Daily – video",
       "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/02/germany-no-longer-tournament-team-must-reconnect-with-own-identity-world-cup",
-      "publishedUtc": "2026-07-02T02:59:08.000Z",
-      "summary": "<p>Germany’s third early World Cup exit in a row is not down to a lack of talent or the name of the coach, but not knowing how they want to play </p><p>I am stunned. Germany <a href=\"https://www.theguardian.com/football/2026/jun/30/germany-",
-      "imageUrl": "https://i.guim.co.uk/img/media/4a02c94693b744432952f82c811b5d29f95a20ee/1212_0_3612_2890/master/3612.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=519ded0e1a2a2822343b6523b25ef561",
-      "topics": [
-        "coaches"
-      ]
-    },
-    {
-      "id": "z80m1v",
-      "title": "Goalscorer Balogun sent off for USA",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cpv3xzyr73po?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T02:12:05.000Z",
-      "summary": "USA forward Folarin Balogun is shown a straight red card for a challenge on Bosnia-Herzegovina's Tarik Muharemovic during their World Cup match.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a2a7/live/01b21190-75ba-11f1-a627-714adb4eed6e.jpg",
+      "url": "https://www.theguardian.com/football/video/2026/jul/06/england-unbelievable-night-at-the-azteca-world-cup-daily-video-podcast",
+      "publishedUtc": "2026-07-06T06:59:18.000Z",
+      "summary": "<p><a href=\"https://bsky.app/profile/maxrushden.bsky.social\">Max Rushden</a> is joined by <a href=\"https://bsky.app/profile/did:plc:i55lfvhkg573wfmby5sdnvq6\">Barry Glendenning</a>, <a href=\"https://bsky.app/profile/archiert1.bsky.social\">Ar",
+      "imageUrl": "https://i.guim.co.uk/img/media/12db572ec1cf0ed62b1a7f89adeb3e58e0991243/561_0_2805_2244/master/2805.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=567510fa572b88735bc12a2835a18a67",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "cuxne1",
-      "title": "Latest ever winner, comeback and controversy - Senegal's remarkable exit",
+      "id": "1ki6sbp",
+      "title": "Neymar says Brazil career over after Norway defeat",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/ckg8e2ezvzyo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T01:28:40.000Z",
-      "summary": "Late drama, controversy, history and heartbreak - the World Cup last-32 tie between Belgium and Senegal had everything.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/99ca/live/ab2d91a0-75a5-11f1-8672-df1a6610885c.jpg",
+      "url": "https://www.bbc.co.uk/sport/football/articles/clyww4w1rl8o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T06:29:41.000Z",
+      "summary": "An emotional Neymar says his international career for Brazil is \"over\" following his side's exit at the 2026 World Cup at the hands of Norway.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2aeb/live/3efef320-7901-11f1-a747-b74b596ba83c.jpg",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1izq4ax",
-      "title": "Balogun gives USA deserved lead over Bosnia",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c77ymxvm8kdo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T01:15:26.000Z",
-      "summary": "Folarin Balogun gives the USA the lead against Bosnia-Herzegovina in their round of 32 match at the San Francisco Bay Area Stadium.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a28d/live/da5830f0-75b1-11f1-9510-1546718f668b.jpg",
+      "id": "ngs4j3",
+      "title": "England rise to Azteca occasion and see off ghosts, time and Mexico | Barney Ronay",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/jul/06/england-azteca-mexico-world-cup",
+      "publishedUtc": "2026-07-06T06:10:47.000Z",
+      "summary": "<p>This was the most extraordinary night of football as an experience of the mind, body, bones, guts and blood</p><p>“Enn-JOYYY this unforrrgGEDDABLE Fifa Worrrld Cup … expPERRIENCE!!” the strangely guileless American-accented public addres",
+      "imageUrl": "https://i.guim.co.uk/img/media/9ac3f916597b35137fc718eeac300c32f2177724/359_0_3393_2714/master/3393.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=ce28a3d86c7a81064da7d47afb412c53",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "1rg8v2w",
-      "title": "What it feels like to pull off a World Cup upset: ...",
+      "id": "1fdgopl",
+      "title": "Henderson injures wrist in England celebrations",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9822ez0zdwo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T05:56:19.000Z",
+      "summary": "England midfielder Jordan Henderson suffered a \"really bad\" while celebrating his side's World Cup win over Mexico, head coach Thomas Tuchel says.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/559c/live/a9bf5cc0-78f4-11f1-8e46-6db52e15aebd.jpg",
+      "topics": [
+        "coaches",
+        "players"
+      ]
+    },
+    {
+      "id": "d5ll15",
+      "title": "'Iconic match at iconic stadium' - England win down to 'pure will'",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cly00xq39n1o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T05:51:18.000Z",
+      "summary": "England are praised for showing \"heart and belief\" as they beat Mexico in an \"iconic match at an iconic stadium\" to reach the World Cup quarter-finals.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f140/live/fa774280-78f0-11f1-8999-a1de4af6aa67.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "cmxs9",
+      "title": "An incredible night when England heroes were made",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjrgg07p8dlo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T05:51:10.000Z",
+      "summary": "On a spine-tingling night of drama, emotion and pure theatre in one of sport's most atmospheric arenas, England delivered one of their greatest performances.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/121a/live/cc626180-78fb-11f1-b976-0b9c15b0ccfc.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "3wgakd",
+      "title": "World Cup VAR review: Quansah's red, Kane's penalt...",
       "source": "ESPN FC",
-      "url": "https://www.espn.com/soccer/story/_/id/49224073/world-cup-upsets-shocks-ireland-italy-1994-paraguay-germany-2026-cape-verde",
-      "publishedUtc": "2026-07-02T00:16:25.000Z",
-      "summary": "Paraguay's win over Germany in the round of 32 is the latest World Cup shock in a long line of them, including famous upsets like Ireland over Italy in 1994 and Norway over Brazil in 1998. What's it feel like to beat a giant?",
+      "url": "https://www.espn.com/soccer/story/_/id/49283462/world-cup-2026-var-review-quansahs-red-kanes-penalty-did-ref-get-right",
+      "publishedUtc": "2026-07-06T05:38:52.000Z",
+      "summary": "Andy Davies breaks down all three major incidents from England's topsy-turvy 3-2 World Cup round-of-16 win over Mexico.",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "155e99g",
-      "title": "Why did England struggle against DR Congo - and what can they learn?",
+      "id": "vjfnzo",
+      "title": "How Mexico's World Cup run brought joy after a year of fear",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cewqzvnw5v7o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-02T00:07:51.000Z",
-      "summary": "A tactical analysis of England's victory over DR Congo - and what it might teach them for their next World Cup match against Mexico.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5f26/live/7fc213a0-758d-11f1-92e5-efd489c4d444.jpg",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cx2wwdn6n15o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T05:29:00.000Z",
+      "summary": "For Mexico's football-loving community, the World Cup has been a triumph, despite their last-16 exit. The joy has spread to Southern California, home to one of the largest Mexican communities outside Mexico.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c186/live/7e7d27f0-78f8-11f1-9510-1546718f668b.jpg",
       "topics": [
         "teams"
       ]
     },
     {
-      "id": "oevru5",
-      "title": "Tielemans scores late extra-time penalty in dramatic end to match",
+      "id": "hij577",
+      "title": "Tuchel 'very proud' of England but criticises officials",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c1wy5wwpxw7o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T23:40:23.000Z",
-      "summary": "Youri Tielemans scores a dramatic late penalty in extra time to see Belgium advance to the last 16 after a 3-2 victory over Senegal in Seattle.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1bd8/live/ccacc5f0-75a3-11f1-a627-714adb4eed6e.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1yxkvzn",
-      "title": "Tielemans scores late extra-time penalty to send Belgium into last 16",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cvg7kdx1vpno?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T23:32:22.000Z",
-      "summary": "Belgium score two late goals to force extra time against Senegal where Youri Tielemans scores a late penalty following a VAR review as Belgium win 3-2 to reach the last 16.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d0b0/live/c8ebea30-759f-11f1-9510-1546718f668b.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "e5x0es",
-      "title": "What you need to know about England's last-16 opponents Mexico",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c8d25v111r6o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T23:02:52.000Z",
-      "summary": "England will face Mexico in the World Cup round of 16. Here is what you need to know about them.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/bc00/live/29fe0a40-7589-11f1-92e5-efd489c4d444.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "9zmmu0",
-      "title": "Tielemans’ controversial late penalty caps Belgium comeback over Senegal",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/01/belgium-senegal-2026-world-cup-last-32-match-report",
-      "publishedUtc": "2026-07-01T22:58:29.000Z",
-      "summary": "<p>This time Senegal’s players did not depart the field prematurely owing to a burning sense of injustice, as <a href=\"https://www.theguardian.com/football/2026/mar/17/senegal-stripped-of-africa-cup-of-nations-title-over-protest-in-chaotic-",
-      "imageUrl": "https://i.guim.co.uk/img/media/fb80d35cf98da76c3b79d85f102752c53223b451/168_0_2600_2079/master/2600.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=d47ef0f5647c81f437b0cd34614a3fcf",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1bca311",
-      "title": "Tielemans & Trossard go from heated row to rescuing Belgium",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cvg512g38g4o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T22:50:40.000Z",
-      "summary": "Belgium's Leandro Trossard and Youri Tielemans go from arguing with each other during the hydration break to combining to get a crucial equalising goal against Senegal in Seattle.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/99bc/live/9ed21350-75a4-11f1-9510-1546718f668b.jpg",
-      "topics": [
-        "players"
-      ]
-    },
-    {
-      "id": "9ae88k",
-      "title": "Tuchel urges parents to let kids stay up for England game",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cd95g9y8k24o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T22:11:59.000Z",
-      "summary": "England manager Thomas Tuchel urges parents to let their children stay up to watch England take on Mexico in the last 16 of the World Cup.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2496/live/92ee8fb0-7599-11f1-a627-714adb4eed6e.jpg",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c9322x9d452o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T05:04:30.000Z",
+      "summary": "England head coach Thomas Tuchel is full of praise for his side after they held on to beat Mexico 3-2 in the Azteca Stadium, but is critical of the match officials at the World Cup.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/74b3/live/a6362410-78f6-11f1-9510-1546718f668b.jpg",
       "topics": [
         "coaches"
       ]
     },
     {
-      "id": "vq6epu",
-      "title": "Quiz: Name every team England have played in World Cup knockouts",
+      "id": "vhlwsd",
+      "title": "Henderson injured in England celebrations",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/clyp4eprn22o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T21:37:36.000Z",
-      "summary": "England and Thomas Tuchel will want to match the achievements of the nation's famous side that lifted the World Cup trophy in 1966. Can you name every side they have ever faced in the knockouts?",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fe6e/live/a314be00-681a-11f1-8546-8f19e4fe30f4.png",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1rnjyfx",
-      "title": "'Why not take advantage?' - did hydration breaks spark England comeback?",
-      "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c4gy8nrny19o?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T21:23:18.000Z",
-      "summary": "England came from behind to beat DR Congo and reach the last 16 of the World Cup, but did the momentum noticeably swing their way after the hydration breaks?",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9819/live/a1b7d450-7587-11f1-92e5-efd489c4d444.jpg",
-      "topics": [
-        "teams"
-      ]
-    },
-    {
-      "id": "1xb0x5x",
-      "title": "Harry Kane the one who saves Tuchel as England avoid another traumatic exit | Barney Ronay",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/football/2026/jul/01/harry-kane-saves-england-a-moment-of-generational-trauma-in-waiting",
-      "publishedUtc": "2026-07-01T20:51:22.000Z",
-      "summary": "<p>Captain played in deep horror of Iceland defeat and he rescued an England team who were sliding towards disaster</p><p>Well maybe, you’re gonna be the one that saves me. On a wild, boisterous, often agonising afternoon under the giant Vi",
-      "imageUrl": "https://i.guim.co.uk/img/media/aa7a3cb7414f630d657717b7a749ab78d2785414/590_0_5104_4083/master/5104.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=1a100b5fdc9ea8a81b1c7ae564afc7dc",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c8x221q8zp2o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T04:38:23.000Z",
+      "summary": "England midfielder Jordan Henderson suffers a wrist injury while celebrating his side's dramatic World Cup last-16 win over Mexico.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1192/live/d19decd0-78f3-11f1-9510-1546718f668b.jpg",
       "topics": [
         "players"
       ]
     },
     {
-      "id": "1fyd4bp",
-      "title": "Genuine superstar Kane produces his biggest England moment",
+      "id": "1kgjn8m",
+      "title": "Where does Mexico win rank among England's best results?",
       "source": "BBC Sport",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cvgd12vj79qo?at_medium=RSS&at_campaign=rss",
-      "publishedUtc": "2026-07-01T20:41:03.000Z",
-      "summary": "Harry Kane's England career is filled with great moments - his World Cup rescue act against DR Congo in Atlanta is his greatest, says chief football writer Phil McNulty.",
-      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/43ec/live/5b4fe1a0-75dd-11f1-b2ef-f150187f763a.jpg",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cgevv1r30w1o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T04:20:22.000Z",
+      "summary": "BBC Sport looks at some of England's most famous away victories after their epic win against Mexico at the Azteca - plus you can have your say.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4b03/live/38095100-78e3-11f1-b0fc-07cc2c8aea1f.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "1mypbae",
+      "title": "England win epic tie against Mexico to reach quarter-finals",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c9w22dqpjw9o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T04:06:23.000Z",
+      "summary": "Jude Bellingham scores twice and Harry Kane converts a penalty as 10-man England beat Mexico 3-2 in the World Cup.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/197b/live/1eea5080-78f1-11f1-9510-1546718f668b.jpg",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "aboz90",
+      "title": "'I'm speechless' - Kane reacts to England's victory over Mexico",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cvg55vne49do?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T03:49:33.000Z",
+      "summary": "A very hoarse sounding England captain Harry Kane gives his reaction to England's 3-2 victory over Mexico and praises the fans support.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/728b/live/58279f50-78ed-11f1-b976-0b9c15b0ccfc.jpg",
+      "topics": [
+        "players"
+      ]
+    },
+    {
+      "id": "urk996",
+      "title": "England into quarter-finals - what is their path to the final?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c5yz0zkzw39o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T03:27:53.000Z",
+      "summary": "BBC Sport takes a look at what England will need to do to reach the final after progressing the quarter-finals.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1b84/live/85f4ebd0-78e9-11f1-a627-714adb4eed6e.png",
+      "topics": [
+        "teams"
+      ]
+    },
+    {
+      "id": "4ln5jm",
+      "title": "The man England will fear most - Haaland fires Norway to history",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwy006zywj8o?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T03:20:59.000Z",
+      "summary": "Erling Haaland has scored seven goals in four World Cup games and he is the striker that nobody wants to face as he fires Norway into an historic quarter-final.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/28ce/live/6e68af30-78c9-11f1-9510-1546718f668b.jpg",
+      "topics": [
+        "players"
+      ]
+    },
+    {
+      "id": "1bye1oc",
+      "title": "Who produced another iconic performance? England player ratings",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cp8r40y5r9eo?at_medium=RSS&at_campaign=rss",
+      "publishedUtc": "2026-07-06T03:09:44.000Z",
+      "summary": "BBC Sport England reporter Alex Howell rates how the Three Lions players performed in the last-16 win over Mexico.",
+      "imageUrl": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/634b/live/58c54310-78e6-11f1-9510-1546718f668b.jpg",
       "topics": [
         "teams"
       ]

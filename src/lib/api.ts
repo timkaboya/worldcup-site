@@ -1,5 +1,5 @@
-import type { MatchDetail, NewsSnapshot, ScoresSnapshot, Standing } from './types';
-import { buildScoresSnapshot, espnSummaryUrl, mapSummary } from './espn';
+import type { MatchDetail, NewsSnapshot, ScoresSnapshot, Scorer, Standing } from './types';
+import { buildScoresSnapshot, buildLeaders, ESPN_STATISTICS, espnSummaryUrl, mapSummary } from './espn';
 import { withBase } from './base';
 
 export interface FetchResult {
@@ -167,4 +167,51 @@ export async function fetchMatchDetail(eventId: number): Promise<MatchDetail | n
       return null;
     }
   }
+}
+
+export interface LeadersResult {
+  scorers: Scorer[];
+  assists: Scorer[];
+  live: boolean;
+}
+
+/**
+ * Fetch the top-scorers and assists leaderboards. Order of preference:
+ *   1. Live edge function (`/api/leaders`) — present on Cloudflare.
+ *   2. Direct ESPN `/statistics` from the browser (CORS `*`) — works everywhere
+ *      (GitHub Pages, dev), so the boards refresh live on load.
+ *   3. Static build-time snapshots (`/scorers.json` + `/assists.json`).
+ */
+export async function fetchLeaders(): Promise<LeadersResult> {
+  // 1) Edge function.
+  try {
+    const j = await fetchAny(withBase('/api/leaders'));
+    if (j?.scorers?.length || j?.assists?.length) {
+      return { scorers: j.scorers ?? [], assists: j.assists ?? [], live: true };
+    }
+  } catch {
+    /* fall through */
+  }
+
+  // 2) Direct ESPN from the browser (CORS *) — same builder the edge fn uses.
+  try {
+    const stats = await fetchAny(ESPN_STATISTICS);
+    const { scorers, assists } = buildLeaders(stats);
+    if (scorers.length || assists.length) {
+      return { scorers, assists, live: true };
+    }
+  } catch {
+    /* fall through */
+  }
+
+  // 3) Static build-time snapshots.
+  const [scorers, assists] = await Promise.all([
+    fetchAny(withBase('/scorers.json'))
+      .then((j) => (j?.scorers ?? []) as Scorer[])
+      .catch(() => [] as Scorer[]),
+    fetchAny(withBase('/assists.json'))
+      .then((j) => (j?.assists ?? []) as Scorer[])
+      .catch(() => [] as Scorer[]),
+  ]);
+  return { scorers, assists, live: false };
 }

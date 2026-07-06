@@ -2,16 +2,9 @@
 import Base from '../layouts/Base.astro';
 import tournament from '../data/tournament.json';
 import type { Scorer } from '../lib/types';
+import Leaders from '../components/Leaders.tsx';
 
 const ASSISTS = ((tournament as { assists?: Scorer[] }).assists ?? []) as Scorer[];
-const max = Math.max(...ASSISTS.map((s) => s.assists), 1);
-let rank = 0;
-let prevAssists = -1;
-const rows = ASSISTS.map((s, i) => {
-  if (s.assists !== prevAssists) rank = i + 1;
-  prevAssists = s.assists;
-  return { ...s, rank };
-});
 ---
 
 <Base title="Assists · World Cup 2026" active="assists">
@@ -20,29 +13,6 @@ const rows = ASSISTS.map((s, i) => {
       <h1 class="page-title">Playmaker Race</h1>
       <p class="page-sub">Most assists so far — ties broken by goals.</p>
     </div>
-    {rows.length === 0 ? (
-      <p class="page-sub" style="margin-top:1rem">No assists recorded yet — check back after the next round of matches.</p>
-    ) : (
-      <ol class="scorer-list">
-        {rows.map((s) => (
-          <li class={`scorer-row${s.rank === 1 ? ' lead' : ''}`}>
-            <span class="sc-rank">{s.rank}</span>
-            <span class="sc-flag ef">{s.team.flag}</span>
-            <span class="sc-name">
-              <span class="sc-player">{s.name}</span>
-              <span class="sc-team">{s.team.name}</span>
-            </span>
-            <span class="sc-bar-wrap">
-              <span class="sc-bar" style={`width:${(s.assists / max) * 100}%`}></span>
-            </span>
-            <span class="sc-stat">
-              <span class="sc-goals">{s.assists}</span>
-              <span class="sc-goals-lbl">{s.assists === 1 ? 'assist' : 'assists'}</span>
-              {s.goals > 0 && <span class="sc-ast">{s.goals} G</span>}
-            </span>
-          </li>
-        ))}
-      </ol>
-    )}
+    <Leaders client:load kind="assists" initial={ASSISTS} />
   </div>
 </Base>

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   assignGroups,
+  buildLeaders,
   flagEmoji,
   mapScoreboard,
   mapSummary,
@@ -291,5 +292,52 @@ describe('mapSummary', () => {
     expect(up.lineups).toBeUndefined();
     expect(up.stats).toBeUndefined();
     expect(up.events).toBeUndefined();
+  });
+});
+
+describe('buildLeaders', () => {
+  // Minimal shape mirroring ESPN's /statistics payload.
+  const stat = (name: string, value: number) => ({ name, value, displayValue: String(value) });
+  const athlete = (id: string, name: string, code: string, goals: number, assists: number) => ({
+    id,
+    displayName: name,
+    team: { abbreviation: code, displayName: code },
+    statistics: [stat('appearances', 5), stat('totalGoals', goals), stat('goalAssists', assists)],
+  });
+  const statsJson = {
+    stats: [
+      {
+        name: 'goalsLeaders',
+        leaders: [
+          { value: 7, athlete: athlete('1', 'Alpha', 'FRA', 7, 2) },
+          { value: 3, athlete: athlete('2', 'Bravo', 'BRA', 3, 0) },
+        ],
+      },
+      {
+        name: 'assistsLeaders',
+        leaders: [
+          { value: 5, athlete: athlete('3', 'Charlie', 'ENG', 0, 5) },
+          { value: 2, athlete: athlete('1', 'Alpha', 'FRA', 7, 2) }, // dup id — ignored
+        ],
+      },
+    ],
+  };
+
+  it('derives scorers sorted by goals with exact assist counts', () => {
+    const { scorers } = buildLeaders(statsJson);
+    expect(scorers.map((s) => s.name)).toEqual(['Alpha', 'Bravo']);
+    expect(scorers[0]).toMatchObject({ goals: 7, assists: 2 });
+    expect(scorers[0].team.flag).toBe(flagEmoji('FRA'));
+  });
+
+  it('derives assists sorted by assists, including pure playmakers (0 goals)', () => {
+    const { assists } = buildLeaders(statsJson);
+    expect(assists.map((s) => s.name)).toEqual(['Charlie', 'Alpha']);
+    expect(assists[0]).toMatchObject({ assists: 5, goals: 0 });
+  });
+
+  it('is resilient to empty / malformed payloads', () => {
+    expect(buildLeaders({})).toEqual({ scorers: [], assists: [] });
+    expect(buildLeaders({ stats: [] })).toEqual({ scorers: [], assists: [] });
   });
 });

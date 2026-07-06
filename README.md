@@ -23,8 +23,8 @@ falls back to the prerendered JSON snapshots, so it's ideal for previewing UI ch
 - **Schedule** — every match in your timezone, grouped by day, with an "up next" drawer and live polling.
 - **Live scores & match detail** — expandable match view with facts, line-ups, and stats.
 - **Group tables** — standings with qualification highlighting.
-- **Top scorers** — the Golden Boot race.
-- **Assists** — the playmaker race, ranking the tournament's top assist providers.
+- **Top scorers** — the Golden Boot race, refreshed live from ESPN on load.
+- **Assists** — the playmaker race, ranking the tournament's top assist providers, refreshed live.
 - **Bracket** — a circular knockout tree that fills in as matches finish; tap any flag for details.
 - **News** — curated, attributed World Cup stories from reputable outlets, newest first.
 - **PWA** — installable, offline-tolerant, with a service worker.

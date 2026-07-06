@@ -15,13 +15,13 @@ import { fileURLToPath } from 'node:url';
 import {
   ESPN_BASE,
   ESPN_STANDINGS,
+  ESPN_STATISTICS,
   assignGroups,
-  flagEmoji,
+  buildLeaders,
   mapScoreboard,
   parseStandings,
-  teamId,
 } from '../src/lib/espn.ts';
-import type { Match, Scorer, Team } from '../src/lib/types.ts';
+import type { Match, Scorer } from '../src/lib/types.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -70,77 +70,11 @@ async function fetchAllMatches(): Promise<Match[]> {
   return Array.from(byId.values()).sort((a, b) => a.utc.localeCompare(b.utc));
 }
 
-// Aggregate real top scorers AND assist providers from finished-match key events.
-async function fetchLeaders(matches: Match[]): Promise<{ scorers: Scorer[]; assists: Scorer[] }> {
-  const finished = matches.filter((m) => m.status === 'finished');
-  const tally = new Map<string, Scorer>();
-  const teamByName = (name: string, flag: string): Team => ({ id: teamId(name), name, flag });
-
-  // Limited concurrency to be a good API citizen.
-  const queue = [...finished];
-  const worker = async () => {
-    while (queue.length) {
-      const m = queue.shift()!;
-      let sum: any;
-      try {
-        sum = await getJson(`${ESPN_BASE}/summary?event=${m.id}`);
-      } catch {
-        continue;
-      }
-      const events: any[] = sum?.keyEvents ?? [];
-      for (const ev of events) {
-        const typeText: string = ev?.type?.text || '';
-        if (!/goal/i.test(typeText)) continue;
-        if (/own goal/i.test(typeText)) continue;
-        const isPen = /penalty/i.test(typeText);
-        // Skip shootout goals (they don't count as tournament goals).
-        if (ev?.shootout === true) continue;
-        const teamName: string = ev?.team?.displayName || '';
-        const athlete = ev?.participants?.[0]?.athlete;
-        const scorer: string =
-          athlete?.displayName || (ev?.shortText || '').replace(/\s+Goal.*$/i, '').trim();
-        if (!scorer) continue;
-        const flag =
-          (m.home.name === teamName && m.home.flag) ||
-          (m.away.name === teamName && m.away.flag) ||
-          '⚽';
-        const key = `${scorer}::${teamName}`;
-        const row = tally.get(key) ?? {
-          name: scorer,
-          team: teamByName(teamName, flag as string),
-          goals: 0,
-          assists: 0,
-        };
-        row.goals += 1;
-        // First assist provider, if present.
-        const assist = ev?.participants?.[1]?.athlete?.displayName;
-        if (assist) {
-          const akey = `${assist}::${teamName}`;
-          const arow = tally.get(akey) ?? {
-            name: assist,
-            team: teamByName(teamName, flag as string),
-            goals: 0,
-            assists: 0,
-          };
-          arow.assists += 1;
-          tally.set(akey, arow);
-        }
-        tally.set(key, row);
-      }
-    }
-  };
-  await Promise.all(Array.from({ length: 5 }, worker));
-
-  const all = Array.from(tally.values());
-  const scorers = all
-    .filter((s) => s.goals > 0)
-    .sort((a, b) => b.goals - a.goals || b.assists - a.assists || a.name.localeCompare(b.name))
-    .slice(0, 30);
-  const assists = all
-    .filter((s) => s.assists > 0)
-    .sort((a, b) => b.assists - a.assists || b.goals - a.goals || a.name.localeCompare(b.name))
-    .slice(0, 30);
-  return { scorers, assists };
+// Fetch real top scorers AND assist providers from ESPN's aggregated
+// `/statistics` endpoint (a single call — see buildLeaders in src/lib/espn.ts).
+async function fetchLeaders(): Promise<{ scorers: Scorer[]; assists: Scorer[] }> {
+  const stats = await getJson(ESPN_STATISTICS).catch(() => ({}));
+  return buildLeaders(stats);
 }
 
 function write(rel: string, data: unknown) {
@@ -158,7 +92,7 @@ async function main() {
   const { standings, groupOf } = parseStandings(standingsJson);
   assignGroups(matches, groupOf);
 
-  const { scorers, assists } = await fetchLeaders(matches).catch((e) => {
+  const { scorers, assists } = await fetchLeaders().catch((e) => {
     console.warn('leader aggregation failed:', e);
     return { scorers: [] as Scorer[], assists: [] as Scorer[] };
   });

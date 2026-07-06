@@ -17,11 +17,13 @@ import type {
   LineupPlayer,
   FormGame,
   H2HGame,
+  Scorer,
 } from './types';
 
 export const ESPN_LEAGUE = 'fifa.world';
 export const ESPN_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${ESPN_LEAGUE}`;
 export const ESPN_STANDINGS = `https://site.api.espn.com/apis/v2/sports/soccer/${ESPN_LEAGUE}/standings`;
+export const ESPN_STATISTICS = `${ESPN_BASE}/statistics`;
 export const espnSummaryUrl = (event: number | string) => `${ESPN_BASE}/summary?event=${event}`;
 
 // ESPN 3-letter code -> ISO-3166 alpha-2 (for regional-indicator emoji).
@@ -453,4 +455,52 @@ export function assignGroups(matches: Match[], groupOf: Record<string, string>):
     }
   }
   return matches;
+}
+
+// ── Leaders (ESPN statistics endpoint) ────────────────────────────────────
+// The `/statistics` endpoint returns aggregated tournament leaders in a single
+// call: `stats[]` holds a `goalsLeaders` and an `assistsLeaders` category, and
+// every leader entry carries the athlete's full `statistics[]` (totalGoals +
+// goalAssists). We ingest athletes from both categories, keyed by id, so each
+// player's exact goals AND assists are captured, then derive the two boards.
+export function buildLeaders(statsJson: any): { scorers: Scorer[]; assists: Scorer[] } {
+  const categories: any[] = statsJson?.stats ?? [];
+  const byId = new Map<string, Scorer>();
+
+  const ingest = (leaders: any[] | undefined) => {
+    for (const ld of leaders ?? []) {
+      const ath = ld?.athlete;
+      const name: string = ath?.displayName || ath?.shortName || '';
+      if (!name) continue;
+      const id = String(ath?.id ?? name);
+      if (byId.has(id)) continue;
+      const stats: any[] = ath?.statistics ?? [];
+      const statVal = (n: string): number =>
+        Number(stats.find((s) => s?.name === n)?.value ?? 0) || 0;
+      const t = ath?.team ?? {};
+      const teamName: string = t.displayName || t.name || t.abbreviation || '';
+      byId.set(id, {
+        name,
+        team: { id: teamId(teamName), name: teamName, flag: flagEmoji(t.abbreviation || '') },
+        goals: statVal('totalGoals'),
+        assists: statVal('goalAssists'),
+      });
+    }
+  };
+
+  for (const c of categories) {
+    const cname = String(c?.name || '');
+    if (/goal/i.test(cname) || /assist/i.test(cname)) ingest(c?.leaders);
+  }
+
+  const all = Array.from(byId.values());
+  const scorers = all
+    .filter((s) => s.goals > 0)
+    .sort((a, b) => b.goals - a.goals || b.assists - a.assists || a.name.localeCompare(b.name))
+    .slice(0, 30);
+  const assists = all
+    .filter((s) => s.assists > 0)
+    .sort((a, b) => b.assists - a.assists || b.goals - a.goals || a.name.localeCompare(b.name))
+    .slice(0, 30);
+  return { scorers, assists };
 }

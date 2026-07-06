@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedUtc": "2026-07-02T15:00:28.953Z",
+  "updatedUtc": "2026-07-06T13:13:08.441Z",
   "assists": [
     {
       "name": "Michael Olise",
@@ -11,6 +11,16 @@
       },
       "goals": 0,
       "assists": 5
+    },
+    {
+      "name": "Brahim Díaz",
+      "team": {
+        "id": "morocco",
+        "name": "Morocco",
+        "flag": "🇲🇦"
+      },
+      "goals": 0,
+      "assists": 4
     },
     {
       "name": "Bruno Guimarães",
@@ -30,6 +40,26 @@
         "flag": "🇸🇪"
       },
       "goals": 1,
+      "assists": 3
+    },
+    {
+      "name": "Andreas Schjelderup",
+      "team": {
+        "id": "norway",
+        "name": "Norway",
+        "flag": "🇳🇴"
+      },
+      "goals": 0,
+      "assists": 3
+    },
+    {
+      "name": "Bukayo Saka",
+      "team": {
+        "id": "england",
+        "name": "England",
+        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+      },
+      "goals": 0,
       "assists": 3
     },
     {
@@ -69,7 +99,7 @@
         "name": "France",
         "flag": "🇫🇷"
       },
-      "goals": 6,
+      "goals": 7,
       "assists": 2
     },
     {
@@ -93,6 +123,26 @@
       "assists": 2
     },
     {
+      "name": "Johan Manzambi",
+      "team": {
+        "id": "switzerland",
+        "name": "Switzerland",
+        "flag": "🇨🇭"
+      },
+      "goals": 3,
+      "assists": 2
+    },
+    {
+      "name": "Breel Embolo",
+      "team": {
+        "id": "switzerland",
+        "name": "Switzerland",
+        "flag": "🇨🇭"
+      },
+      "goals": 2,
+      "assists": 2
+    },
+    {
       "name": "Crysencio Summerville",
       "team": {
         "id": "netherlands",
@@ -100,6 +150,16 @@
         "flag": "🇳🇱"
       },
       "goals": 2,
+      "assists": 2
+    },
+    {
+      "name": "Achraf Hakimi",
+      "team": {
+        "id": "morocco",
+        "name": "Morocco",
+        "flag": "🇲🇦"
+      },
+      "goals": 1,
       "assists": 2
     },
     {
@@ -163,36 +223,6 @@
       "assists": 2
     },
     {
-      "name": "Brahim Díaz",
-      "team": {
-        "id": "morocco",
-        "name": "Morocco",
-        "flag": "🇲🇦"
-      },
-      "goals": 0,
-      "assists": 2
-    },
-    {
-      "name": "Breel Embolo",
-      "team": {
-        "id": "switzerland",
-        "name": "Switzerland",
-        "flag": "🇨🇭"
-      },
-      "goals": 0,
-      "assists": 2
-    },
-    {
-      "name": "Bukayo Saka",
-      "team": {
-        "id": "england",
-        "name": "England",
-        "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-      },
-      "goals": 0,
-      "assists": 2
-    },
-    {
       "name": "Chris Wood",
       "team": {
         "id": "new-zealand",
@@ -243,6 +273,16 @@
       "assists": 2
     },
     {
+      "name": "Marc Cucurella",
+      "team": {
+        "id": "spain",
+        "name": "Spain",
+        "flag": "🇪🇸"
+      },
+      "goals": 0,
+      "assists": 2
+    },
+    {
       "name": "Patrick Berg",
       "team": {
         "id": "norway",
@@ -261,46 +301,6 @@
       },
       "goals": 0,
       "assists": 2
-    },
-    {
-      "name": "Ismaïla Sarr",
-      "team": {
-        "id": "senegal",
-        "name": "Senegal",
-        "flag": "🇸🇳"
-      },
-      "goals": 4,
-      "assists": 1
-    },
-    {
-      "name": "Vinícius Júnior",
-      "team": {
-        "id": "brazil",
-        "name": "Brazil",
-        "flag": "🇧🇷"
-      },
-      "goals": 4,
-      "assists": 1
-    },
-    {
-      "name": "Cody Gakpo",
-      "team": {
-        "id": "netherlands",
-        "name": "Netherlands",
-        "flag": "🇳🇱"
-      },
-      "goals": 3,
-      "assists": 1
-    },
-    {
-      "name": "Johan Manzambi",
-      "team": {
-        "id": "switzerland",
-        "name": "Switzerland",
-        "flag": "🇨🇭"
-      },
-      "goals": 3,
-      "assists": 1
     }
   ]
 }
